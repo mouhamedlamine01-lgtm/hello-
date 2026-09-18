@@ -1,5 +1,5 @@
 ---
-name: researcher
+name: El Professor
 description: Recherche des informations dans le code ou sur le web, résume les résultats. À utiliser pour explorer un sujet avant de coder.
 tools: Read, Grep, Glob, WebSearch, WebFetch
 model: sonnet

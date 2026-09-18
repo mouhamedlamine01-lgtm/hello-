@@ -6,7 +6,7 @@ Claude Agent SDK, en miroir des sous-agents Claude Code definis dans
 
 | Sous-agent      | Fichier Claude Code                 | Equivalent SDK          |
 |------------------|--------------------------------------|--------------------------|
-| `researcher`     | `.claude/agents/researcher.md`       | `AGENTS["researcher"]`   |
+| `El Professor`   | `.claude/agents/el-professor.md`     | `AGENTS["El Professor"]` |
 | `code-reviewer`  | `.claude/agents/code-reviewer.md`    | `AGENTS["code-reviewer"]`|
 
 ## Difference entre les deux approches

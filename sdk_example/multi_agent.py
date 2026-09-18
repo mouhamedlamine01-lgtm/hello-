@@ -1,7 +1,7 @@
 """
 Exemple d'orchestrateur multi-agents avec le Claude Agent SDK.
 
-Reprend les memes profils que .claude/agents/researcher.md et
+Reprend les memes profils que .claude/agents/el-professor.md et
 .claude/agents/code-reviewer.md, mais definis en code plutot qu'en
 fichiers Markdown. Un agent principal peut deleguer a l'un des deux
 sous-agents selon la tache.
@@ -22,7 +22,7 @@ from claude_agent_sdk import (
 )
 
 AGENTS = {
-    "researcher": AgentDefinition(
+    "El Professor": AgentDefinition(
         description="Recherche des informations dans le code ou sur le web, sans rien modifier.",
         prompt=(
             "Tu es un agent de recherche. Explore le code ou le web pour "
@@ -50,7 +50,7 @@ async def main(prompt: str) -> None:
     options = ClaudeAgentOptions(
         agents=AGENTS,
         system_prompt=(
-            "Tu es l'agent principal. Delegue au sous-agent 'researcher' "
+            "Tu es l'agent principal. Delegue au sous-agent 'El Professor' "
             "pour explorer/chercher, et au sous-agent 'code-reviewer' pour "
             "relire du code deja modifie. Termine par une reponse synthetique."
         ),
