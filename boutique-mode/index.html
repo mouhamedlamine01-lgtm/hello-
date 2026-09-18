@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUNA — Boutique de mode féminine | Vêtements, chaussures & accessoires</title>
+<meta name="description" content="LUNA, boutique de mode féminine en ligne. Découvrez notre sélection de vêtements, chaussures, sacs et accessoires tendance. Livraison rapide, paiement sécurisé, commande WhatsApp.">
+<meta property="og:title" content="LUNA — Révèle ton style, affirme ta personnalité">
+<meta property="og:description" content="Vêtements, chaussures et accessoires féminins tendance, soigneusement choisis pour sublimer votre style.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="announce-bar">✨ Nouvelle collection disponible — Livraison offerte dès 50 000 FCFA</div>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="#hero" class="logo">LUNA</a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#categories">Boutique</a>
+      <a href="#products">Nouveautés</a>
+      <a href="#promo">Promotions</a>
+      <a href="#reviews">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Rechercher">🔍</button>
+      <button class="icon-btn" id="cartToggle" aria-label="Voir le panier">
+        🛍️
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="search-bar" id="searchBar">
+    <div class="container">
+      <input type="text" id="searchInput" placeholder="Rechercher une robe, un sac, des chaussures...">
+      <button id="searchClose" aria-label="Fermer la recherche">✕</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=80" alt="Femme portant une tenue tendance" class="hero-img">
+  <div class="hero-overlay"></div>
+  <div class="hero-content reveal">
+    <span class="badge">✨ Nouvelle collection disponible</span>
+    <h1>Révèle ton style,<br>affirme ta personnalité.</h1>
+    <p>Découvrez notre sélection de vêtements, chaussures et accessoires féminins tendance, soigneusement choisis pour sublimer votre style.</p>
+    <div class="hero-buttons">
+      <a href="#categories" class="btn btn-primary">Découvrir la collection</a>
+      <a href="#products" class="btn btn-outline">Commander maintenant</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">↓</div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section categories" id="categories">
+  <div class="container">
+    <p class="eyebrow reveal">Notre univers</p>
+    <h2 class="reveal">Découvrez nos catégories</h2>
+
+    <div class="cat-grid">
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=80" alt="Vêtements femme">
+        <div class="cat-info">
+          <h3>👗 Vêtements</h3>
+          <p>Robes · Ensembles · Tops · Jupes · Pantalons</p>
+          <button class="btn-link filter-trigger" data-filter="vetements">Découvrir →</button>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80" alt="Chaussures femme">
+        <div class="cat-info">
+          <h3>👠 Chaussures</h3>
+          <p>Talons · Sandales · Baskets · Mocassins</p>
+          <button class="btn-link filter-trigger" data-filter="chaussures">Découvrir →</button>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=700&q=80" alt="Sacs à main">
+        <div class="cat-info">
+          <h3>👜 Sacs</h3>
+          <p>Sacs à main · Bandoulière · Mini-sacs · Tendance</p>
+          <button class="btn-link filter-trigger" data-filter="sacs">Découvrir →</button>
+        </div>
+      </div>
+      <div class="cat-card reveal">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=80" alt="Accessoires femme">
+        <div class="cat-info">
+          <h3>💍 Accessoires</h3>
+          <p>Bijoux · Montres · Lunettes · Ceintures · Cheveux</p>
+          <button class="btn-link filter-trigger" data-filter="accessoires">Découvrir →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUITS POPULAIRES -->
+<section class="section products" id="products">
+  <div class="container">
+    <p class="eyebrow reveal">Sélection du moment</p>
+    <h2 class="reveal">Les incontournables du moment</h2>
+
+    <div class="filters reveal" id="filters">
+      <button class="filter-btn active" data-filter="all">Tout</button>
+      <button class="filter-btn" data-filter="vetements">Vêtements</button>
+      <button class="filter-btn" data-filter="chaussures">Chaussures</button>
+      <button class="filter-btn" data-filter="sacs">Sacs</button>
+      <button class="filter-btn" data-filter="accessoires">Accessoires</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- generated by js/script.js from the PRODUCTS array -->
+    </div>
+  </div>
+</section>
+
+<!-- PROMOTION -->
+<section class="promo-banner" id="promo">
+  <div class="container promo-content reveal">
+    <h2>Jusqu'à -40% sur une sélection de produits</h2>
+    <p>Profitez de nos offres exclusives pendant une durée limitée.</p>
+    <div class="countdown" id="countdown">
+      <div class="cd-box"><span id="cdH">23</span><small>Heures</small></div>
+      <div class="cd-box"><span id="cdM">45</span><small>Min</small></div>
+      <div class="cd-box"><span id="cdS">12</span><small>Sec</small></div>
+    </div>
+    <a href="#products" class="btn btn-primary">Profiter de l'offre</a>
+  </div>
+</section>
+
+<!-- POURQUOI NOUS CHOISIR -->
+<section class="section why-us">
+  <div class="container">
+    <h2 class="reveal center">Pourquoi nous choisir</h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">🚚</span>
+        <h3>Livraison rapide</h3>
+        <p>Recevez votre commande rapidement, partout au pays.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">🔒</span>
+        <h3>Paiement sécurisé</h3>
+        <p>Vos paiements sont protégés à chaque commande.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">💎</span>
+        <h3>Produits sélectionnés</h3>
+        <p>Une sélection pensée pour votre style et votre élégance.</p>
+      </div>
+      <div class="why-card reveal">
+        <span class="why-icon">💬</span>
+        <h3>Service client</h3>
+        <p>Une équipe disponible pour vous accompagner, même sur WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOUVELLE COLLECTION -->
+<section class="section collection">
+  <div class="container">
+    <p class="eyebrow reveal">Édito</p>
+    <h2 class="reveal">Nouvelle collection</h2>
+    <p class="collection-text reveal">Des pièces tendance pensées pour accompagner toutes vos occasions.</p>
+
+    <div class="collection-grid">
+      <img class="reveal" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80" alt="Nouvelle collection mode femme">
+      <img class="reveal" src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=800&q=80" alt="Mannequin tenue tendance">
+      <img class="reveal" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" alt="Style femme élégant">
+    </div>
+    <div class="center reveal">
+      <a href="#products" class="btn btn-dark">Voir la collection</a>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <p class="eyebrow reveal center">Témoignages</p>
+    <h2 class="reveal center">Elles adorent nos produits</h2>
+
+    <div class="reviews-grid" id="reviewsGrid">
+      <!-- generated by js/script.js from the REVIEWS array -->
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section instagram">
+  <div class="container center">
+    <p class="eyebrow reveal">Communauté</p>
+    <h2 class="reveal">Suivez-nous sur Instagram</h2>
+    <p class="reveal">Découvrez nos nouveautés, inspirations et offres exclusives.</p>
+    <a href="#" class="btn-link reveal">@LUNA.boutique</a>
+
+    <div class="insta-grid">
+      <img class="reveal" src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=400&q=80" alt="Instagram LUNA 1">
+      <img class="reveal" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=400&q=80" alt="Instagram LUNA 2">
+      <img class="reveal" src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=400&q=80" alt="Instagram LUNA 3">
+      <img class="reveal" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=400&q=80" alt="Instagram LUNA 4">
+      <img class="reveal" src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80" alt="Instagram LUNA 5">
+      <img class="reveal" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=400&q=80" alt="Instagram LUNA 6">
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="container center reveal">
+    <h2>Reçois nos nouveautés en avant-première</h2>
+    <p>Inscris-toi pour recevoir nos nouvelles collections et nos offres exclusives.</p>
+    <form id="newsletterForm" class="newsletter-form">
+      <input type="email" required placeholder="Votre adresse e-mail" id="newsletterEmail">
+      <button type="submit" class="btn btn-primary">Je m'inscris</button>
+    </form>
+    <p class="newsletter-msg" id="newsletterMsg"></p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <p class="eyebrow">Une question ?</p>
+      <h2>Contactez-nous</h2>
+      <p>Notre équipe vous répond avec plaisir, y compris directement sur WhatsApp.</p>
+      <a href="https://wa.me/221771234567?text=Bonjour%20LUNA%2C%20j'ai%20une%20question." class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Discuter sur WhatsApp</a>
+    </div>
+    <form class="contact-form reveal" id="contactForm">
+      <input type="text" placeholder="Votre nom" required>
+      <input type="email" placeholder="Votre e-mail" required>
+      <textarea placeholder="Votre message" rows="4" required></textarea>
+      <button type="submit" class="btn btn-dark">Envoyer</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo light">LUNA</a>
+      <p>Boutique de mode féminine — vêtements, chaussures et accessoires tendance.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="TikTok">🎵</a>
+        <a href="https://wa.me/221771234567" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <a href="#hero">À propos</a>
+      <a href="#products">Boutique</a>
+      <a href="#contact">Livraison</a>
+      <a href="#contact">FAQ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Aide</h4>
+      <a href="#contact">Contact</a>
+      <a href="#">Conditions générales</a>
+      <a href="#">Politique de confidentialité</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 LUNA. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/221771234567?text=Bonjour%20LUNA%2C%20je%20souhaite%20passer%20une%20commande." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp">💬</a>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Votre panier</h3>
+    <button id="cartClose" aria-label="Fermer le panier">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Total</span>
+      <strong id="cartTotal">0 FCFA</strong>
+    </div>
+    <a class="btn btn-whatsapp" id="cartWhatsapp" href="#" target="_blank" rel="noopener">Commander via WhatsApp</a>
+  </div>
+</aside>
+
+<!-- PRODUCT QUICK VIEW MODAL -->
+<div class="modal-overlay" id="modalOverlay"></div>
+<div class="product-modal" id="productModal">
+  <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
+  <div class="modal-body" id="modalBody"></div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
