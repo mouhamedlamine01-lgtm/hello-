@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "221771234567";
+const WHATSAPP_NUMBER = "14045631778";
 
 const PRODUCTS = [
   { id: 1, name: "Robe élégante", category: "vetements", price: 25000, oldPrice: 35000, rating: 5, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80" },
@@ -149,10 +149,10 @@ function renderCart() {
   `).join("") : `<p class="cart-empty">Votre panier est vide pour le moment.</p>`;
 
   const message = cart.length
-    ? "Bonjour LUNA, je souhaite commander :%0A" +
+    ? "Bonjour Madame Store, je souhaite commander :%0A" +
       cart.map(i => `- ${i.name} (${i.size}, ${i.color}) x${i.qty} — ${money(i.price * i.qty)}`).join("%0A") +
       `%0A%0ATotal : ${money(totalPrice)}`
-    : "Bonjour LUNA, je souhaite passer une commande.";
+    : "Bonjour Madame Store, je souhaite passer une commande.";
   cartWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
 }
 renderCart();
