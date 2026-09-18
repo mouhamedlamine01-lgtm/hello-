@@ -1,23 +1,23 @@
 const WHATSAPP_NUMBER = "14045631778";
 
 const PRODUCTS = [
-  { id: 1, name: "Robe élégante", category: "vetements", price: 25000, oldPrice: 35000, rating: 5, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=500&q=80" },
-  { id: 2, name: "Ensemble tendance", category: "vetements", price: 30000, oldPrice: null, rating: 4, img: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=500&q=80" },
-  { id: 3, name: "Sac à main chic", category: "sacs", price: 22000, oldPrice: 28000, rating: 5, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80" },
-  { id: 4, name: "Sandales féminines", category: "chaussures", price: 15000, oldPrice: null, rating: 4, img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=500&q=80" },
-  { id: 5, name: "Escarpins", category: "chaussures", price: 18000, oldPrice: 24000, rating: 5, img: "https://images.unsplash.com/photo-1596703263926-eb0762ee17e4?auto=format&fit=crop&w=500&q=80" },
-  { id: 6, name: "Collier doré", category: "accessoires", price: 9000, oldPrice: null, rating: 4, img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=500&q=80" },
-  { id: 7, name: "Lunettes tendance", category: "accessoires", price: 12000, oldPrice: 16000, rating: 5, img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=500&q=80" },
-  { id: 8, name: "Montre femme", category: "accessoires", price: 20000, oldPrice: null, rating: 4, img: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" },
+  { id: 1, name: "Robe élégante", category: "vetements", price: 25000, oldPrice: 35000, rating: 5, img: "images/product-1.svg" },
+  { id: 2, name: "Ensemble tendance", category: "vetements", price: 30000, oldPrice: null, rating: 4, img: "images/product-2.svg" },
+  { id: 3, name: "Sac à main chic", category: "sacs", price: 22000, oldPrice: 28000, rating: 5, img: "images/product-3.svg" },
+  { id: 4, name: "Sandales féminines", category: "chaussures", price: 15000, oldPrice: null, rating: 4, img: "images/product-4.svg" },
+  { id: 5, name: "Escarpins", category: "chaussures", price: 18000, oldPrice: 24000, rating: 5, img: "images/product-5.svg" },
+  { id: 6, name: "Collier doré", category: "accessoires", price: 9000, oldPrice: null, rating: 4, img: "images/product-6.svg" },
+  { id: 7, name: "Lunettes tendance", category: "accessoires", price: 12000, oldPrice: 16000, rating: 5, img: "images/product-7.svg" },
+  { id: 8, name: "Montre femme", category: "accessoires", price: 20000, oldPrice: null, rating: 4, img: "images/product-8.svg" },
 ];
 
 const REVIEWS = [
-  { name: "Aïssatou", avatar: "https://i.pravatar.cc/100?img=5", rating: 5, text: "J'ai adoré ma robe ! La qualité est magnifique et la livraison a été rapide." },
-  { name: "Fatou", avatar: "https://i.pravatar.cc/100?img=9", rating: 5, text: "Le service client est top, ils m'ont aidée à choisir la bonne taille sur WhatsApp." },
-  { name: "Mariam", avatar: "https://i.pravatar.cc/100?img=16", rating: 4, text: "Le sac est encore plus beau en vrai. Je recommande cette boutique les yeux fermés." },
-  { name: "Khady", avatar: "https://i.pravatar.cc/100?img=20", rating: 5, text: "Des articles tendance et une qualité premium. Ma nouvelle boutique préférée !" },
-  { name: "Ndeye", avatar: "https://i.pravatar.cc/100?img=25", rating: 5, text: "Commande passée un soir, reçue deux jours après. Un vrai plaisir." },
-  { name: "Bineta", avatar: "https://i.pravatar.cc/100?img=32", rating: 4, text: "Superbe collection, j'ai craqué pour trois pièces d'un coup !" },
+  { name: "Aïssatou", avatar: "images/avatar-1.svg", rating: 5, text: "J'ai adoré ma robe ! La qualité est magnifique et la livraison a été rapide." },
+  { name: "Fatou", avatar: "images/avatar-2.svg", rating: 5, text: "Le service client est top, ils m'ont aidée à choisir la bonne taille sur WhatsApp." },
+  { name: "Mariam", avatar: "images/avatar-3.svg", rating: 4, text: "Le sac est encore plus beau en vrai. Je recommande cette boutique les yeux fermés." },
+  { name: "Khady", avatar: "images/avatar-4.svg", rating: 5, text: "Des articles tendance et une qualité premium. Ma nouvelle boutique préférée !" },
+  { name: "Ndeye", avatar: "images/avatar-5.svg", rating: 5, text: "Commande passée un soir, reçue deux jours après. Un vrai plaisir." },
+  { name: "Bineta", avatar: "images/avatar-6.svg", rating: 4, text: "Superbe collection, j'ai craqué pour trois pièces d'un coup !" },
 ];
 
 const money = (n) => n.toLocaleString("fr-FR") + " FCFA";
