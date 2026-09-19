@@ -205,8 +205,15 @@ const TRANSLATIONS = {
   },
 };
 
+function safeGetItem(key) {
+  try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+function safeSetItem(key, value) {
+  try { localStorage.setItem(key, value); } catch (e) { /* storage unavailable, ignore */ }
+}
+
 const SUPPORTED_LANGS = Object.keys(TRANSLATIONS);
-let currentLang = localStorage.getItem("madame_store_lang");
+let currentLang = safeGetItem("madame_store_lang");
 if (!SUPPORTED_LANGS.includes(currentLang)) {
   currentLang = navigator.language && navigator.language.toLowerCase().startsWith("en") ? "en" : "fr";
 }
@@ -241,7 +248,7 @@ function applyStaticTranslations() {
 function setLanguage(lang) {
   if (!SUPPORTED_LANGS.includes(lang) || lang === currentLang) return;
   currentLang = lang;
-  localStorage.setItem("madame_store_lang", lang);
+  safeSetItem("madame_store_lang", lang);
   applyStaticTranslations();
   if (typeof onLanguageChange === "function") onLanguageChange();
 }

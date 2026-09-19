@@ -96,10 +96,15 @@ document.querySelectorAll(".filter-trigger").forEach(btn => {
 renderProducts();
 
 /* ---------- Cart (localStorage) ---------- */
-let cart = JSON.parse(localStorage.getItem("madame_store_cart") || "[]");
+let cart = [];
+try {
+  cart = JSON.parse(safeGetItem("madame_store_cart") || "[]");
+} catch (e) {
+  cart = [];
+}
 
 function saveCart() {
-  localStorage.setItem("madame_store_cart", JSON.stringify(cart));
+  safeSetItem("madame_store_cart", JSON.stringify(cart));
   renderCart();
 }
 
