@@ -8,7 +8,5 @@
   <rect width="500" height="650" fill="url(#g)"/>
   <circle cx="75.0" cy="552.5" r="140.0" fill="#ffffff" opacity="0.08"/>
   <circle cx="440.0" cy="78.0" r="90.0" fill="#ffffff" opacity="0.10"/>
-  <text x="250.0" y="312.0" text-anchor="middle" font-size="71.5" dominant-baseline="middle">⌚</text>
-  <text x="250.0" y="373.75" text-anchor="middle" font-family="'Playfair Display', serif" font-size="29.25" fill="#1a1a1a" font-weight="600">Montre femme</text>
-  
+  <text x="250.0" y="325.0" text-anchor="middle" font-size="104.0" dominant-baseline="middle">⌚</text>
 </svg>

@@ -8,7 +8,5 @@
   <rect width="800" height="1000" fill="url(#g)"/>
   <circle cx="120.0" cy="850.0" r="224.00000000000003" fill="#ffffff" opacity="0.08"/>
   <circle cx="704.0" cy="120.0" r="144.0" fill="#ffffff" opacity="0.10"/>
-  <text x="400.0" y="480.0" text-anchor="middle" font-size="110.0" dominant-baseline="middle">✨</text>
-  <text x="400.0" y="575.0" text-anchor="middle" font-family="'Playfair Display', serif" font-size="45.0" fill="#1a1a1a" font-weight="600">Nouvelle collection</text>
-  <text x="400.0" y="610.0" text-anchor="middle" font-family="Poppins, sans-serif" font-size="28.0" fill="#5c4f45" letter-spacing="2">MADAME STORE</text>
+  <text x="400.0" y="500.0" text-anchor="middle" font-size="160.0" dominant-baseline="middle">✨</text>
 </svg>
