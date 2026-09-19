@@ -233,9 +233,7 @@ function applyStaticTranslations() {
   document.querySelectorAll("[data-i18n-aria]").forEach(el => {
     el.setAttribute("aria-label", t(el.dataset.i18nAria));
   });
-  const langCurrent = document.getElementById("langCurrent");
-  if (langCurrent) langCurrent.textContent = currentLang.toUpperCase();
-  document.querySelectorAll("#langMenu [data-lang]").forEach(btn => {
+  document.querySelectorAll("#langSwitch [data-lang]").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.lang === currentLang);
   });
 }
@@ -251,22 +249,7 @@ function setLanguage(lang) {
 document.addEventListener("DOMContentLoaded", () => {
   applyStaticTranslations();
 
-  const langToggle = document.getElementById("langToggle");
-  const langMenu = document.getElementById("langMenu");
-  langToggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = langMenu.classList.toggle("open");
-    langToggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  langMenu.querySelectorAll("[data-lang]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      setLanguage(btn.dataset.lang);
-      langMenu.classList.remove("open");
-      langToggle.setAttribute("aria-expanded", "false");
-    });
-  });
-  document.addEventListener("click", () => {
-    langMenu.classList.remove("open");
-    langToggle.setAttribute("aria-expanded", "false");
+  document.querySelectorAll("#langSwitch [data-lang]").forEach(btn => {
+    btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
   });
 });

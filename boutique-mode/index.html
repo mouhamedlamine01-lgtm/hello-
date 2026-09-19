@@ -34,14 +34,9 @@
     </nav>
 
     <div class="header-actions">
-      <div class="lang-switch" id="langSwitch">
-        <button class="icon-btn lang-toggle" id="langToggle" aria-label="Changer de langue" aria-haspopup="true" aria-expanded="false">
-          🌐 <span id="langCurrent">FR</span>
-        </button>
-        <div class="lang-menu" id="langMenu" role="menu">
-          <button type="button" data-lang="fr" role="menuitem">🇫🇷 Français</button>
-          <button type="button" data-lang="en" role="menuitem">🇬🇧 English</button>
-        </div>
+      <div class="lang-switch" id="langSwitch" role="group" aria-label="Changer de langue">
+        <button type="button" class="lang-pill" data-lang="fr">FR</button>
+        <button type="button" class="lang-pill" data-lang="en">EN</button>
       </div>
       <button class="icon-btn" id="searchToggle" aria-label="Rechercher">🔍</button>
       <button class="icon-btn" id="cartToggle" aria-label="Voir le panier">
