@@ -47,7 +47,7 @@ const TRANSLATIONS = {
     feature5_title: "Support en français",
     feature5_desc: "Une équipe joignable par WhatsApp pour répondre à vos questions.",
     feature6_title: "Vous gardez le contrôle",
-    feature6_desc: "KerSuivi ne touche jamais à vos fonds : vous payez qui vous voulez, quand vous voulez.",
+    feature6_desc: "ChantierLive ne touche jamais à vos fonds : vous payez qui vous voulez, quand vous voulez.",
     zones_eyebrow: "Zones couvertes",
     zones_title: "On démarre autour de Dakar",
     zones_note: "D'autres régions arrivent bientôt, selon la demande.",
@@ -58,7 +58,7 @@ const TRANSLATIONS = {
     trust2_title: "Preuves datées et géolocalisées",
     trust2_desc: "Impossible de réutiliser d'anciennes photos : chaque visite est horodatée sur place.",
     trust3_title: "Aucun accès à votre argent",
-    trust3_desc: "KerSuivi observe et rapporte. Vos paiements restent entièrement sous votre contrôle.",
+    trust3_desc: "ChantierLive observe et rapporte. Vos paiements restent entièrement sous votre contrôle.",
     pricing_eyebrow: "Tarifs",
     pricing_title: "Un abonnement simple, par chantier",
     pricing_subtitle: "Sans engagement. Annulez quand vous voulez.",
@@ -83,8 +83,8 @@ const TRANSLATIONS = {
     faq_title: "Tout ce que vous vous demandez",
     faq1_q: "Comment savoir que les photos sont récentes ?",
     faq1_a: "Chaque photo et vidéo est horodatée et géolocalisée automatiquement au moment de la visite. Vous voyez la date et le lieu exact directement dans votre rapport.",
-    faq2_q: "Est-ce que KerSuivi gère l'argent de mon chantier ?",
-    faq2_a: "Non. KerSuivi observe, documente et rapporte. Vous restez entièrement libre de payer votre maçon ou fournisseur comme vous le souhaitez.",
+    faq2_q: "Est-ce que ChantierLive gère l'argent de mon chantier ?",
+    faq2_a: "Non. ChantierLive observe, documente et rapporte. Vous restez entièrement libre de payer votre maçon ou fournisseur comme vous le souhaitez.",
     faq3_q: "Qui sont les superviseurs ?",
     faq3_a: "Des personnes basées localement, identifiées et formées par notre équipe, évaluées après chaque visite pour garantir un suivi sérieux.",
     faq4_q: "Puis-je annuler à tout moment ?",
@@ -100,7 +100,7 @@ const TRANSLATIONS = {
     footer_col2_title: "Aide",
     footer_link_contact: "Contact WhatsApp",
     footer_link_privacy: "Politique de confidentialité",
-    footer_copyright: "© 2026 KerSuivi. Tous droits réservés.",
+    footer_copyright: "© 2026 ChantierLive. Tous droits réservés.",
     wa_float_aria: "Discuter sur WhatsApp",
   },
   en: {
@@ -151,7 +151,7 @@ const TRANSLATIONS = {
     feature5_title: "French-speaking support",
     feature5_desc: "A team reachable on WhatsApp to answer your questions.",
     feature6_title: "You stay in control",
-    feature6_desc: "KerSuivi never touches your funds: you pay who you want, when you want.",
+    feature6_desc: "ChantierLive never touches your funds: you pay who you want, when you want.",
     zones_eyebrow: "Covered areas",
     zones_title: "Starting around Dakar",
     zones_note: "More regions coming soon, based on demand.",
@@ -162,7 +162,7 @@ const TRANSLATIONS = {
     trust2_title: "Timestamped, geotagged proof",
     trust2_desc: "No reusing old photos: every visit is timestamped on site.",
     trust3_title: "No access to your money",
-    trust3_desc: "KerSuivi observes and reports. Your payments stay fully under your control.",
+    trust3_desc: "ChantierLive observes and reports. Your payments stay fully under your control.",
     pricing_eyebrow: "Pricing",
     pricing_title: "One simple subscription per site",
     pricing_subtitle: "No commitment. Cancel anytime.",
@@ -187,8 +187,8 @@ const TRANSLATIONS = {
     faq_title: "Everything you're wondering about",
     faq1_q: "How do I know the photos are recent?",
     faq1_a: "Every photo and video is automatically timestamped and geotagged at the moment of the visit. You see the exact date and location right in your report.",
-    faq2_q: "Does KerSuivi handle my construction money?",
-    faq2_a: "No. KerSuivi observes, documents, and reports. You stay fully free to pay your builder or supplier however you want.",
+    faq2_q: "Does ChantierLive handle my construction money?",
+    faq2_a: "No. ChantierLive observes, documents, and reports. You stay fully free to pay your builder or supplier however you want.",
     faq3_q: "Who are the supervisors?",
     faq3_a: "Locally based people, identified and trained by our team, rated after every visit to guarantee serious follow-up.",
     faq4_q: "Can I cancel anytime?",
@@ -204,7 +204,7 @@ const TRANSLATIONS = {
     footer_col2_title: "Help",
     footer_link_contact: "WhatsApp contact",
     footer_link_privacy: "Privacy policy",
-    footer_copyright: "© 2026 KerSuivi. All rights reserved.",
+    footer_copyright: "© 2026 ChantierLive. All rights reserved.",
     wa_float_aria: "Chat on WhatsApp",
   },
 };
@@ -218,7 +218,7 @@ function safeSetItem(key, value) {
   try { localStorage.setItem(key, value); } catch (e) { /* storage unavailable, ignore */ }
 }
 
-let currentLang = safeGetItem("kersuivi_lang");
+let currentLang = safeGetItem("chantierlive_lang");
 if (!SUPPORTED_LANGS.includes(currentLang)) {
   currentLang = navigator.language && navigator.language.toLowerCase().startsWith("en") ? "en" : "fr";
 }
@@ -243,7 +243,7 @@ function applyStaticTranslations() {
 function setLanguage(lang) {
   if (!SUPPORTED_LANGS.includes(lang) || lang === currentLang) return;
   currentLang = lang;
-  safeSetItem("kersuivi_lang", lang);
+  safeSetItem("chantierlive_lang", lang);
   applyStaticTranslations();
 }
 
