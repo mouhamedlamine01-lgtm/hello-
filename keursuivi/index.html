@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KeurSuivi — Suivez la construction de votre maison au Sénégal, à distance</title>
+<meta name="description" content="KeurSuivi accompagne la diaspora sénégalaise : un superviseur local visite votre chantier, vous recevez photos géolocalisées et suivi des dépenses depuis votre téléphone, où que vous soyez.">
+<meta property="og:title" content="KeurSuivi — Votre chantier, suivi de près, où que vous soyez">
+<meta property="og:description" content="Photos géolocalisées, suivi des dépenses, rapports réguliers : gardez un œil sur la construction de votre maison au Sénégal.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="announce-bar" data-i18n="announce">🏗️ Bientôt disponible à Dakar — Rejoins la liste d'attente</div>
+
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="#hero" class="logo">Keur<span>Suivi</span></a>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+    <nav class="main-nav" id="mainNav">
+      <button class="nav-close" id="navClose" aria-label="Fermer le menu">✕</button>
+      <a href="#how" data-i18n="nav_how">Comment ça marche</a>
+      <a href="#features" data-i18n="nav_features">Ce qui est inclus</a>
+      <a href="#pricing" data-i18n="nav_pricing">Tarifs</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" id="langSwitch" role="group" aria-label="Changer de langue">
+        <button type="button" class="lang-pill" data-lang="fr">FR</button>
+        <button type="button" class="lang-pill" data-lang="en">EN</button>
+      </div>
+      <a href="#waitlist" class="btn btn-primary btn-header" data-i18n="nav_cta">Liste d'attente</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img src="images/hero-bg.svg" alt="Chantier de construction avec grue et échafaudage" class="hero-bg-img">
+  <div class="container hero-inner">
+    <div class="hero-content reveal">
+      <span class="badge" data-i18n="hero_badge">🇸🇳 Fait pour la diaspora sénégalaise</span>
+      <h1 data-i18n-html="hero_title">Votre maison se construit au Sénégal.<br>Suivez chaque étape, où que vous soyez.</h1>
+      <p data-i18n="hero_subtitle">Un superviseur local visite votre chantier chaque semaine. Vous recevez photos géolocalisées, vidéos et suivi des dépenses, directement sur votre téléphone.</p>
+      <form class="hero-form" id="heroWaitlistForm">
+        <input type="email" required placeholder="Votre adresse e-mail" data-i18n-placeholder="waitlist_placeholder" id="heroEmail">
+        <button type="submit" class="btn btn-primary" data-i18n="waitlist_btn">Rejoindre la liste d'attente</button>
+      </form>
+      <p class="hero-note" data-i18n="hero_note">📍 Lancement à Dakar, Thiès, Mbour et Saly. Sans engagement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section problem">
+  <div class="container">
+    <p class="eyebrow reveal center" data-i18n="problem_eyebrow">On connaît le problème</p>
+    <h2 class="reveal center" data-i18n="problem_title">Construire à distance, c'est souvent un pari</h2>
+
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <span class="problem-icon">💸</span>
+        <h3 data-i18n="problem1_title">Argent envoyé, rien qui avance</h3>
+        <p data-i18n="problem1_desc">Vous transférez l'argent, mais le chantier semble figé depuis des mois.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">📵</span>
+        <h3 data-i18n="problem2_title">Aucune nouvelle fiable</h3>
+        <p data-i18n="problem2_desc">Un appel rapide, une photo floue... impossible de vraiment savoir où ça en est.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">🧾</span>
+        <h3 data-i18n="problem3_title">Dépenses impossibles à vérifier</h3>
+        <p data-i18n="problem3_desc">Sable, ciment, main-d'œuvre... vous payez sans jamais voir de justificatif.</p>
+      </div>
+      <div class="problem-card reveal">
+        <span class="problem-icon">😟</span>
+        <h3 data-i18n="problem4_title">La peur de l'arnaque</h3>
+        <p data-i18n="problem4_desc">Trop d'histoires de chantiers laissés à l'abandon ou de matériaux détournés.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section how" id="how">
+  <div class="container">
+    <p class="eyebrow reveal center" data-i18n="how_eyebrow">Comment ça marche</p>
+    <h2 class="reveal center" data-i18n="how_title">Quatre étapes pour garder le contrôle</h2>
+
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <span class="step-num">01</span>
+        <span class="step-icon">📝</span>
+        <h3 data-i18n="step1_title">Vous nous confiez votre projet</h3>
+        <p data-i18n="step1_desc">Adresse du terrain, plan, contact sur place : on prend le temps de tout comprendre avec vous.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">02</span>
+        <span class="step-icon">📸</span>
+        <h3 data-i18n="step2_title">Un superviseur visite le chantier</h3>
+        <p data-i18n="step2_desc">Chaque semaine, il prend des photos et vidéos géolocalisées et datées, sur place.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">03</span>
+        <span class="step-icon">📊</span>
+        <h3 data-i18n="step3_title">Vous recevez un rapport clair</h3>
+        <p data-i18n="step3_desc">Avancement, dépenses justifiées par facture, points d'attention : tout est structuré.</p>
+      </div>
+      <div class="step-card reveal">
+        <span class="step-num">04</span>
+        <span class="step-icon">📱</span>
+        <h3 data-i18n="step4_title">Vous suivez tout à distance</h3>
+        <p data-i18n="step4_desc">Depuis Paris, New York ou Milan : l'historique complet de votre chantier, toujours accessible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features" id="features">
+  <div class="container">
+    <p class="eyebrow reveal center" data-i18n="features_eyebrow">Ce qui est inclus</p>
+    <h2 class="reveal center" data-i18n="features_title">Tout ce qu'il faut pour avoir l'esprit tranquille</h2>
+
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <span class="feature-icon">📍</span>
+        <div><h4 data-i18n="feature1_title">Photos géolocalisées</h4><p data-i18n="feature1_desc">Chaque photo est horodatée et prise directement sur votre terrain.</p></div>
+      </div>
+      <div class="feature-item reveal">
+        <span class="feature-icon">🧾</span>
+        <div><h4 data-i18n="feature2_title">Dépenses justifiées</h4><p data-i18n="feature2_desc">Factures et reçus scannés pour chaque achat de matériaux ou main-d'œuvre.</p></div>
+      </div>
+      <div class="feature-item reveal">
+        <span class="feature-icon">🔔</span>
+        <div><h4 data-i18n="feature3_title">Alertes automatiques</h4><p data-i18n="feature3_desc">Un message si le chantier n'avance pas ou si une dépense sort du budget prévu.</p></div>
+      </div>
+      <div class="feature-item reveal">
+        <span class="feature-icon">🗓️</span>
+        <div><h4 data-i18n="feature4_title">Historique complet</h4><p data-i18n="feature4_desc">Toutes les visites, photos et rapports depuis le premier jour, au même endroit.</p></div>
+      </div>
+      <div class="feature-item reveal">
+        <span class="feature-icon">💬</span>
+        <div><h4 data-i18n="feature5_title">Support en français</h4><p data-i18n="feature5_desc">Une équipe joignable par WhatsApp pour répondre à vos questions.</p></div>
+      </div>
+      <div class="feature-item reveal">
+        <span class="feature-icon">🔒</span>
+        <div><h4 data-i18n="feature6_title">Vous gardez le contrôle</h4><p data-i18n="feature6_desc">KeurSuivi ne touche jamais à vos fonds : vous payez qui vous voulez, quand vous voulez.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONES -->
+<section class="zones-banner">
+  <div class="container zones-content reveal">
+    <p class="eyebrow" data-i18n="zones_eyebrow">Zones couvertes</p>
+    <h2 data-i18n="zones_title">On démarre autour de Dakar</h2>
+    <div class="zones-badges">
+      <span>📍 Dakar</span>
+      <span>📍 Rufisque</span>
+      <span>📍 Thiès</span>
+      <span>📍 Mbour</span>
+      <span>📍 Saly</span>
+    </div>
+    <p class="zones-note" data-i18n="zones_note">D'autres régions arrivent bientôt, selon la demande.</p>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="section trust">
+  <div class="container">
+    <p class="eyebrow reveal center" data-i18n="trust_eyebrow">Pourquoi nous faire confiance</p>
+    <h2 class="reveal center" data-i18n="trust_title">La confiance, ça se construit avec des preuves</h2>
+
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <span class="trust-icon">✅</span>
+        <h3 data-i18n="trust1_title">Superviseurs vérifiés</h3>
+        <p data-i18n="trust1_desc">Chaque superviseur est identifié, formé et évalué après chaque visite.</p>
+      </div>
+      <div class="trust-card reveal">
+        <span class="trust-icon">📅</span>
+        <h3 data-i18n="trust2_title">Preuves datées et géolocalisées</h3>
+        <p data-i18n="trust2_desc">Impossible de réutiliser d'anciennes photos : chaque visite est horodatée sur place.</p>
+      </div>
+      <div class="trust-card reveal">
+        <span class="trust-icon">🚫</span>
+        <h3 data-i18n="trust3_title">Aucun accès à votre argent</h3>
+        <p data-i18n="trust3_desc">KeurSuivi observe et rapporte. Vos paiements restent entièrement sous votre contrôle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <p class="eyebrow reveal center" data-i18n="pricing_eyebrow">Tarifs</p>
+    <h2 class="reveal center" data-i18n="pricing_title">Un abonnement simple, par chantier</h2>
+    <p class="pricing-sub reveal center" data-i18n="pricing_subtitle">Sans engagement. Annulez quand vous voulez.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3 data-i18n="plan1_name">Essentiel</h3>
+        <div class="price"><span class="price-amount">19€</span><span data-i18n="price_per_month">/mois</span></div>
+        <ul>
+          <li data-i18n="plan1_f1">1 visite par mois</li>
+          <li data-i18n="plan1_f2">Photos géolocalisées</li>
+          <li data-i18n="plan1_f3">Rapport mensuel</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-outline-dark" data-i18n="plan_cta">Rejoindre la liste d'attente</a>
+      </div>
+      <div class="price-card featured reveal">
+        <span class="price-tag" data-i18n="plan_popular">Le plus choisi</span>
+        <h3 data-i18n="plan2_name">Standard</h3>
+        <div class="price"><span class="price-amount">39€</span><span data-i18n="price_per_month">/mois</span></div>
+        <ul>
+          <li data-i18n="plan2_f1">2 visites par mois</li>
+          <li data-i18n="plan2_f2">Photos et vidéos géolocalisées</li>
+          <li data-i18n="plan2_f3">Suivi des dépenses avec factures</li>
+          <li data-i18n="plan2_f4">Alertes automatiques</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-primary" data-i18n="plan_cta">Rejoindre la liste d'attente</a>
+      </div>
+      <div class="price-card reveal">
+        <h3 data-i18n="plan3_name">Premium</h3>
+        <div class="price"><span class="price-amount">69€</span><span data-i18n="price_per_month">/mois</span></div>
+        <ul>
+          <li data-i18n="plan3_f1">Visite chaque semaine</li>
+          <li data-i18n="plan3_f2">Appel vidéo mensuel avec le superviseur</li>
+          <li data-i18n="plan3_f3">Suivi des dépenses détaillé</li>
+          <li data-i18n="plan3_f4">Support prioritaire</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-outline-dark" data-i18n="plan_cta">Rejoindre la liste d'attente</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <p class="eyebrow reveal center" data-i18n="faq_eyebrow">Questions fréquentes</p>
+    <h2 class="reveal center" data-i18n="faq_title">Tout ce que vous vous demandez</h2>
+
+    <div class="faq-list" id="faqList">
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span data-i18n="faq1_q">Comment savoir que les photos sont récentes ?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer"><p data-i18n="faq1_a">Chaque photo et vidéo est horodatée et géolocalisée automatiquement au moment de la visite. Vous voyez la date et le lieu exact directement dans votre rapport.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span data-i18n="faq2_q">Est-ce que KeurSuivi gère l'argent de mon chantier ?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer"><p data-i18n="faq2_a">Non. KeurSuivi observe, documente et rapporte. Vous restez entièrement libre de payer votre maçon ou fournisseur comme vous le souhaitez.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span data-i18n="faq3_q">Qui sont les superviseurs ?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer"><p data-i18n="faq3_a">Des personnes basées localement, identifiées et formées par notre équipe, évaluées après chaque visite pour garantir un suivi sérieux.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span data-i18n="faq4_q">Puis-je annuler à tout moment ?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer"><p data-i18n="faq4_a">Oui, l'abonnement se fait sans engagement. Vous pouvez suspendre ou arrêter le suivi quand vous le souhaitez.</p></div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          <span data-i18n="faq5_q">Mon chantier n'est pas à Dakar, est-ce possible quand même ?</span>
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer"><p data-i18n="faq5_a">Nous démarrons autour de Dakar, Rufisque, Thiès, Mbour et Saly. Inscrivez-vous à la liste d'attente pour être prévenu dès qu'on couvre votre région.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="waitlist">
+  <div class="container center reveal">
+    <h2 data-i18n="final_title">Prêt à garder un œil sur votre chantier ?</h2>
+    <p data-i18n="final_subtitle">Rejoignez la liste d'attente : nous vous contactons dès l'ouverture dans votre zone.</p>
+    <form class="waitlist-form" id="waitlistForm">
+      <input type="email" required placeholder="Votre adresse e-mail" data-i18n-placeholder="waitlist_placeholder" id="waitlistEmail">
+      <input type="tel" placeholder="WhatsApp (optionnel)" data-i18n-placeholder="waitlist_phone_placeholder" id="waitlistPhone">
+      <button type="submit" class="btn btn-primary" data-i18n="waitlist_btn">Rejoindre la liste d'attente</button>
+    </form>
+    <p class="waitlist-msg" id="waitlistMsg"></p>
+    <a href="https://wa.me/14045631778?text=Bonjour%20KeurSuivi%2C%20j'aimerais%20en%20savoir%20plus%20sur%20le%20suivi%20de%20chantier." class="btn-link waitlist-whatsapp" target="_blank" rel="noopener" data-i18n="final_whatsapp">💬 Ou discutez avec nous sur WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" id="contact">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo light">Keur<span>Suivi</span></a>
+      <p data-i18n="footer_desc">Le suivi de chantier pensé pour la diaspora sénégalaise.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="https://wa.me/14045631778" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_col1_title">Produit</h4>
+      <a href="#how" data-i18n="nav_how">Comment ça marche</a>
+      <a href="#features" data-i18n="nav_features">Ce qui est inclus</a>
+      <a href="#pricing" data-i18n="nav_pricing">Tarifs</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer_col2_title">Aide</h4>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <a href="https://wa.me/14045631778" target="_blank" rel="noopener" data-i18n="footer_link_contact">Contact WhatsApp</a>
+      <a href="#" data-i18n="footer_link_privacy">Politique de confidentialité</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="footer_copyright">© 2026 KeurSuivi. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/14045631778?text=Bonjour%20KeurSuivi%2C%20j'aimerais%20en%20savoir%20plus." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp" data-i18n-aria="wa_float_aria">💬</a>
+
+<script src="js/i18n.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
