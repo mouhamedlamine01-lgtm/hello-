@@ -291,8 +291,16 @@ modalOverlay.addEventListener("click", closeModal);
 /* ---------- Mobile nav ---------- */
 const burgerBtn = document.getElementById("burgerBtn");
 const mainNav = document.getElementById("mainNav");
-burgerBtn.addEventListener("click", () => mainNav.classList.toggle("open"));
-mainNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mainNav.classList.remove("open")));
+const navOverlay = document.getElementById("navOverlay");
+const navClose = document.getElementById("navClose");
+function closeNav() { mainNav.classList.remove("open"); navOverlay.classList.remove("open"); }
+burgerBtn.addEventListener("click", () => {
+  const open = mainNav.classList.toggle("open");
+  navOverlay.classList.toggle("open", open);
+});
+navClose.addEventListener("click", closeNav);
+navOverlay.addEventListener("click", closeNav);
+mainNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
 
 /* ---------- Search ---------- */
 const searchBar = document.getElementById("searchBar");
