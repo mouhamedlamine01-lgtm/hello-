@@ -1,23 +1,23 @@
 const WHATSAPP_NUMBER = "14045631778";
 
 const PRODUCTS = [
-  { id: 1, name: "Robe élégante", category: "vetements", price: 25000, oldPrice: 35000, rating: 5, img: "images/product-1.svg" },
-  { id: 2, name: "Ensemble tendance", category: "vetements", price: 30000, oldPrice: null, rating: 4, img: "images/product-2.svg" },
-  { id: 3, name: "Sac à main chic", category: "sacs", price: 22000, oldPrice: 28000, rating: 5, img: "images/product-3.svg" },
-  { id: 4, name: "Sandales féminines", category: "chaussures", price: 15000, oldPrice: null, rating: 4, img: "images/product-4.svg" },
-  { id: 5, name: "Escarpins", category: "chaussures", price: 18000, oldPrice: 24000, rating: 5, img: "images/product-5.svg" },
-  { id: 6, name: "Collier doré", category: "accessoires", price: 9000, oldPrice: null, rating: 4, img: "images/product-6.svg" },
-  { id: 7, name: "Lunettes tendance", category: "accessoires", price: 12000, oldPrice: 16000, rating: 5, img: "images/product-7.svg" },
-  { id: 8, name: "Montre femme", category: "accessoires", price: 20000, oldPrice: null, rating: 4, img: "images/product-8.svg" },
+  { id: 1, name: { fr: "Robe élégante", en: "Elegant dress" }, category: "vetements", price: 25000, oldPrice: 35000, rating: 5, img: "images/product-1.svg" },
+  { id: 2, name: { fr: "Ensemble tendance", en: "Trendy outfit" }, category: "vetements", price: 30000, oldPrice: null, rating: 4, img: "images/product-2.svg" },
+  { id: 3, name: { fr: "Sac à main chic", en: "Chic handbag" }, category: "sacs", price: 22000, oldPrice: 28000, rating: 5, img: "images/product-3.svg" },
+  { id: 4, name: { fr: "Sandales féminines", en: "Women's sandals" }, category: "chaussures", price: 15000, oldPrice: null, rating: 4, img: "images/product-4.svg" },
+  { id: 5, name: { fr: "Escarpins", en: "Pumps" }, category: "chaussures", price: 18000, oldPrice: 24000, rating: 5, img: "images/product-5.svg" },
+  { id: 6, name: { fr: "Collier doré", en: "Gold necklace" }, category: "accessoires", price: 9000, oldPrice: null, rating: 4, img: "images/product-6.svg" },
+  { id: 7, name: { fr: "Lunettes tendance", en: "Trendy sunglasses" }, category: "accessoires", price: 12000, oldPrice: 16000, rating: 5, img: "images/product-7.svg" },
+  { id: 8, name: { fr: "Montre femme", en: "Women's watch" }, category: "accessoires", price: 20000, oldPrice: null, rating: 4, img: "images/product-8.svg" },
 ];
 
 const REVIEWS = [
-  { name: "Aïssatou", avatar: "images/avatar-1.svg", rating: 5, text: "J'ai adoré ma robe ! La qualité est magnifique et la livraison a été rapide." },
-  { name: "Fatou", avatar: "images/avatar-2.svg", rating: 5, text: "Le service client est top, ils m'ont aidée à choisir la bonne taille sur WhatsApp." },
-  { name: "Mariam", avatar: "images/avatar-3.svg", rating: 4, text: "Le sac est encore plus beau en vrai. Je recommande cette boutique les yeux fermés." },
-  { name: "Khady", avatar: "images/avatar-4.svg", rating: 5, text: "Des articles tendance et une qualité premium. Ma nouvelle boutique préférée !" },
-  { name: "Ndeye", avatar: "images/avatar-5.svg", rating: 5, text: "Commande passée un soir, reçue deux jours après. Un vrai plaisir." },
-  { name: "Bineta", avatar: "images/avatar-6.svg", rating: 4, text: "Superbe collection, j'ai craqué pour trois pièces d'un coup !" },
+  { name: "Aïssatou", avatar: "images/avatar-1.svg", rating: 5, text: { fr: "J'ai adoré ma robe ! La qualité est magnifique et la livraison a été rapide.", en: "I loved my dress! The quality is beautiful and delivery was fast." } },
+  { name: "Fatou", avatar: "images/avatar-2.svg", rating: 5, text: { fr: "Le service client est top, ils m'ont aidée à choisir la bonne taille sur WhatsApp.", en: "Customer service is amazing, they helped me pick the right size on WhatsApp." } },
+  { name: "Mariam", avatar: "images/avatar-3.svg", rating: 4, text: { fr: "Le sac est encore plus beau en vrai. Je recommande cette boutique les yeux fermés.", en: "The bag is even prettier in person. I'd recommend this shop with my eyes closed." } },
+  { name: "Khady", avatar: "images/avatar-4.svg", rating: 5, text: { fr: "Des articles tendance et une qualité premium. Ma nouvelle boutique préférée !", en: "Trendy pieces and premium quality. My new favorite shop!" } },
+  { name: "Ndeye", avatar: "images/avatar-5.svg", rating: 5, text: { fr: "Commande passée un soir, reçue deux jours après. Un vrai plaisir.", en: "Ordered one evening, received it two days later. A real pleasure." } },
+  { name: "Bineta", avatar: "images/avatar-6.svg", rating: 4, text: { fr: "Superbe collection, j'ai craqué pour trois pièces d'un coup !", en: "Gorgeous collection, I fell for three pieces at once!" } },
 ];
 
 const money = (n) => n.toLocaleString("fr-FR") + " FCFA";
@@ -25,27 +25,31 @@ const stars = (n) => "★".repeat(n) + "☆".repeat(5 - n);
 
 /* ---------- Render products ---------- */
 const productGrid = document.getElementById("productGrid");
+let currentFilter = "all";
 
-function renderProducts(filter = "all") {
+function renderProducts(filter = currentFilter) {
+  currentFilter = filter;
+  const lang = getLang();
   const items = filter === "all" ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
   productGrid.innerHTML = items.map(p => {
     const discount = p.oldPrice ? Math.round(100 - (p.price / p.oldPrice) * 100) : null;
+    const name = p.name[lang];
     return `
-      <div class="product-card" data-category="${p.category}" data-name="${p.name.toLowerCase()}">
+      <div class="product-card" data-category="${p.category}" data-name="${name.toLowerCase()}">
         <div class="product-img" onclick="openModal(${p.id})">
           ${discount ? `<span class="discount-tag">-${discount}%</span>` : ""}
-          <img src="${p.img}" alt="${p.name}" loading="lazy">
+          <img src="${p.img}" alt="${name}" loading="lazy">
         </div>
         <div class="product-body">
-          <h4>${p.name}</h4>
+          <h4>${name}</h4>
           <span class="stars">${stars(p.rating)}</span>
           <div class="price-row">
             <span class="price">${money(p.price)}</span>
             ${p.oldPrice ? `<span class="old-price">${money(p.oldPrice)}</span>` : ""}
           </div>
           <div class="product-actions">
-            <button class="add-cart-btn" onclick="addToCart(${p.id})">Ajouter au panier</button>
-            <button class="buy-now-btn" onclick="buyNow(${p.id})">Acheter</button>
+            <button class="add-cart-btn" onclick="addToCart(${p.id})">${t("add_to_cart")}</button>
+            <button class="buy-now-btn" onclick="buyNow(${p.id})">${t("buy_now")}</button>
           </div>
         </div>
       </div>`;
@@ -54,18 +58,23 @@ function renderProducts(filter = "all") {
 }
 
 /* ---------- Render reviews ---------- */
-document.getElementById("reviewsGrid").innerHTML = REVIEWS.map(r => `
-  <div class="review-card reveal">
-    <div class="review-top">
-      <img src="${r.avatar}" alt="${r.name}">
-      <div>
-        <div class="review-name">${r.name}</div>
-        <span class="stars">${stars(r.rating)}</span>
+function renderReviews() {
+  const lang = getLang();
+  document.getElementById("reviewsGrid").innerHTML = REVIEWS.map(r => `
+    <div class="review-card reveal">
+      <div class="review-top">
+        <img src="${r.avatar}" alt="${r.name}">
+        <div>
+          <div class="review-name">${r.name}</div>
+          <span class="stars">${stars(r.rating)}</span>
+        </div>
       </div>
+      <p>"${r.text[lang]}"</p>
     </div>
-    <p>"${r.text}"</p>
-  </div>
-`).join("");
+  `).join("");
+  observeReveals();
+}
+renderReviews();
 
 /* ---------- Filters ---------- */
 document.querySelectorAll(".filter-btn").forEach(btn => {
@@ -87,20 +96,21 @@ document.querySelectorAll(".filter-trigger").forEach(btn => {
 renderProducts();
 
 /* ---------- Cart (localStorage) ---------- */
-let cart = JSON.parse(localStorage.getItem("luna_cart") || "[]");
+let cart = JSON.parse(localStorage.getItem("madame_store_cart") || "[]");
 
 function saveCart() {
-  localStorage.setItem("luna_cart", JSON.stringify(cart));
+  localStorage.setItem("madame_store_cart", JSON.stringify(cart));
   renderCart();
 }
 
-function addToCart(id, size = "M", color = "Standard", qty = 1) {
+function addToCart(id, size = "M", color = null, qty = 1) {
+  color = color || t("color_black");
   const existing = cart.find(i => i.id === id && i.size === size && i.color === color);
   if (existing) {
     existing.qty += qty;
   } else {
     const product = PRODUCTS.find(p => p.id === id);
-    cart.push({ ...product, size, color, qty });
+    cart.push({ id: product.id, price: product.price, img: product.img, size, color, qty });
   }
   saveCart();
   openCart();
@@ -118,6 +128,7 @@ function changeQty(index, delta) {
 }
 
 function renderCart() {
+  const lang = getLang();
   const cartItems = document.getElementById("cartItems");
   const cartCount = document.getElementById("cartCount");
   const cartTotal = document.getElementById("cartTotal");
@@ -129,11 +140,14 @@ function renderCart() {
   cartCount.textContent = totalQty;
   cartTotal.textContent = money(totalPrice);
 
-  cartItems.innerHTML = cart.length ? cart.map((item, idx) => `
+  cartItems.innerHTML = cart.length ? cart.map((item, idx) => {
+    const product = PRODUCTS.find(p => p.id === item.id);
+    const name = product ? product.name[lang] : "";
+    return `
     <div class="cart-item">
-      <img src="${item.img}" alt="${item.name}">
+      <img src="${item.img}" alt="${name}">
       <div class="cart-item-info">
-        <h5>${item.name}</h5>
+        <h5>${name}</h5>
         <small>${item.size} · ${item.color}</small>
         <div class="qty-control">
           <button onclick="changeQty(${idx}, -1)">−</button>
@@ -143,17 +157,21 @@ function renderCart() {
       </div>
       <div>
         <div>${money(item.price * item.qty)}</div>
-        <button class="remove-item" onclick="removeFromCart(${idx})">Retirer</button>
+        <button class="remove-item" onclick="removeFromCart(${idx})">${t("cart_remove")}</button>
       </div>
-    </div>
-  `).join("") : `<p class="cart-empty">Votre panier est vide pour le moment.</p>`;
+    </div>`;
+  }).join("") : `<p class="cart-empty">${t("cart_empty")}</p>`;
 
   const message = cart.length
-    ? "Bonjour Madame Store, je souhaite commander :%0A" +
-      cart.map(i => `- ${i.name} (${i.size}, ${i.color}) x${i.qty} — ${money(i.price * i.qty)}`).join("%0A") +
-      `%0A%0ATotal : ${money(totalPrice)}`
-    : "Bonjour Madame Store, je souhaite passer une commande.";
-  cartWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+    ? `${t("wa_order_intro")}%0A` +
+      cart.map(i => {
+        const product = PRODUCTS.find(p => p.id === i.id);
+        const name = product ? product.name[lang] : "";
+        return `- ${name} (${i.size}, ${i.color}) x${i.qty} — ${money(i.price * i.qty)}`;
+      }).join("%0A") +
+      `%0A%0A${t("wa_order_total")} : ${money(totalPrice)}`
+    : t("wa_order_intro_empty");
+  cartWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message.replace(/%0A/g, "\n"))}`;
 }
 renderCart();
 
@@ -173,35 +191,45 @@ cartOverlay.addEventListener("click", () => { closeCart(); closeModal(); });
 /* ---------- Product quick view modal ---------- */
 const productModal = document.getElementById("productModal");
 const modalBody = document.getElementById("modalBody");
-let modalState = { id: null, size: "M", color: "Standard", qty: 1 };
+let modalState = { id: null, size: "M", color: null, qty: 1 };
+
+const CAT_LABEL_KEYS = {
+  vetements: "cat_label_vetements",
+  chaussures: "cat_label_chaussures",
+  sacs: "cat_label_sacs",
+  accessoires: "cat_label_accessoires",
+};
 
 function openModal(id) {
+  const lang = getLang();
   const p = PRODUCTS.find(x => x.id === id);
-  modalState = { id, size: "M", color: "Standard", qty: 1 };
+  const colors = [t("color_black"), t("color_beige"), t("color_pink")];
+  modalState = { id, size: "M", color: colors[0], qty: 1 };
+  const name = p.name[lang];
   modalBody.innerHTML = `
-    <img src="${p.img}" alt="${p.name}">
+    <img src="${p.img}" alt="${name}">
     <div class="modal-info">
-      <h4 class="eyebrow">${p.category}</h4>
-      <h3>${p.name}</h3>
+      <h4 class="eyebrow">${t(CAT_LABEL_KEYS[p.category])}</h4>
+      <h3>${name}</h3>
       <span class="stars">${stars(p.rating)}</span>
       <div class="price-row" style="margin-top:10px;">
         <span class="price">${money(p.price)}</span>
         ${p.oldPrice ? `<span class="old-price">${money(p.oldPrice)}</span>` : ""}
       </div>
       <div class="option-group">
-        <label>Taille</label>
+        <label>${t("modal_size")}</label>
         <div class="option-pills" id="sizePills">
           ${["S", "M", "L", "XL"].map(s => `<button class="option-pill ${s === "M" ? "active" : ""}" data-size="${s}">${s}</button>`).join("")}
         </div>
       </div>
       <div class="option-group">
-        <label>Couleur</label>
+        <label>${t("modal_color")}</label>
         <div class="option-pills" id="colorPills">
-          ${["Noir", "Beige", "Rose poudré"].map((c, i) => `<button class="option-pill ${i === 0 ? "active" : ""}" data-color="${c}">${c}</button>`).join("")}
+          ${colors.map((c, i) => `<button class="option-pill ${i === 0 ? "active" : ""}" data-color="${c}">${c}</button>`).join("")}
         </div>
       </div>
       <div class="option-group">
-        <label>Quantité</label>
+        <label>${t("modal_qty")}</label>
         <div class="qty-control">
           <button id="modalQtyMinus">−</button>
           <span id="modalQtyVal">1</span>
@@ -209,8 +237,8 @@ function openModal(id) {
         </div>
       </div>
       <div class="product-actions">
-        <button class="add-cart-btn" id="modalAddCart">Ajouter au panier</button>
-        <button class="buy-now-btn" id="modalBuyNow">Acheter maintenant</button>
+        <button class="add-cart-btn" id="modalAddCart">${t("add_to_cart")}</button>
+        <button class="buy-now-btn" id="modalBuyNow">${t("buy_now_modal")}</button>
       </div>
     </div>
   `;
@@ -293,12 +321,12 @@ setInterval(tickCountdown, 1000);
 /* ---------- Newsletter & contact (demo, no backend) ---------- */
 document.getElementById("newsletterForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  document.getElementById("newsletterMsg").textContent = "Merci pour votre inscription ! 💌";
+  document.getElementById("newsletterMsg").textContent = t("newsletter_success");
   e.target.reset();
 });
 document.getElementById("contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  alert("Merci pour votre message, nous vous répondons rapidement !");
+  alert(t("contact_success_alert"));
   e.target.reset();
 });
 
@@ -321,3 +349,11 @@ const header = document.getElementById("header");
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 10);
 });
+
+/* ---------- Language change ---------- */
+function onLanguageChange() {
+  renderProducts(currentFilter);
+  renderReviews();
+  renderCart();
+  closeModal();
+}

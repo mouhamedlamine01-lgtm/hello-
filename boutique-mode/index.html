@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<div class="announce-bar">✨ Nouvelle collection disponible — Livraison offerte dès 50 000 FCFA</div>
+<div class="announce-bar" data-i18n="announce">✨ Nouvelle collection disponible — Livraison offerte dès 50 000 FCFA</div>
 
 <header class="site-header" id="header">
   <div class="container header-inner">
@@ -26,14 +26,23 @@
     <a href="#hero" class="logo">Madame Store</a>
 
     <nav class="main-nav" id="mainNav">
-      <a href="#categories">Boutique</a>
-      <a href="#products">Nouveautés</a>
-      <a href="#promo">Promotions</a>
-      <a href="#reviews">Avis</a>
-      <a href="#contact">Contact</a>
+      <a href="#categories" data-i18n="nav_shop">Boutique</a>
+      <a href="#products" data-i18n="nav_new">Nouveautés</a>
+      <a href="#promo" data-i18n="nav_promo">Promotions</a>
+      <a href="#reviews" data-i18n="nav_reviews">Avis</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
     </nav>
 
     <div class="header-actions">
+      <div class="lang-switch" id="langSwitch">
+        <button class="icon-btn lang-toggle" id="langToggle" aria-label="Changer de langue" aria-haspopup="true" aria-expanded="false">
+          🌐 <span id="langCurrent">FR</span>
+        </button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <button type="button" data-lang="fr" role="menuitem">🇫🇷 Français</button>
+          <button type="button" data-lang="en" role="menuitem">🇬🇧 English</button>
+        </div>
+      </div>
       <button class="icon-btn" id="searchToggle" aria-label="Rechercher">🔍</button>
       <button class="icon-btn" id="cartToggle" aria-label="Voir le panier">
         🛍️
@@ -44,7 +53,7 @@
 
   <div class="search-bar" id="searchBar">
     <div class="container">
-      <input type="text" id="searchInput" placeholder="Rechercher une robe, un sac, des chaussures...">
+      <input type="text" id="searchInput" data-i18n-placeholder="search_placeholder" placeholder="Rechercher une robe, un sac, des chaussures...">
       <button id="searchClose" aria-label="Fermer la recherche">✕</button>
     </div>
   </div>
@@ -55,12 +64,12 @@
   <img src="images/hero.svg" alt="Femme portant une tenue tendance" class="hero-img">
   <div class="hero-overlay"></div>
   <div class="hero-content reveal">
-    <span class="badge">✨ Nouvelle collection disponible</span>
-    <h1>Révèle ton style,<br>affirme ta personnalité.</h1>
-    <p>Découvrez notre sélection de vêtements, chaussures et accessoires féminins tendance, soigneusement choisis pour sublimer votre style.</p>
+    <span class="badge" data-i18n="hero_badge">✨ Nouvelle collection disponible</span>
+    <h1 data-i18n-html="hero_title">Révèle ton style,<br>affirme ta personnalité.</h1>
+    <p data-i18n="hero_subtitle">Découvrez notre sélection de vêtements, chaussures et accessoires féminins tendance, soigneusement choisis pour sublimer votre style.</p>
     <div class="hero-buttons">
-      <a href="#categories" class="btn btn-primary">Découvrir la collection</a>
-      <a href="#products" class="btn btn-outline">Commander maintenant</a>
+      <a href="#categories" class="btn btn-primary" data-i18n="btn_discover">Découvrir la collection</a>
+      <a href="#products" class="btn btn-outline" data-i18n="btn_order_now">Commander maintenant</a>
     </div>
   </div>
   <div class="scroll-indicator">↓</div>
@@ -69,40 +78,40 @@
 <!-- CATEGORIES -->
 <section class="section categories" id="categories">
   <div class="container">
-    <p class="eyebrow reveal">Notre univers</p>
-    <h2 class="reveal">Découvrez nos catégories</h2>
+    <p class="eyebrow reveal" data-i18n="cat_eyebrow">Notre univers</p>
+    <h2 class="reveal" data-i18n="cat_title">Découvrez nos catégories</h2>
 
     <div class="cat-grid">
       <div class="cat-card reveal">
         <img src="images/cat-vetements.svg" alt="Vêtements femme">
         <div class="cat-info">
-          <h3>👗 Vêtements</h3>
-          <p>Robes · Ensembles · Tops · Jupes · Pantalons</p>
-          <button class="btn-link filter-trigger" data-filter="vetements">Découvrir →</button>
+          <h3 data-i18n="cat_vetements_title">👗 Vêtements</h3>
+          <p data-i18n="cat_vetements_desc">Robes · Ensembles · Tops · Jupes · Pantalons</p>
+          <button class="btn-link filter-trigger" data-filter="vetements" data-i18n="cat_discover">Découvrir →</button>
         </div>
       </div>
       <div class="cat-card reveal">
         <img src="images/cat-chaussures.svg" alt="Chaussures femme">
         <div class="cat-info">
-          <h3>👠 Chaussures</h3>
-          <p>Talons · Sandales · Baskets · Mocassins</p>
-          <button class="btn-link filter-trigger" data-filter="chaussures">Découvrir →</button>
+          <h3 data-i18n="cat_chaussures_title">👠 Chaussures</h3>
+          <p data-i18n="cat_chaussures_desc">Talons · Sandales · Baskets · Mocassins</p>
+          <button class="btn-link filter-trigger" data-filter="chaussures" data-i18n="cat_discover">Découvrir →</button>
         </div>
       </div>
       <div class="cat-card reveal">
         <img src="images/cat-sacs.svg" alt="Sacs à main">
         <div class="cat-info">
-          <h3>👜 Sacs</h3>
-          <p>Sacs à main · Bandoulière · Mini-sacs · Tendance</p>
-          <button class="btn-link filter-trigger" data-filter="sacs">Découvrir →</button>
+          <h3 data-i18n="cat_sacs_title">👜 Sacs</h3>
+          <p data-i18n="cat_sacs_desc">Sacs à main · Bandoulière · Mini-sacs · Tendance</p>
+          <button class="btn-link filter-trigger" data-filter="sacs" data-i18n="cat_discover">Découvrir →</button>
         </div>
       </div>
       <div class="cat-card reveal">
         <img src="images/cat-accessoires.svg" alt="Accessoires femme">
         <div class="cat-info">
-          <h3>💍 Accessoires</h3>
-          <p>Bijoux · Montres · Lunettes · Ceintures · Cheveux</p>
-          <button class="btn-link filter-trigger" data-filter="accessoires">Découvrir →</button>
+          <h3 data-i18n="cat_accessoires_title">💍 Accessoires</h3>
+          <p data-i18n="cat_accessoires_desc">Bijoux · Montres · Lunettes · Ceintures · Cheveux</p>
+          <button class="btn-link filter-trigger" data-filter="accessoires" data-i18n="cat_discover">Découvrir →</button>
         </div>
       </div>
     </div>
@@ -112,15 +121,15 @@
 <!-- PRODUITS POPULAIRES -->
 <section class="section products" id="products">
   <div class="container">
-    <p class="eyebrow reveal">Sélection du moment</p>
-    <h2 class="reveal">Les incontournables du moment</h2>
+    <p class="eyebrow reveal" data-i18n="products_eyebrow">Sélection du moment</p>
+    <h2 class="reveal" data-i18n="products_title">Les incontournables du moment</h2>
 
     <div class="filters reveal" id="filters">
-      <button class="filter-btn active" data-filter="all">Tout</button>
-      <button class="filter-btn" data-filter="vetements">Vêtements</button>
-      <button class="filter-btn" data-filter="chaussures">Chaussures</button>
-      <button class="filter-btn" data-filter="sacs">Sacs</button>
-      <button class="filter-btn" data-filter="accessoires">Accessoires</button>
+      <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Tout</button>
+      <button class="filter-btn" data-filter="vetements" data-i18n="filter_vetements">Vêtements</button>
+      <button class="filter-btn" data-filter="chaussures" data-i18n="filter_chaussures">Chaussures</button>
+      <button class="filter-btn" data-filter="sacs" data-i18n="filter_sacs">Sacs</button>
+      <button class="filter-btn" data-filter="accessoires" data-i18n="filter_accessoires">Accessoires</button>
     </div>
 
     <div class="product-grid" id="productGrid">
@@ -132,41 +141,41 @@
 <!-- PROMOTION -->
 <section class="promo-banner" id="promo">
   <div class="container promo-content reveal">
-    <h2>Jusqu'à -40% sur une sélection de produits</h2>
-    <p>Profitez de nos offres exclusives pendant une durée limitée.</p>
+    <h2 data-i18n="promo_title">Jusqu'à -40% sur une sélection de produits</h2>
+    <p data-i18n="promo_subtitle">Profitez de nos offres exclusives pendant une durée limitée.</p>
     <div class="countdown" id="countdown">
-      <div class="cd-box"><span id="cdH">23</span><small>Heures</small></div>
-      <div class="cd-box"><span id="cdM">45</span><small>Min</small></div>
-      <div class="cd-box"><span id="cdS">12</span><small>Sec</small></div>
+      <div class="cd-box"><span id="cdH">23</span><small data-i18n="promo_hours">Heures</small></div>
+      <div class="cd-box"><span id="cdM">45</span><small data-i18n="promo_min">Min</small></div>
+      <div class="cd-box"><span id="cdS">12</span><small data-i18n="promo_sec">Sec</small></div>
     </div>
-    <a href="#products" class="btn btn-primary">Profiter de l'offre</a>
+    <a href="#products" class="btn btn-primary" data-i18n="promo_cta">Profiter de l'offre</a>
   </div>
 </section>
 
 <!-- POURQUOI NOUS CHOISIR -->
 <section class="section why-us">
   <div class="container">
-    <h2 class="reveal center">Pourquoi nous choisir</h2>
+    <h2 class="reveal center" data-i18n="why_title">Pourquoi nous choisir</h2>
     <div class="why-grid">
       <div class="why-card reveal">
         <span class="why-icon">🚚</span>
-        <h3>Livraison rapide</h3>
-        <p>Recevez votre commande rapidement, partout au pays.</p>
+        <h3 data-i18n="why1_title">Livraison rapide</h3>
+        <p data-i18n="why1_desc">Recevez votre commande rapidement, partout au pays.</p>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">🔒</span>
-        <h3>Paiement sécurisé</h3>
-        <p>Vos paiements sont protégés à chaque commande.</p>
+        <h3 data-i18n="why2_title">Paiement sécurisé</h3>
+        <p data-i18n="why2_desc">Vos paiements sont protégés à chaque commande.</p>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">💎</span>
-        <h3>Produits sélectionnés</h3>
-        <p>Une sélection pensée pour votre style et votre élégance.</p>
+        <h3 data-i18n="why3_title">Produits sélectionnés</h3>
+        <p data-i18n="why3_desc">Une sélection pensée pour votre style et votre élégance.</p>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">💬</span>
-        <h3>Service client</h3>
-        <p>Une équipe disponible pour vous accompagner, même sur WhatsApp.</p>
+        <h3 data-i18n="why4_title">Service client</h3>
+        <p data-i18n="why4_desc">Une équipe disponible pour vous accompagner, même sur WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -175,9 +184,9 @@
 <!-- NOUVELLE COLLECTION -->
 <section class="section collection">
   <div class="container">
-    <p class="eyebrow reveal">Édito</p>
-    <h2 class="reveal">Nouvelle collection</h2>
-    <p class="collection-text reveal">Des pièces tendance pensées pour accompagner toutes vos occasions.</p>
+    <p class="eyebrow reveal" data-i18n="collection_eyebrow">Édito</p>
+    <h2 class="reveal" data-i18n="collection_title">Nouvelle collection</h2>
+    <p class="collection-text reveal" data-i18n="collection_subtitle">Des pièces tendance pensées pour accompagner toutes vos occasions.</p>
 
     <div class="collection-grid">
       <img class="reveal" src="images/collection-1.svg" alt="Nouvelle collection mode femme">
@@ -185,7 +194,7 @@
       <img class="reveal" src="images/collection-3.svg" alt="Style femme élégant">
     </div>
     <div class="center reveal">
-      <a href="#products" class="btn btn-dark">Voir la collection</a>
+      <a href="#products" class="btn btn-dark" data-i18n="collection_cta">Voir la collection</a>
     </div>
   </div>
 </section>
@@ -193,8 +202,8 @@
 <!-- AVIS CLIENTS -->
 <section class="section reviews" id="reviews">
   <div class="container">
-    <p class="eyebrow reveal center">Témoignages</p>
-    <h2 class="reveal center">Elles adorent nos produits</h2>
+    <p class="eyebrow reveal center" data-i18n="reviews_eyebrow">Témoignages</p>
+    <h2 class="reveal center" data-i18n="reviews_title">Elles adorent nos produits</h2>
 
     <div class="reviews-grid" id="reviewsGrid">
       <!-- generated by js/script.js from the REVIEWS array -->
@@ -205,9 +214,9 @@
 <!-- INSTAGRAM -->
 <section class="section instagram">
   <div class="container center">
-    <p class="eyebrow reveal">Communauté</p>
-    <h2 class="reveal">Suivez-nous sur Instagram</h2>
-    <p class="reveal">Découvrez nos nouveautés, inspirations et offres exclusives.</p>
+    <p class="eyebrow reveal" data-i18n="insta_eyebrow">Communauté</p>
+    <h2 class="reveal" data-i18n="insta_title">Suivez-nous sur Instagram</h2>
+    <p class="reveal" data-i18n="insta_subtitle">Découvrez nos nouveautés, inspirations et offres exclusives.</p>
     <a href="https://instagram.com/madame.store" class="btn-link reveal" target="_blank" rel="noopener">@madame.store</a>
 
     <div class="insta-grid">
@@ -224,11 +233,11 @@
 <!-- NEWSLETTER -->
 <section class="newsletter">
   <div class="container center reveal">
-    <h2>Reçois nos nouveautés en avant-première</h2>
-    <p>Inscris-toi pour recevoir nos nouvelles collections et nos offres exclusives.</p>
+    <h2 data-i18n="newsletter_title">Reçois nos nouveautés en avant-première</h2>
+    <p data-i18n="newsletter_subtitle">Inscris-toi pour recevoir nos nouvelles collections et nos offres exclusives.</p>
     <form id="newsletterForm" class="newsletter-form">
-      <input type="email" required placeholder="Votre adresse e-mail" id="newsletterEmail">
-      <button type="submit" class="btn btn-primary">Je m'inscris</button>
+      <input type="email" required placeholder="Votre adresse e-mail" data-i18n-placeholder="newsletter_placeholder" id="newsletterEmail">
+      <button type="submit" class="btn btn-primary" data-i18n="newsletter_btn">Je m'inscris</button>
     </form>
     <p class="newsletter-msg" id="newsletterMsg"></p>
   </div>
@@ -238,16 +247,16 @@
 <section class="section contact" id="contact">
   <div class="container contact-grid">
     <div class="reveal">
-      <p class="eyebrow">Une question ?</p>
-      <h2>Contactez-nous</h2>
-      <p>Notre équipe vous répond avec plaisir, y compris directement sur WhatsApp.</p>
-      <a href="https://wa.me/14045631778?text=Bonjour%20Madame%20Store%2C%20j'ai%20une%20question." class="btn btn-whatsapp" target="_blank" rel="noopener">💬 Discuter sur WhatsApp</a>
+      <p class="eyebrow" data-i18n="contact_eyebrow">Une question ?</p>
+      <h2 data-i18n="contact_title">Contactez-nous</h2>
+      <p data-i18n="contact_subtitle">Notre équipe vous répond avec plaisir, y compris directement sur WhatsApp.</p>
+      <a href="https://wa.me/14045631778?text=Bonjour%20Madame%20Store%2C%20j'ai%20une%20question." class="btn btn-whatsapp" target="_blank" rel="noopener" data-i18n="contact_whatsapp_btn">💬 Discuter sur WhatsApp</a>
     </div>
     <form class="contact-form reveal" id="contactForm">
-      <input type="text" placeholder="Votre nom" required>
-      <input type="email" placeholder="Votre e-mail" required>
-      <textarea placeholder="Votre message" rows="4" required></textarea>
-      <button type="submit" class="btn btn-dark">Envoyer</button>
+      <input type="text" placeholder="Votre nom" data-i18n-placeholder="contact_name_placeholder" required>
+      <input type="email" placeholder="Votre e-mail" data-i18n-placeholder="contact_email_placeholder" required>
+      <textarea placeholder="Votre message" rows="4" data-i18n-placeholder="contact_message_placeholder" required></textarea>
+      <button type="submit" class="btn btn-dark" data-i18n="contact_send_btn">Envoyer</button>
     </form>
   </div>
 </section>
@@ -257,7 +266,7 @@
   <div class="container footer-grid">
     <div class="footer-brand">
       <a href="#hero" class="logo light">Madame Store</a>
-      <p>Boutique de mode féminine — vêtements, chaussures et accessoires tendance.</p>
+      <p data-i18n="footer_desc">Boutique de mode féminine — vêtements, chaussures et accessoires tendance.</p>
       <div class="footer-social">
         <a href="https://instagram.com/madame.store" aria-label="Instagram" target="_blank" rel="noopener">📷</a>
         <a href="#" aria-label="Facebook">📘</a>
@@ -266,41 +275,41 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>Boutique</h4>
-      <a href="#hero">À propos</a>
-      <a href="#products">Boutique</a>
-      <a href="#contact">Livraison</a>
-      <a href="#contact">FAQ</a>
+      <h4 data-i18n="footer_col1_title">Boutique</h4>
+      <a href="#hero" data-i18n="footer_link_about">À propos</a>
+      <a href="#products" data-i18n="footer_link_shop">Boutique</a>
+      <a href="#contact" data-i18n="footer_link_delivery">Livraison</a>
+      <a href="#contact" data-i18n="footer_link_faq">FAQ</a>
     </div>
     <div class="footer-col">
-      <h4>Aide</h4>
-      <a href="#contact">Contact</a>
-      <a href="#">Conditions générales</a>
-      <a href="#">Politique de confidentialité</a>
+      <h4 data-i18n="footer_col2_title">Aide</h4>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <a href="#" data-i18n="footer_link_terms">Conditions générales</a>
+      <a href="#" data-i18n="footer_link_privacy">Politique de confidentialité</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Madame Store. Tous droits réservés.</p>
+    <p data-i18n="footer_copyright">© 2026 Madame Store. Tous droits réservés.</p>
   </div>
 </footer>
 
 <!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/14045631778?text=Bonjour%20Madame%20Store%2C%20je%20souhaite%20passer%20une%20commande." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp">💬</a>
+<a href="https://wa.me/14045631778?text=Bonjour%20Madame%20Store%2C%20je%20souhaite%20passer%20une%20commande." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Commander sur WhatsApp" data-i18n-aria="wa_float_aria">💬</a>
 
 <!-- CART DRAWER -->
 <div class="cart-overlay" id="cartOverlay"></div>
 <aside class="cart-drawer" id="cartDrawer">
   <div class="cart-header">
-    <h3>Votre panier</h3>
+    <h3 data-i18n="cart_title">Votre panier</h3>
     <button id="cartClose" aria-label="Fermer le panier">✕</button>
   </div>
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-footer">
     <div class="cart-total">
-      <span>Total</span>
+      <span data-i18n="cart_total">Total</span>
       <strong id="cartTotal">0 FCFA</strong>
     </div>
-    <a class="btn btn-whatsapp" id="cartWhatsapp" href="#" target="_blank" rel="noopener">Commander via WhatsApp</a>
+    <a class="btn btn-whatsapp" id="cartWhatsapp" href="#" target="_blank" rel="noopener" data-i18n="cart_checkout_btn">Commander via WhatsApp</a>
   </div>
 </aside>
 
@@ -311,6 +320,7 @@
   <div class="modal-body" id="modalBody"></div>
 </div>
 
+<script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>
