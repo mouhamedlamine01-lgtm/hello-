@@ -344,6 +344,80 @@
   .paie{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
     border-radius:999px;padding:6px 13px;font-size:11.5px;font-weight:700}
 
+  /* ============ épuisé ============ */
+  .carte.epuise{opacity:.6}
+  .carte.epuise .carte-visuel .pot-svg{filter:grayscale(.6) drop-shadow(0 12px 14px rgba(42,22,8,.18))}
+  .carte.epuise:hover .carte-visuel .pot-svg{transform:none}
+  .chip-epuise{left:auto;right:12px;background:#6B5546;color:#FFEBD2}
+  .btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:0 3px 0 var(--cacao)}
+  .btn[disabled]:hover{transform:none;box-shadow:0 3px 0 var(--cacao)}
+
+  /* ============ formulaires ============ */
+  .champ{display:flex;flex-direction:column;gap:6px}
+  .champ > label{font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--doux)}
+  .champ input,.champ select,.champ textarea{
+    font:inherit;font-size:14.5px;padding:11px 13px;border-radius:12px;width:100%;
+    border:2px solid var(--bord-fort);background:var(--creme-2);color:var(--encre);
+    transition:border-color .2s ease;
+  }
+  .champ input:focus,.champ select:focus,.champ textarea:focus{border-color:var(--orange);outline:none}
+  .champ textarea{resize:vertical;min-height:62px}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .erreur{color:var(--orange-2);font-size:12.5px;font-weight:700;margin-top:2px}
+
+  /* ============ composeur de coffret ============ */
+  .compo-tete{
+    position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--creme-2);border:2px solid var(--cacao);border-radius:var(--r-s);padding:12px 15px;
+  }
+  .compo-n{font-family:var(--display);font-size:21px;letter-spacing:.02em}
+  .compo-n small{font-family:var(--corps);font-size:12px;font-weight:700;color:var(--doux);display:block;letter-spacing:0}
+  .choix{
+    display:flex;align-items:center;gap:12px;border-radius:var(--r-s);
+    background:var(--creme-2);border:2px solid var(--bord-fort);padding:8px 12px;
+  }
+  .choix.plein{border-color:var(--orange);background:#FFF6E8}
+  .choix .pot-svg{width:38px;flex:0 0 auto}
+  .choix-nom{flex:1;min-width:0;font-size:14px;font-weight:700;line-height:1.25}
+
+  /* ============ événement ============ */
+  .evenement{
+    position:relative;overflow:hidden;border-radius:var(--r-xl);border:3px solid var(--cacao);
+    background:radial-gradient(85% 120% at 12% 0%, #B83058 0%, var(--bissap) 52%, #660F31 100%);
+    color:#F9E5EB;box-shadow:var(--sh-3);padding:44px;
+    display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;
+  }
+  .evenement::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.2;mix-blend-mode:overlay;pointer-events:none}
+  .evenement > *{position:relative;z-index:2}
+  .evenement .oeil{color:var(--miel)}
+  .evenement h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.7rem,3.6vw,2.6rem);
+    line-height:1;color:#fff;margin-top:10px}
+  .evenement > div > p{margin-top:15px;max-width:42ch;color:#EFC9D5}
+  .evt-liste{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .evt-liste span{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:6px 13px;font-size:12px;font-weight:700}
+  .evt-form{
+    background:var(--creme-2);border-radius:var(--r);padding:24px;
+    display:flex;flex-direction:column;gap:13px;color:var(--encre);
+    box-shadow:0 14px 34px rgba(60,10,30,.28);
+  }
+  .evt-form .btn{width:100%}
+
+  /* ============ mode gérant ============ */
+  .lien-gerant{background:none;border:0;padding:0;color:#8B7563;font-size:12.5px;
+    cursor:pointer;text-decoration:underline;font-weight:600}
+  .gerant{
+    position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:65;
+    width:min(310px,calc(100vw - 28px));max-height:min(60vh,460px);overflow:auto;
+    background:var(--creme-2);border:2px solid var(--cacao);border-radius:var(--r-s);
+    box-shadow:0 20px 44px rgba(26,14,7,.36);padding:16px;
+  }
+  .gerant h4{font-family:var(--display);text-transform:uppercase;font-size:15px;letter-spacing:.03em;margin-bottom:4px}
+  .gerant p{font-size:12px;color:var(--doux);margin-bottom:10px;line-height:1.5}
+  .gerant label{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:6px 0;cursor:pointer;font-weight:600}
+  .gerant input{width:17px;height:17px;accent-color:var(--orange);flex:0 0 auto}
+  .gerant .btn{width:100%;margin-top:12px}
+
   /* ============ panier ============ */
   .fond{position:fixed;inset:0;z-index:50;background:rgba(26,14,7,.45);
     backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
@@ -438,6 +512,7 @@
     .heros-carte{grid-template-columns:1fr;padding:34px 26px;gap:26px}
     .vitrine{max-width:400px;justify-self:center;width:100%;min-height:270px}
     .coffrets{grid-template-columns:1fr;padding:30px}
+    .evenement{grid-template-columns:1fr;padding:30px}
     .livraison-grille{grid-template-columns:1fr}
     .piliers{grid-template-columns:1fr}
     .pied-grille{grid-template-columns:1fr 1fr}
@@ -453,6 +528,9 @@
     .pied-grille{grid-template-columns:1fr}
     .nav .btn-principal{display:none}
     .chiffres{padding:22px}
+    .duo{grid-template-columns:1fr}
+    .evenement{padding:24px 20px}
+    .evt-form{padding:20px}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
@@ -466,7 +544,8 @@
     <a class="logo" href="#haut"><b>Maison Douceur</b><i>Guédiawaye</i></a>
     <nav class="liens">
       <a href="#carte">Nos pots</a>
-      <a href="#coffrets">Le coffret</a>
+      <a href="#coffrets">Coffrets</a>
+      <a href="#evenement">Événements</a>
       <a href="#histoire">L'histoire</a>
       <a href="#livraison">Livraison</a>
     </nav>
@@ -547,10 +626,48 @@
     <div class="coffrets">
       <div>
         <span class="oeil">À offrir ou à partager</span>
-        <h2>Le coffret découverte</h2>
-        <p>Vous n'arrivez pas à choisir ? On panache pour vous dans une boîte cadeau, avec une carte écrite à la main. Parfait pour un anniversaire, un bureau ou un dimanche en famille.</p>
+        <h2>Composez votre coffret</h2>
+        <p>Choisissez vous-même vos parfums, on les range dans une boîte cadeau avec une carte écrite à la main. Parfait pour un anniversaire, un bureau ou un dimanche en famille.</p>
       </div>
       <div class="coffret-liste" id="coffret-liste"></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="evenement">
+    <div class="evenement">
+      <div>
+        <span class="oeil">Baptême, mariage, bureau</span>
+        <h2>Un dessert pour tout le monde</h2>
+        <p>À partir de 20 pots, on prépare votre commande sur mesure : parfums au choix, étiquettes personnalisées au nom de l'invité, livraison sur le lieu de l'événement.</p>
+        <div class="evt-liste">
+          <span>Baptême</span><span>Mariage</span><span>Anniversaire</span><span>Bureau</span><span>Séminaire</span>
+        </div>
+      </div>
+      <form class="evt-form" id="evt-form" novalidate>
+        <div class="champ">
+          <label for="evt-type">Type d'événement</label>
+          <select id="evt-type">
+            <option>Baptême</option><option>Mariage</option><option>Anniversaire</option>
+            <option>Bureau / entreprise</option><option>Séminaire</option><option>Autre</option>
+          </select>
+        </div>
+        <div class="duo">
+          <div class="champ">
+            <label for="evt-pots">Nombre de pots</label>
+            <input id="evt-pots" type="number" min="20" step="5" value="30" inputmode="numeric">
+          </div>
+          <div class="champ">
+            <label for="evt-date">Date</label>
+            <input id="evt-date" type="date">
+          </div>
+        </div>
+        <div class="champ">
+          <label for="evt-tel">Votre téléphone</label>
+          <input id="evt-tel" type="tel" inputmode="tel" placeholder="77 123 45 67" autocomplete="tel">
+        </div>
+        <div id="evt-erreur" class="erreur" hidden></div>
+        <button class="btn btn-or" type="submit">Demander un devis <span class="fleche">›</span></button>
+      </form>
     </div>
   </section>
 
@@ -619,6 +736,7 @@
         <ul>
           <li><a href="#carte">Nos pots</a></li>
           <li><a href="#coffrets">Coffrets</a></li>
+          <li><a href="#evenement">Événements</a></li>
           <li><a href="#livraison">Zones de livraison</a></li>
         </ul>
       </div>
@@ -634,7 +752,7 @@
     </div>
     <div class="pied-bas">
       <span>© 2026 Maison Douceur — Hamo 4, Guédiawaye, Sénégal</span>
-      <span>Prototype — version de travail</span>
+      <button class="lien-gerant" id="lien-gerant" type="button">Mode gérant</button>
     </div>
   </div>
 </footer>
@@ -678,8 +796,8 @@
   ];
 
   var COFFRETS = [
-    {id:"coffret-4", nom:"Coffret Découverte", description:"4 pots panachés, boîte cadeau", prix:12000},
-    {id:"coffret-6", nom:"Coffret Partage", description:"6 pots panachés, boîte cadeau", prix:17000}
+    {id:"coffret-4", nom:"Coffret Découverte", description:"4 pots au choix, boîte cadeau", prix:12000, nbPots:4},
+    {id:"coffret-6", nom:"Coffret Partage", description:"6 pots au choix, boîte cadeau", prix:17000, nbPots:6}
   ];
 
   var ZONES = [
@@ -690,6 +808,19 @@
   ];
 
   var CLE = "maison-douceur-panier";
+  var CLE_DISPO = "maison-douceur-dispo";
+  var TEL_WA = "221774671493";
+
+  /* disponibilité du jour : le gérant coupe un parfum quand la fournée est écoulée */
+  var rupture = {};
+  try {
+    var brutD = localStorage.getItem(CLE_DISPO);
+    if(brutD) rupture = JSON.parse(brutD) || {};
+  } catch(e){ rupture = {}; }
+
+  function estDispo(id){ return rupture[id] !== true; }
+  function sauverDispo(){ try { localStorage.setItem(CLE_DISPO, JSON.stringify(rupture)); } catch(e){} }
+  function lienWA(msg){ return "https://wa.me/" + TEL_WA + "?text=" + encodeURIComponent(msg); }
 
   var TOUS = PRODUITS.concat(COFFRETS.map(function(c){
     return {id:c.id, nom:c.nom, court:"Coffret", description:c.description, prix:c.prix,
@@ -837,16 +968,19 @@
     elGrille.innerHTML = PRODUITS.filter(function(p){
       return filtreActif === "tout" || p.famille === filtreActif;
     }).map(function(p){
-      return '<article class="carte tilt">'
+      var ok = estDispo(p.id);
+      return '<article class="carte' + (ok ? " tilt" : " epuise") + '">'
         + '<div class="carte-visuel" style="background:linear-gradient(180deg,'+clair(p.teinte,.55)+','+p.teinte+')">'
         +   '<span class="chip">'+nomFamille(p.famille)+"</span>"
-        +   (p.best ? '<span class="chip chip-top">Best-seller</span>' : "")
+        +   (!ok ? '<span class="chip chip-epuise">Épuisé</span>'
+                 : (p.best ? '<span class="chip chip-top">Best-seller</span>' : ""))
         +   pot(p)
         + "</div>"
         + '<div class="carte-corps"><h3>'+p.nom+"</h3><p>"+p.description+"</p>"
         +   '<div class="carte-pied"><span class="prix">'+fcfa(p.prix)+"</span>"
-        +   '<button class="btn btn-sm btn-or ajouter" data-id="'+p.id+'">Ajouter</button></div>'
-        + "</div></article>";
+        +   (ok ? '<button class="btn btn-sm btn-or ajouter" data-id="'+p.id+'">Ajouter</button>'
+                : '<button class="btn btn-sm" disabled>Épuisé</button>')
+        +   "</div></div></article>";
     }).join("");
     brancherTilt();
   }
@@ -855,7 +989,7 @@
   document.getElementById("coffret-liste").innerHTML = COFFRETS.map(function(c){
     return '<div class="coffret"><div class="coffret-info"><strong>'+c.nom+"</strong><small>"+c.description+"</small></div>"
       + '<span class="prix">'+fcfa(c.prix)+"</span>"
-      + '<button class="btn btn-sm btn-sombre ajouter" data-id="'+c.id+'">Ajouter</button></div>';
+      + '<button class="btn btn-sm btn-sombre composer" data-id="'+c.id+'">Composer</button></div>';
   }).join("");
 
   document.getElementById("zones").innerHTML = ZONES.map(function(z){
@@ -911,24 +1045,43 @@
   })();
 
   /* ---------- panier ---------- */
-  var panier = {};
-  try { var brut = localStorage.getItem(CLE); if(brut) panier = JSON.parse(brut) || {}; }
-  catch(e){ panier = {}; }
+  var panier = [];
+  try { var brut = localStorage.getItem(CLE); if(brut) panier = JSON.parse(brut); }
+  catch(e){ panier = []; }
+  if(!Array.isArray(panier)) panier = [];
+
   function sauver(){ try { localStorage.setItem(CLE, JSON.stringify(panier)); } catch(e){} }
 
-  function nbArticles(){ var t=0; for(var id in panier) t += panier[id]; return t; }
+  function nbArticles(){
+    return panier.reduce(function(t,l){ return t + l.qte; }, 0);
+  }
   function sousTotal(){
-    var t=0;
-    for(var id in panier){ var p = parId(id); if(p) t += p.prix * panier[id]; }
-    return t;
+    return panier.reduce(function(t,l){ return t + l.prix * l.qte; }, 0);
+  }
+  function trouver(ref){
+    for(var i=0;i<panier.length;i++){ if(panier[i].ref === ref) return panier[i]; }
+    return null;
+  }
+  function ajouterLigne(ligne){
+    var l = trouver(ligne.ref);
+    if(l) l.qte += ligne.qte; else panier.push(ligne);
+    sauver(); majPanier();
+  }
+  function changerQte(ref, delta){
+    var l = trouver(ref);
+    if(!l) return;
+    l.qte += delta;
+    if(l.qte <= 0) panier = panier.filter(function(x){ return x.ref !== ref; });
+    sauver(); majPanier();
   }
 
   var pastille = document.getElementById("pastille");
   var corps = document.getElementById("tiroir-corps");
   var pied = document.getElementById("tiroir-pied");
+  var titreTiroir = document.getElementById("tiroir-titre");
   var toast = document.getElementById("toast");
   var toastTxt = document.getElementById("toast-txt");
-  var vueRecap = false, minuteur = null;
+  var vue = "panier", compo = null, client = null, minuteur = null;
 
   function annoncer(txt){
     toastTxt.textContent = txt;
@@ -936,37 +1089,42 @@
     clearTimeout(minuteur);
     minuteur = setTimeout(function(){ toast.classList.remove("ouvert"); }, 2400);
   }
-
-  function ajouter(id, delta){
-    var q = (panier[id] || 0) + delta;
-    if(q <= 0) delete panier[id]; else panier[id] = q;
-    sauver();
-    majPanier();
-  }
-
-  document.addEventListener("click", function(e){
-    var b = e.target.closest(".ajouter");
-    if(!b) return;
-    var p = parId(b.dataset.id);
-    ajouter(b.dataset.id, 1);
+  function pulser(){
     pastille.classList.remove("pulse");
     void pastille.offsetWidth;
     pastille.classList.add("pulse");
-    if(p) annoncer(p.nom + " ajouté au panier");
+  }
+
+  document.addEventListener("click", function(e){
+    var a = e.target.closest(".ajouter");
+    if(a){
+      var p = parId(a.dataset.id);
+      if(!p) return;
+      vue = "panier";
+      ajouterLigne({ref:p.id, type:"pot", id:p.id, nom:p.nom, prix:p.prix, qte:1});
+      pulser(); annoncer(p.nom + " ajouté au panier");
+      ouvrir();
+      return;
+    }
+    var c = e.target.closest(".composer");
+    if(c) ouvrirComposeur(c.dataset.id);
   });
 
   function majPanier(){
     var t = nbArticles();
     pastille.textContent = String(t);
     pastille.hidden = t === 0;
-    if(vueRecap) dessinerRecap(); else dessinerPanier();
+    if(vue === "compo") dessinerCompo();
+    else if(vue === "form") dessinerForm();
+    else if(vue === "envoi") dessinerEnvoi();
+    else dessinerPanier();
   }
 
+  /* ---------- vue panier ---------- */
   function dessinerPanier(){
-    document.getElementById("tiroir-titre").textContent = "Votre panier";
-    var ids = Object.keys(panier);
+    titreTiroir.textContent = "Votre panier";
 
-    if(ids.length === 0){
+    if(panier.length === 0){
       corps.innerHTML = '<div class="vide">' + pot(PRODUITS[4])
         + "<p>Votre panier est vide.<br>Il reste douze pots à découvrir.</p></div>";
       pied.innerHTML = '<button class="btn" id="continuer">Voir la carte</button>';
@@ -977,60 +1135,284 @@
       return;
     }
 
-    corps.innerHTML = ids.map(function(id){
-      var p = parId(id);
-      if(!p) return "";
-      return '<div class="ligne">' + pot(p)
-        + '<div class="ligne-info"><strong>'+p.nom+"</strong><small>"+fcfa(p.prix)+" l'unité</small></div>"
-        + '<div class="qte"><button data-moins="'+id+'" aria-label="Retirer un '+p.nom+'">−</button>'
-        + "<span>"+panier[id]+"</span>"
-        + '<button data-plus="'+id+'" aria-label="Ajouter un '+p.nom+'">+</button></div></div>';
+    corps.innerHTML = panier.map(function(l){
+      var illu = l.type === "coffret" && l.parfums && l.parfums.length
+        ? parId(l.parfums[0]) : parId(l.id);
+      return '<div class="ligne">' + (illu ? pot(illu) : "")
+        + '<div class="ligne-info"><strong>'+l.nom+"</strong><small>"
+        + (l.detail ? l.detail : fcfa(l.prix) + " l'unité") + "</small></div>"
+        + '<div class="qte"><button data-moins="'+l.ref+'" aria-label="Retirer un '+l.nom+'">−</button>'
+        + "<span>"+l.qte+"</span>"
+        + '<button data-plus="'+l.ref+'" aria-label="Ajouter un '+l.nom+'">+</button></div></div>';
     }).join("");
-
-    var st = sousTotal();
 
     pied.innerHTML =
         '<div class="total-ligne"><span>Livraison</span><span>à régler au livreur</span></div>'
-      + '<div class="total-ligne fort"><span>Total pots</span><span>'+fcfa(st)+"</span></div>"
+      + '<div class="total-ligne fort"><span>Total pots</span><span>'+fcfa(sousTotal())+"</span></div>"
       + '<button class="btn btn-or" id="valider">Commander <span class="fleche">›</span></button>';
 
     document.getElementById("valider").addEventListener("click", function(){
-      vueRecap = true; dessinerRecap();
+      vue = "form"; dessinerForm();
     });
   }
 
-  function dessinerRecap(){
-    document.getElementById("tiroir-titre").textContent = "Récapitulatif";
-    var st = sousTotal();
-    var lignes = Object.keys(panier).map(function(id){
-      var p = parId(id);
-      return p ? "• " + panier[id] + " × " + p.nom + " — " + fcfa(p.prix * panier[id]) : "";
+  /* ---------- vue composeur de coffret ---------- */
+  function ouvrirComposeur(id){
+    var c = null;
+    for(var i=0;i<COFFRETS.length;i++){ if(COFFRETS[i].id === id) c = COFFRETS[i]; }
+    if(!c) return;
+    compo = {coffret:c, choix:{}};
+    vue = "compo";
+    ouvrir();
+  }
+
+  function compoTotal(){
+    var t = 0;
+    for(var id in compo.choix) t += compo.choix[id];
+    return t;
+  }
+
+  function dessinerCompo(){
+    var c = compo.coffret;
+    var n = compoTotal();
+    titreTiroir.textContent = c.nom;
+
+    var dispo = PRODUITS.filter(function(p){ return estDispo(p.id); });
+
+    corps.innerHTML =
+        '<div class="compo-tete"><span class="compo-n">'+n+" / "+c.nbPots
+      + "<small>parfums choisis</small></span>"
+      + '<button class="btn btn-sm" id="compo-vider">Tout enlever</button></div>'
+      + dispo.map(function(p){
+          var q = compo.choix[p.id] || 0;
+          return '<div class="choix' + (q ? " plein" : "") + '">' + pot(p)
+            + '<span class="choix-nom">'+p.nom+"</span>"
+            + '<div class="qte"><button data-cmoins="'+p.id+'" aria-label="Retirer '+p.nom+'">−</button>'
+            + "<span>"+q+"</span>"
+            + '<button data-cplus="'+p.id+'" aria-label="Ajouter '+p.nom+'">+</button></div></div>';
+        }).join("");
+
+    var complet = n === c.nbPots;
+    pied.innerHTML =
+        '<div class="total-ligne fort"><span>'+c.nom+"</span><span>"+fcfa(c.prix)+"</span></div>"
+      + '<button class="btn btn-or" id="compo-ok"'+(complet ? "" : " disabled")+">"
+      + (complet ? "Ajouter au panier" : "Choisissez encore " + (c.nbPots - n) + " pot" + (c.nbPots - n > 1 ? "s" : ""))
+      + "</button>"
+      + '<button class="btn" id="compo-retour" style="width:100%;margin-top:10px">Retour au panier</button>';
+
+    document.getElementById("compo-vider").addEventListener("click", function(){
+      compo.choix = {}; dessinerCompo();
+    });
+    document.getElementById("compo-retour").addEventListener("click", function(){
+      vue = "panier"; dessinerPanier();
+    });
+    if(complet){
+      document.getElementById("compo-ok").addEventListener("click", ajouterCoffret);
+    }
+  }
+
+  function ajouterCoffret(){
+    var c = compo.coffret, ids = [];
+    for(var id in compo.choix){
+      for(var i=0;i<compo.choix[id];i++) ids.push(id);
+    }
+    var noms = ids.map(function(i){ var p = parId(i); return p ? p.court : i; });
+    ajouterLigne({
+      ref: c.id + "#" + ids.slice().sort().join("+"),
+      type:"coffret", id:c.id, nom:c.nom, prix:c.prix, qte:1,
+      parfums:ids, detail:noms.join(", ")
+    });
+    compo = null; vue = "panier";
+    pulser(); annoncer(c.nom + " ajouté au panier");
+    dessinerPanier();
+  }
+
+  /* ---------- vue formulaire ---------- */
+  function auj(){
+    var d = new Date(), m = String(d.getMonth()+1).padStart(2,"0"), j = String(d.getDate()).padStart(2,"0");
+    return d.getFullYear() + "-" + m + "-" + j;
+  }
+
+  function dessinerForm(){
+    titreTiroir.textContent = "Vos coordonnées";
+    var c = client || {};
+
+    corps.innerHTML =
+        '<div class="champ"><label for="cli-nom">Votre nom</label>'
+      + '<input id="cli-nom" type="text" autocomplete="name" value="'+(c.nom||"")+'"></div>'
+      + '<div class="champ"><label for="cli-tel">Téléphone</label>'
+      + '<input id="cli-tel" type="tel" inputmode="tel" autocomplete="tel" placeholder="77 123 45 67" value="'+(c.tel||"")+'"></div>'
+      + '<div class="champ"><label for="cli-quartier">Quartier</label><select id="cli-quartier">'
+      + ZONES.map(function(z){
+          return '<optgroup label="'+z.nom+'">'
+            + z.quartiers.split(", ").map(function(q){
+                return '<option'+(c.quartier===q ? " selected" : "")+">"+q+"</option>";
+              }).join("")
+            + "</optgroup>";
+        }).join("")
+      + '<option'+(c.quartier==="Autre quartier" ? " selected" : "")+">Autre quartier</option></select></div>"
+      + '<div class="champ"><label for="cli-adresse">Adresse précise</label>'
+      + '<input id="cli-adresse" type="text" placeholder="Villa n° 12, en face de la pharmacie" value="'+(c.adresse||"")+'"></div>'
+      + '<div class="duo"><div class="champ"><label for="cli-date">Date</label>'
+      + '<input id="cli-date" type="date" min="'+auj()+'" value="'+(c.date||auj())+'"></div>'
+      + '<div class="champ"><label for="cli-creneau">Créneau</label><select id="cli-creneau">'
+      + '<option>11h – 14h</option><option'+(c.creneau==="16h – 19h" ? " selected" : "")+">16h – 19h</option>"
+      + "</select></div></div>"
+      + '<div class="champ"><label for="cli-note">Note (facultatif)</label>'
+      + '<textarea id="cli-note" placeholder="Moins de sucre, bougie d\'anniversaire…">'+(c.note||"")+"</textarea></div>"
+      + '<div class="erreur" id="cli-erreur" hidden></div>';
+
+    pied.innerHTML =
+        '<div class="total-ligne fort"><span>Total pots</span><span>'+fcfa(sousTotal())+"</span></div>"
+      + '<button class="btn btn-or" id="cli-ok">Préparer ma commande <span class="fleche">›</span></button>'
+      + '<button class="btn" id="cli-retour" style="width:100%;margin-top:10px">Retour au panier</button>';
+
+    document.getElementById("cli-retour").addEventListener("click", function(){
+      vue = "panier"; dessinerPanier();
+    });
+    document.getElementById("cli-ok").addEventListener("click", function(){
+      var err = document.getElementById("cli-erreur");
+      var nom = document.getElementById("cli-nom").value.trim();
+      var tel = document.getElementById("cli-tel").value.trim();
+      var adresse = document.getElementById("cli-adresse").value.trim();
+
+      if(nom.length < 2) return montrer(err, "Indiquez votre nom pour qu'on sache qui livrer.");
+      if(tel.replace(/\D/g,"").length < 9) return montrer(err, "Le numéro semble incomplet — neuf chiffres au minimum.");
+      if(adresse.length < 4) return montrer(err, "Précisez l'adresse : le livreur en a besoin.");
+
+      err.hidden = true;
+      client = {
+        nom:nom, tel:tel, adresse:adresse,
+        quartier: document.getElementById("cli-quartier").value,
+        date: document.getElementById("cli-date").value,
+        creneau: document.getElementById("cli-creneau").value,
+        note: document.getElementById("cli-note").value.trim()
+      };
+      vue = "envoi"; dessinerEnvoi();
+    });
+  }
+
+  function montrer(el, txt){
+    el.textContent = txt;
+    el.hidden = false;
+  }
+
+  /* ---------- vue envoi ---------- */
+  function messageCommande(){
+    var lignes = panier.map(function(l){
+      return "• " + l.qte + " × " + l.nom
+        + (l.detail && l.type === "coffret" ? " (" + l.detail + ")" : "")
+        + " — " + fcfa(l.prix * l.qte);
     }).join("\n");
 
-    corps.innerHTML = '<div class="recap"><div class="recap-titre">Commande Maison Douceur</div>'
-      + lignes + "\n\n"
-      + "Total pots : " + fcfa(st) + "\n"
-      + "Livraison : à régler directement au livreur\n\n"
-      + "Créneau souhaité : 11h – 14h\n"
-      + "Paiement : Wave / Orange Money / espèces"
-      + '</div><div class="maquette">Prototype : ce récapitulatif partira sur WhatsApp au +221 77 467 14 93, avec le nom, l\'adresse et le créneau du client.</div>';
+    return "Bonjour Maison Douceur !\nJe souhaite commander :\n\n" + lignes + "\n\n"
+      + "Total pots : " + fcfa(sousTotal()) + "\n"
+      + "Livraison : à régler au livreur\n\n"
+      + "Nom : " + client.nom + "\n"
+      + "Téléphone : " + client.tel + "\n"
+      + "Quartier : " + client.quartier + "\n"
+      + "Adresse : " + client.adresse + "\n"
+      + "Date : " + client.date + "\n"
+      + "Créneau : " + client.creneau
+      + (client.note ? "\nNote : " + client.note : "");
+  }
 
-    pied.innerHTML = '<button class="btn" id="retour">Modifier le panier</button>';
-    document.getElementById("retour").addEventListener("click", function(){
-      vueRecap = false; dessinerPanier();
+  function dessinerEnvoi(){
+    titreTiroir.textContent = "Votre commande";
+    var msg = messageCommande();
+
+    corps.innerHTML = '<div class="recap"><div class="recap-titre">Message prêt à envoyer</div>' + msg + "</div>"
+      + '<div class="maquette">Le bouton ouvre WhatsApp avec ce message déjà écrit, vers le +221 77 467 14 93. Vous n\'avez plus qu\'à appuyer sur envoyer.</div>';
+
+    pied.innerHTML =
+        '<a class="btn btn-or" id="wa" href="'+lienWA(msg)+'" target="_blank" rel="noopener">Envoyer sur WhatsApp <span class="fleche">›</span></a>'
+      + '<button class="btn" id="envoi-retour" style="width:100%;margin-top:10px">Modifier</button>';
+
+    document.getElementById("envoi-retour").addEventListener("click", function(){
+      vue = "form"; dessinerForm();
     });
   }
 
   corps.addEventListener("click", function(e){
     var moins = e.target.closest("[data-moins]"), plus = e.target.closest("[data-plus]");
-    if(moins) ajouter(moins.dataset.moins, -1);
-    if(plus) ajouter(plus.dataset.plus, 1);
+    if(moins) changerQte(moins.dataset.moins, -1);
+    if(plus) changerQte(plus.dataset.plus, 1);
+
+    var cm = e.target.closest("[data-cmoins]"), cp = e.target.closest("[data-cplus]");
+    if(cm || cp){
+      var id = cm ? cm.dataset.cmoins : cp.dataset.cplus;
+      var q = (compo.choix[id] || 0) + (cm ? -1 : 1);
+      if(q <= 0) delete compo.choix[id];
+      else if(compoTotal() < compo.coffret.nbPots || cm) compo.choix[id] = q;
+      dessinerCompo();
+    }
   });
+
+  /* ---------- demande de devis événement ---------- */
+  (function(){
+    var f = document.getElementById("evt-form");
+    var dateEvt = document.getElementById("evt-date");
+    dateEvt.min = auj();
+
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var err = document.getElementById("evt-erreur");
+      var tel = document.getElementById("evt-tel").value.trim();
+      var pots = parseInt(document.getElementById("evt-pots").value, 10);
+
+      if(tel.replace(/\D/g,"").length < 9) return montrer(err, "Laissez un numéro joignable pour qu'on vous rappelle.");
+      if(!(pots >= 20)) return montrer(err, "Les commandes événement démarrent à 20 pots.");
+      if(!dateEvt.value) return montrer(err, "Indiquez la date de l'événement.");
+
+      err.hidden = true;
+      var msg = "Bonjour Maison Douceur !\nJe prépare un événement et je voudrais un devis.\n\n"
+        + "Type : " + document.getElementById("evt-type").value + "\n"
+        + "Nombre de pots : " + pots + "\n"
+        + "Date : " + dateEvt.value + "\n"
+        + "Téléphone : " + tel;
+
+      var lien = lienWA(msg);
+      window.open(lien, "_blank", "noopener");
+      err.innerHTML = 'Demande prête. <a href="'+lien+'" target="_blank" rel="noopener" style="color:inherit">Ouvrir WhatsApp</a> si rien ne s\'est passé.';
+      err.hidden = false;
+    });
+  })();
+
+  /* ---------- mode gérant : couper un parfum épuisé ---------- */
+  (function(){
+    var lien = document.getElementById("lien-gerant"), panneau = null;
+
+    lien.addEventListener("click", function(){
+      if(panneau){ panneau.remove(); panneau = null; return; }
+
+      panneau = document.createElement("div");
+      panneau.className = "gerant";
+      panneau.innerHTML = "<h4>Fournée du jour</h4>"
+        + "<p>Décochez un parfum dès qu'il est écoulé : il passe en « épuisé » sur la carte et ne peut plus être commandé.</p>"
+        + PRODUITS.map(function(p){
+            return '<label><input type="checkbox" data-d="'+p.id+'"'+(estDispo(p.id) ? " checked" : "")+">"+p.nom+"</label>";
+          }).join("")
+        + '<button class="btn btn-sm" id="gerant-fermer">Fermer</button>';
+      document.body.appendChild(panneau);
+
+      panneau.addEventListener("change", function(e){
+        var c = e.target.closest("[data-d]");
+        if(!c) return;
+        rupture[c.dataset.d] = !c.checked;
+        sauverDispo();
+        dessinerGrille();
+        if(vue === "compo") dessinerCompo();
+      });
+      document.getElementById("gerant-fermer").addEventListener("click", function(){
+        panneau.remove(); panneau = null;
+      });
+    });
+  })();
 
   /* ---------- tiroir ---------- */
   var tiroir = document.getElementById("tiroir"), fond = document.getElementById("fond");
   function ouvrir(){
-    vueRecap = false; majPanier();
+    majPanier();
     tiroir.classList.add("ouvert"); fond.classList.add("ouvert");
     tiroir.setAttribute("aria-hidden","false");
     document.getElementById("fermer").focus();
@@ -1039,7 +1421,9 @@
     tiroir.classList.remove("ouvert"); fond.classList.remove("ouvert");
     tiroir.setAttribute("aria-hidden","true");
   }
-  document.getElementById("ouvrir-panier").addEventListener("click", ouvrir);
+  document.getElementById("ouvrir-panier").addEventListener("click", function(){
+    vue = "panier"; ouvrir();
+  });
   document.getElementById("fermer").addEventListener("click", fermer);
   fond.addEventListener("click", fermer);
   document.addEventListener("keydown", function(e){ if(e.key === "Escape") fermer(); });

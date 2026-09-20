@@ -153,19 +153,30 @@
   "coffrets": [
     {
       "id": "coffret-4",
-      "nom": "Coffret Découverte — 4 pots",
-      "description": "Quatre pots panachés au choix, dans une boîte cadeau",
+      "nom": "Coffret Découverte",
+      "description": "Quatre pots au choix du client, dans une boîte cadeau",
       "prix": 12000,
-      "nbPots": 4
+      "nbPots": 4,
+      "personnalisable": true
     },
     {
       "id": "coffret-6",
-      "nom": "Coffret Partage — 6 pots",
-      "description": "Six pots panachés, l'idéal pour un dessert à plusieurs",
+      "nom": "Coffret Partage",
+      "description": "Six pots au choix, l'idéal pour un dessert à plusieurs",
       "prix": 17000,
-      "nbPots": 6
+      "nbPots": 6,
+      "personnalisable": true
     }
   ],
+  "evenement": {
+    "minPots": 20,
+    "types": ["Baptême", "Mariage", "Anniversaire", "Bureau / entreprise", "Séminaire", "Autre"],
+    "options": ["Parfums au choix", "Étiquettes personnalisées au nom de l'invité", "Livraison sur le lieu de l'événement"],
+    "surDevis": true
+  },
+  "disponibilite": {
+    "note": "L'épuisement d'un parfum est un état quotidien, pas une donnée de catalogue : il est géré par le gérant depuis le site et remis à zéro chaque matin."
+  },
   "editionsLimitees": ["Ditakh givré", "Lait caillé-bissap", "Brownie pécan"],
   "livraison": {
     "fraisRegisPar": "livreur",
