@@ -1,0 +1,177 @@
+{
+  "marque": {
+    "nom": "Maison Douceur",
+    "baseline": "Desserts en pot, faits chaque matin à Dakar",
+    "ville": "Dakar",
+    "devise": "XOF",
+    "sansAlcool": true
+  },
+  "familles": [
+    { "id": "classiques", "nom": "Les Classiques" },
+    { "id": "senegal", "nom": "Saveurs du Sénégal" },
+    { "id": "fruits", "nom": "Fruits & Fraîcheur" },
+    { "id": "chocolat", "nom": "Chocolat & Caramel" }
+  ],
+  "produits": [
+    {
+      "id": "tiramisu",
+      "nom": "Tiramisu Maison",
+      "famille": "classiques",
+      "description": "Mascarpone, café, biscuit imbibé, cacao amer",
+      "prix": 3500,
+      "bestSeller": true,
+      "teinte": "#E8D3B0",
+      "couches": ["#C9A375", "#F2E5CB"],
+      "topping": "#5B3A22"
+    },
+    {
+      "id": "cheesecake-speculoos",
+      "nom": "Cheesecake Spéculoos",
+      "famille": "classiques",
+      "description": "Crème fromagère vanillée, éclats de spéculoos",
+      "prix": 4000,
+      "bestSeller": false,
+      "teinte": "#E9C58F",
+      "couches": ["#B5752F", "#F6EFE0"],
+      "topping": "#A9692A"
+    },
+    {
+      "id": "panna-cotta",
+      "nom": "Panna Cotta Vanille",
+      "famille": "classiques",
+      "description": "Crème vanille Bourbon, coulis de fruits rouges",
+      "prix": 3000,
+      "bestSeller": false,
+      "teinte": "#F0D2D8",
+      "couches": ["#F7F1E4", "#B42447"],
+      "topping": "#8E1E3C"
+    },
+    {
+      "id": "thiakry",
+      "nom": "Thiakry Douceur",
+      "famille": "senegal",
+      "description": "Mil fin, lait caillé, vanille, raisins secs",
+      "prix": 2500,
+      "bestSeller": true,
+      "teinte": "#EADBC0",
+      "couches": ["#E6D3AE", "#F4EFE2"],
+      "topping": "#6B3F2A"
+    },
+    {
+      "id": "sombi-coco",
+      "nom": "Sombi Coco",
+      "famille": "senegal",
+      "description": "Riz au lait, lait de coco, fleur d'oranger",
+      "prix": 2500,
+      "bestSeller": false,
+      "teinte": "#EFE6D5",
+      "couches": ["#F1E7D5", "#FAF5EC"],
+      "topping": "#E0D2B4"
+    },
+    {
+      "id": "bouye",
+      "nom": "Bouye Crémeux",
+      "famille": "senegal",
+      "description": "Pain de singe (baobab), crème légère, miel",
+      "prix": 3000,
+      "bestSeller": true,
+      "teinte": "#E7D9AE",
+      "couches": ["#EFE0BE", "#F6EFDD"],
+      "topping": "#C9A227"
+    },
+    {
+      "id": "ngalax",
+      "nom": "Ngalax Signature",
+      "famille": "senegal",
+      "description": "Arachide, bouye, mil, texture onctueuse",
+      "prix": 3000,
+      "bestSeller": false,
+      "teinte": "#DFC49A",
+      "couches": ["#C79A63", "#D8B98C"],
+      "topping": "#8A5A2B"
+    },
+    {
+      "id": "mangue-passion",
+      "nom": "Mangue Passion",
+      "famille": "fruits",
+      "description": "Mousse mangue, insert passion, dés de mangue fraîche",
+      "prix": 3500,
+      "bestSeller": false,
+      "teinte": "#F7C86A",
+      "couches": ["#F2A81E", "#FFC93C"],
+      "topping": "#D4610F"
+    },
+    {
+      "id": "coco-ananas",
+      "nom": "Coco Ananas",
+      "famille": "fruits",
+      "description": "Crème coco, ananas rôti, croustillant noix de coco",
+      "prix": 3500,
+      "bestSeller": false,
+      "teinte": "#F2E3B8",
+      "couches": ["#F5D77A", "#F8F3E7"],
+      "topping": "#E8B93A"
+    },
+    {
+      "id": "yaourt-granola",
+      "nom": "Yaourt Granola Miel",
+      "famille": "fruits",
+      "description": "Yaourt brassé, granola maison, miel, fruits de saison",
+      "prix": 3000,
+      "bestSeller": false,
+      "teinte": "#EDE3CF",
+      "couches": ["#F7EFDD", "#FBF6EA"],
+      "topping": "#A9702F"
+    },
+    {
+      "id": "fondant-chocolat",
+      "nom": "Fondant Cœur Chocolat",
+      "famille": "chocolat",
+      "description": "Chocolat noir 70 %, cœur coulant, fleur de sel",
+      "prix": 4000,
+      "bestSeller": false,
+      "teinte": "#C9A98C",
+      "couches": ["#2E1B12", "#4A2D1E"],
+      "topping": "#1F120B"
+    },
+    {
+      "id": "caramel-beurre-sale",
+      "nom": "Caramel Beurre Salé",
+      "famille": "chocolat",
+      "description": "Crème caramel, biscuit sablé, éclats caramélisés",
+      "prix": 3500,
+      "bestSeller": false,
+      "teinte": "#EFC58C",
+      "couches": ["#C98A2B", "#E8B75C"],
+      "topping": "#8A5A2B"
+    }
+  ],
+  "coffrets": [
+    {
+      "id": "coffret-4",
+      "nom": "Coffret Découverte — 4 pots",
+      "description": "Quatre pots panachés au choix, dans une boîte cadeau",
+      "prix": 12000,
+      "nbPots": 4
+    },
+    {
+      "id": "coffret-6",
+      "nom": "Coffret Partage — 6 pots",
+      "description": "Six pots panachés, l'idéal pour un dessert à plusieurs",
+      "prix": 17000,
+      "nbPots": 6
+    }
+  ],
+  "editionsLimitees": ["Ditakh givré", "Lait caillé-bissap", "Brownie pécan"],
+  "livraison": {
+    "franco": 20000,
+    "heureLimite": "15h",
+    "creneaux": ["11h – 14h", "16h – 19h"],
+    "zones": [
+      { "nom": "Zone 1", "quartiers": "Plateau, Médina, Fann, Point E, Mermoz", "frais": 1000 },
+      { "nom": "Zone 2", "quartiers": "Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff", "frais": 1500 },
+      { "nom": "Zone 3", "quartiers": "Parcelles, Pikine, Guédiawaye, Rufisque", "frais": 2500 }
+    ],
+    "paiements": ["Wave", "Orange Money", "Espèces à la livraison"]
+  }
+}

@@ -1,0 +1,886 @@
+<title>Maison Douceur</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700;800&family=Yellowtail&display=swap">
+<style>
+  :root{
+    --cacao:#2E1B12;
+    --cacao-2:#452A1B;
+    --cacao-3:#5C3A25;
+    --creme:#F7EFE2;
+    --creme-2:#FDF8EF;
+    --miel:#FFC93C;
+    --miel-2:#E9A800;
+    --terre:#C8481E;
+    --bissap:#8E1E3C;
+    --encre:#2A1A11;
+    --encre-doux:#7A6355;
+    --ligne:#E0D1BA;
+    --r-xl:36px;
+    --r:22px;
+    --r-s:13px;
+    --ombre:6px 6px 0 var(--encre);
+    --ombre-s:4px 4px 0 var(--encre);
+    --display:"Anton","Haettenschweiler","Arial Narrow",sans-serif;
+    --script:"Yellowtail","Brush Script MT",cursive;
+    --corps:"Figtree","Avenir Next","Segoe UI",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--creme);
+    color:var(--encre);
+    font-family:var(--corps);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3{margin:0;text-wrap:balance}
+  p{margin:0}
+  button{font:inherit;color:inherit}
+
+  :focus-visible{outline:3px solid var(--terre);outline-offset:3px}
+
+  .wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+
+  /* ---------- bandeau défilant ---------- */
+  .annonce{
+    background:var(--cacao);color:var(--creme);
+    overflow:hidden;border-bottom:2px solid var(--encre);
+  }
+  .annonce-piste{
+    display:flex;gap:0;width:max-content;
+    animation:defile 34s linear infinite;
+  }
+  .annonce-groupe{display:flex;gap:44px;padding:9px 22px;white-space:nowrap}
+  .annonce span{
+    font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .annonce span::before{content:"◆";color:var(--miel);margin-right:12px;font-size:9px;vertical-align:1px}
+  @keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ---------- navigation ---------- */
+  .nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:var(--creme-2);border-bottom:2px solid var(--encre);
+  }
+  .nav-in{display:flex;align-items:center;gap:26px;height:70px}
+  .logo{
+    font-family:var(--script);font-size:29px;line-height:1;color:var(--cacao);
+    text-decoration:none;white-space:nowrap;padding-bottom:6px;
+  }
+  .liens{display:flex;gap:24px;margin-left:8px}
+  .liens a{
+    color:var(--encre);text-decoration:none;font-weight:600;font-size:14.5px;
+    padding:4px 0;border-bottom:2px solid transparent;
+  }
+  .liens a:hover{border-bottom-color:var(--miel)}
+  .nav-actions{margin-left:auto;display:flex;align-items:center;gap:12px}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    border:2px solid var(--encre);border-radius:999px;
+    padding:11px 22px;font-weight:800;font-size:13px;
+    letter-spacing:.07em;text-transform:uppercase;
+    background:var(--miel);color:var(--encre);
+    cursor:pointer;text-decoration:none;
+    box-shadow:var(--ombre-s);
+    transition:transform .14s ease,box-shadow .14s ease,background .14s ease;
+  }
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--encre)}
+  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--encre)}
+  .btn-creme{background:var(--creme-2)}
+  .btn-cacao{background:var(--cacao);color:var(--creme);border-color:var(--encre)}
+  .btn-sm{padding:8px 15px;font-size:11.5px}
+
+  .panier-btn{position:relative}
+  .pastille{
+    position:absolute;top:-7px;right:-7px;min-width:22px;height:22px;
+    border-radius:999px;background:var(--terre);color:#fff;
+    border:2px solid var(--encre);
+    font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 5px;
+  }
+
+  .menu-btn{display:none;background:var(--creme-2)}
+
+  /* ---------- héros ---------- */
+  .heros{padding-block:26px 8px}
+  .heros-carte{
+    position:relative;overflow:hidden;
+    border:2px solid var(--encre);border-radius:var(--r-xl);
+    background:var(--cacao);
+    box-shadow:var(--ombre);
+    display:grid;grid-template-columns:1.15fr .85fr;gap:26px;
+    padding:46px 44px;align-items:center;
+  }
+  .rayons{
+    position:absolute;inset:-40%;
+    background:repeating-conic-gradient(from 8deg at 16% 88%,
+      var(--cacao-2) 0deg 5.2deg, var(--cacao) 5.2deg 10.4deg);
+    opacity:.85;
+  }
+  .heros-texte{position:relative;z-index:2}
+  .heros h1{
+    font-family:var(--display);color:var(--creme);
+    font-size:clamp(2.6rem,6.1vw,5.1rem);line-height:.92;
+    text-transform:uppercase;letter-spacing:.005em;
+  }
+  .heros h1 em{font-style:normal;color:var(--miel)}
+  .heros p{
+    color:#E6D6C3;max-width:46ch;margin-top:20px;font-size:16.5px;
+  }
+  .heros-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+  .heros-visuel{
+    position:relative;z-index:2;
+    border:2px solid var(--encre);border-radius:var(--r);
+    background:radial-gradient(120% 120% at 30% 15%, #E4622C 0%, var(--terre) 55%, #A5390F 100%);
+    aspect-ratio:1/1;max-width:100%;
+    display:grid;place-items:center;
+  }
+  .heros-visuel .pot-svg{width:62%;filter:drop-shadow(0 12px 0 rgba(0,0,0,.18))}
+  .vol{position:absolute;animation:flotte 5s ease-in-out infinite}
+  @keyframes flotte{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-11px) rotate(calc(var(--rot,0deg) + 8deg))}}
+
+  /* ---------- bande typo + rangée de pots ---------- */
+  .bande{padding-block:52px 10px;text-align:center;position:relative}
+  .bande h2{
+    font-family:var(--display);text-transform:uppercase;
+    font-size:clamp(2.3rem,10.4vw,8rem);line-height:.86;color:var(--cacao);
+    letter-spacing:-.005em;
+  }
+  .bande h2 .creux{
+    color:transparent;-webkit-text-stroke:2px var(--cacao);
+  }
+  .rangee{
+    display:flex;justify-content:center;align-items:flex-end;
+    gap:clamp(2px,1.4vw,16px);margin-top:26px;flex-wrap:nowrap;
+  }
+  .rangee .pot-svg{width:clamp(56px,10.5vw,124px);flex:0 0 auto}
+  .rangee .pot-svg:nth-child(odd){transform:translateY(-10px)}
+  .badge-etoile{
+    position:absolute;right:clamp(4px,4vw,64px);top:clamp(132px,22vw,220px);
+    width:clamp(92px,13vw,132px);transform:rotate(-11deg);z-index:3;
+  }
+  .badge-etoile text{font-family:var(--display);fill:var(--encre)}
+
+  /* ---------- sections ---------- */
+  .section{padding-block:56px}
+  .titre-bloc{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:8px}
+  .oeil{
+    font-size:12px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;
+    color:var(--terre);
+  }
+  .section h2.titre{
+    font-family:var(--display);text-transform:uppercase;
+    font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1;color:var(--cacao);margin-top:6px;
+  }
+  .sous{color:var(--encre-doux);max-width:54ch;margin-top:12px}
+
+  .filtres{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 24px}
+  .filtre{
+    border:2px solid var(--encre);border-radius:999px;background:transparent;
+    padding:8px 17px;font-weight:700;font-size:13.5px;cursor:pointer;
+    transition:background .14s ease,color .14s ease;
+  }
+  .filtre:hover{background:#EFE2CD}
+  .filtre[aria-pressed="true"]{background:var(--cacao);color:var(--creme);border-color:var(--encre)}
+
+  .grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:20px}
+
+  .carte{
+    border:2px solid var(--encre);border-radius:var(--r);
+    background:var(--creme-2);overflow:hidden;
+    box-shadow:var(--ombre-s);
+    display:flex;flex-direction:column;
+    transition:transform .16s ease,box-shadow .16s ease;
+  }
+  .carte:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--encre)}
+  .carte-visuel{
+    position:relative;display:grid;place-items:center;
+    padding:22px 10px 14px;border-bottom:2px solid var(--encre);
+  }
+  .carte-visuel .pot-svg{width:104px}
+  .chip{
+    position:absolute;left:12px;top:12px;
+    background:var(--cacao);color:var(--creme);
+    font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    padding:5px 10px;border-radius:999px;border:2px solid var(--encre);
+  }
+  .chip-top{
+    left:auto;right:12px;background:var(--miel);color:var(--encre);
+  }
+  .carte-corps{padding:16px 16px 15px;display:flex;flex-direction:column;gap:7px;flex:1}
+  .carte h3{font-size:17.5px;font-weight:800;line-height:1.2}
+  .carte p{font-size:13.5px;color:var(--encre-doux);line-height:1.45}
+  .carte-pied{margin-top:auto;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .prix{font-family:var(--display);font-size:22px;letter-spacing:.02em;color:var(--cacao)}
+
+  /* ---------- coffrets ---------- */
+  .coffrets{
+    border:2px solid var(--encre);border-radius:var(--r-xl);
+    background:var(--miel);box-shadow:var(--ombre);
+    padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
+  }
+  .coffrets h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.9rem,4.2vw,3rem);line-height:.98;color:var(--cacao)}
+  .coffrets p{margin-top:14px;max-width:44ch;color:#5C4227;font-weight:500}
+  .coffret-liste{display:flex;flex-direction:column;gap:13px}
+  .coffret{
+    background:var(--creme-2);border:2px solid var(--encre);border-radius:var(--r-s);
+    padding:15px 17px;display:flex;align-items:center;gap:14px;
+  }
+  .coffret-info{flex:1;min-width:0}
+  .coffret strong{display:block;font-size:15.5px}
+  .coffret small{color:var(--encre-doux);font-size:12.5px}
+
+  /* ---------- histoire ---------- */
+  .histoire{
+    border:2px solid var(--encre);border-radius:var(--r-xl);
+    background:var(--cacao);color:var(--creme);box-shadow:var(--ombre);
+    padding:44px;position:relative;overflow:hidden;
+  }
+  .histoire-in{position:relative;z-index:2}
+  .histoire h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1;color:var(--creme)}
+  .histoire h2 em{font-style:normal;color:var(--miel)}
+  .histoire .texte{color:#E1D0BC;max-width:58ch;margin-top:18px}
+  .piliers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+  .pilier{
+    background:var(--cacao-2);border:2px solid #1B0F09;border-radius:var(--r-s);padding:20px;
+  }
+  .pilier .num{font-family:var(--display);font-size:15px;color:var(--miel);letter-spacing:.1em}
+  .pilier h3{margin-top:9px;font-size:16.5px;font-weight:800;color:var(--creme)}
+  .pilier p{margin-top:7px;font-size:13.5px;color:#C9B4A0;line-height:1.5}
+
+  /* ---------- livraison ---------- */
+  .livraison-grille{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;margin-top:26px}
+  .zones{display:flex;flex-direction:column;gap:11px}
+  .zone{
+    display:flex;align-items:center;gap:14px;
+    border:2px solid var(--encre);border-radius:var(--r-s);
+    background:var(--creme-2);padding:14px 17px;
+  }
+  .zone-nom{font-family:var(--display);font-size:17px;color:var(--terre);letter-spacing:.04em;flex:0 0 auto}
+  .zone-q{flex:1;font-size:13.5px;color:var(--encre-doux);min-width:0}
+  .zone-f{font-weight:800;font-size:15px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .infos{
+    border:2px solid var(--encre);border-radius:var(--r-s);
+    background:var(--bissap);color:#FBEAEF;padding:20px;
+  }
+  .infos h3{font-family:var(--display);text-transform:uppercase;font-size:19px;letter-spacing:.03em;color:#fff}
+  .infos ul{margin:14px 0 0;padding-left:18px;font-size:14px;line-height:1.85}
+  .paiements{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .paie{background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700}
+
+  /* ---------- panier ---------- */
+  .fond{
+    position:fixed;inset:0;background:rgba(42,26,17,.5);z-index:50;
+    opacity:0;pointer-events:none;transition:opacity .2s ease;
+  }
+  .fond.ouvert{opacity:1;pointer-events:auto}
+  .tiroir{
+    position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:60;
+    background:var(--creme);border-left:2px solid var(--encre);
+    transform:translateX(102%);transition:transform .26s cubic-bezier(.4,0,.2,1);
+    display:flex;flex-direction:column;
+  }
+  .tiroir.ouvert{transform:translateX(0)}
+  .tiroir-tete{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:18px 20px;padding-top:calc(18px + env(safe-area-inset-top,0px));
+    border-bottom:2px solid var(--encre);background:var(--creme-2);
+  }
+  .tiroir-tete h2{font-family:var(--display);text-transform:uppercase;font-size:21px;letter-spacing:.03em}
+  .fermer{
+    border:2px solid var(--encre);background:var(--creme);border-radius:999px;
+    width:36px;height:36px;cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;
+  }
+  .tiroir-corps{flex:1;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+  .ligne{
+    display:flex;gap:13px;align-items:center;
+    border:2px solid var(--encre);border-radius:var(--r-s);background:var(--creme-2);padding:11px 13px;
+  }
+  .ligne .pot-svg{width:38px;flex:0 0 auto}
+  .ligne-info{flex:1;min-width:0}
+  .ligne-info strong{display:block;font-size:14.5px;line-height:1.25}
+  .ligne-info small{color:var(--encre-doux);font-size:12.5px;font-variant-numeric:tabular-nums}
+  .qte{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+  .qte button{
+    width:27px;height:27px;border:2px solid var(--encre);background:var(--creme);
+    border-radius:8px;cursor:pointer;font-weight:800;line-height:1;display:grid;place-items:center;
+  }
+  .qte span{min-width:17px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+  .vide{text-align:center;color:var(--encre-doux);padding:42px 10px;font-size:14.5px}
+  .vide .pot-svg{width:74px;opacity:.5;margin-bottom:14px}
+  .tiroir-pied{border-top:2px solid var(--encre);background:var(--creme-2);padding:18px 20px;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
+  .total-ligne{display:flex;justify-content:space-between;font-size:14px;margin-bottom:7px;color:var(--encre-doux);font-variant-numeric:tabular-nums}
+  .total-ligne.fort{color:var(--encre);font-weight:800;font-size:19px;margin-bottom:14px}
+  .tiroir-pied .btn{width:100%}
+  .note-franco{font-size:12.5px;color:var(--terre);font-weight:700;margin-bottom:12px}
+
+  .recap{border:2px solid var(--encre);border-radius:var(--r-s);background:var(--creme-2);padding:16px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}
+  .recap-titre{font-family:var(--display);text-transform:uppercase;font-size:19px;margin-bottom:6px}
+  .maquette{
+    font-size:12px;color:var(--encre-doux);background:#EFE2CD;
+    border:1.5px dashed var(--encre-doux);border-radius:10px;padding:10px 12px;margin-top:12px;
+  }
+
+  /* ---------- pied de page ---------- */
+  .pied{
+    background:var(--cacao);color:#D8C6B2;border-top:2px solid var(--encre);margin-top:56px;
+    padding-block:42px 30px;
+  }
+  .pied-grille{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+  .pied .logo{color:var(--creme);font-size:32px}
+  .pied h4{font-family:var(--display);text-transform:uppercase;font-size:14px;letter-spacing:.11em;color:var(--miel);margin:0 0 12px}
+  .pied ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px}
+  .pied a{color:#D8C6B2;text-decoration:none}
+  .pied a:hover{color:var(--creme);text-decoration:underline}
+  .pied-bas{
+    margin-top:32px;padding-top:18px;border-top:1px solid #4A2D1E;
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#A38E7A;
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:900px){
+    .heros-carte{grid-template-columns:1fr;padding:34px 26px;gap:30px}
+    .heros-visuel{max-width:330px;justify-self:center;width:100%}
+    .coffrets{grid-template-columns:1fr;padding:28px}
+    .livraison-grille{grid-template-columns:1fr}
+    .piliers{grid-template-columns:1fr}
+    .pied-grille{grid-template-columns:1fr 1fr}
+    .liens{display:none}
+    .menu-btn{display:inline-flex}
+  }
+  @media (max-width:620px){
+    .nav-in{height:62px;gap:12px}
+    .logo{font-size:24px}
+    .histoire{padding:28px 22px}
+    .section{padding-block:42px}
+    .carte-visuel .pot-svg{width:92px}
+    .pied-grille{grid-template-columns:1fr}
+    .nav .btn-commander{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  }
+</style>
+
+<div class="annonce">
+  <div class="annonce-piste" id="piste"></div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#haut">Maison Douceur</a>
+    <nav class="liens">
+      <a href="#carte">Nos pots</a>
+      <a href="#coffrets">Le coffret</a>
+      <a href="#histoire">L'histoire</a>
+      <a href="#livraison">Livraison</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-creme btn-sm panier-btn" id="ouvrir-panier" aria-label="Ouvrir le panier">
+        Panier
+        <span class="pastille" id="pastille" hidden>0</span>
+      </button>
+      <a class="btn btn-commander" href="#carte">Commander</a>
+      <a class="btn btn-creme btn-sm menu-btn" href="#carte">Carte</a>
+    </div>
+  </div>
+</header>
+
+<main id="haut">
+  <section class="wrap heros">
+    <div class="heros-carte">
+      <div class="rayons" aria-hidden="true"></div>
+      <div class="heros-texte">
+        <h1>Les meilleurs desserts <em>en pot</em> de Dakar.</h1>
+        <p>Tiramisu, thiakry, mangue-passion… Douze recettes préparées chaque matin dans notre cuisine, servies dans un pot prêt à emporter. Vous choisissez, on livre.</p>
+        <div class="heros-actions">
+          <a class="btn" href="#carte">Je craque →</a>
+          <a class="btn btn-cacao" href="#livraison">Comment on livre</a>
+        </div>
+      </div>
+      <div class="heros-visuel" id="heros-visuel" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="wrap bande">
+    <h2>Crémeux. <span class="creux">Frais.</span> Généreux.</h2>
+    <div class="rangee" id="rangee" aria-hidden="true"></div>
+    <svg class="badge-etoile" id="badge" viewBox="0 0 140 140" aria-hidden="true"></svg>
+  </section>
+
+  <section class="wrap section" id="carte">
+    <div class="titre-bloc">
+      <div>
+        <div class="oeil">La carte du jour</div>
+        <h2 class="titre">Douze pots, quatre familles</h2>
+        <p class="sous">Tout est fait le matin même, sans alcool, en pot de 180 ml. Filtrez par envie.</p>
+      </div>
+    </div>
+    <div class="filtres" id="filtres"></div>
+    <div class="grille" id="grille"></div>
+  </section>
+
+  <section class="wrap section" id="coffrets">
+    <div class="coffrets">
+      <div>
+        <div class="oeil">À offrir ou à partager</div>
+        <h2>Le coffret découverte</h2>
+        <p>Vous n'arrivez pas à choisir ? On panache pour vous dans une boîte cadeau, avec une carte écrite à la main. Parfait pour un anniversaire, un bureau ou un dimanche en famille.</p>
+      </div>
+      <div class="coffret-liste" id="coffret-liste"></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="histoire">
+    <div class="histoire">
+      <div class="histoire-in">
+        <div class="oeil" style="color:var(--miel)">Notre histoire</div>
+        <h2>Née d'une cuisine <em>à Sacré-Cœur</em></h2>
+        <p class="texte">Maison Douceur a commencé avec dix pots de thiakry vendus à des voisines, un samedi matin. L'idée est restée la même : des desserts que l'on prépare le jour même, avec ce que le marché donne de meilleur, et qu'on livre encore frais. Pas de conservateurs, pas de vitrine qui attend — ce qui n'est pas vendu le jour, on ne le fait pas le lendemain.</p>
+        <div class="piliers">
+          <div class="pilier">
+            <div class="num">Chaque matin</div>
+            <h3>Production du jour</h3>
+            <p>On cuisine la veille au soir et le matin même. Les pots partent en livraison dans les heures qui suivent.</p>
+          </div>
+          <div class="pilier">
+            <div class="num">Toute la carte</div>
+            <h3>100 % sans alcool</h3>
+            <p>Même le tiramisu. Le café et la vanille suffisent largement — toute la famille peut en manger.</p>
+          </div>
+          <div class="pilier">
+            <div class="num">Marché Kermel</div>
+            <h3>Produits d'ici</h3>
+            <p>Bouye, ditakh, mangue, arachide, lait caillé : on achète local et de saison, au marché.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="livraison">
+    <div class="oeil">Livraison</div>
+    <h2 class="titre">On vient jusqu'à vous, dans Dakar</h2>
+    <p class="sous">Commandez avant 15h pour être livré le jour même. Après 15h, ce sera pour le lendemain.</p>
+    <div class="livraison-grille">
+      <div class="zones" id="zones"></div>
+      <div class="infos">
+        <h3>Bon à savoir</h3>
+        <ul>
+          <li>Créneaux : 11h – 14h et 16h – 19h</li>
+          <li>Livraison offerte dès 20 000 F</li>
+          <li>Pots à conserver au frais, à manger sous 48h</li>
+          <li>Commande d'entreprise ou événement : écrivez-nous</li>
+        </ul>
+        <div class="paiements">
+          <span class="paie">Wave</span>
+          <span class="paie">Orange Money</span>
+          <span class="paie">Espèces à la livraison</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-grille">
+      <div>
+        <div class="logo">Maison Douceur</div>
+        <p style="margin-top:10px;font-size:14px;max-width:34ch">Desserts en pot faits chaque matin à Dakar. Livrés frais, mangés vite.</p>
+      </div>
+      <div>
+        <h4>La boutique</h4>
+        <ul>
+          <li><a href="#carte">Nos pots</a></li>
+          <li><a href="#coffrets">Coffrets</a></li>
+          <li><a href="#livraison">Zones de livraison</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Nous joindre</h4>
+        <ul>
+          <li>+221 77 000 00 00</li>
+          <li>bonjour@maisondouceur.sn</li>
+          <li>Sacré-Cœur 3, Dakar</li>
+          <li>Du mardi au dimanche</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pied-bas">
+      <span>© 2026 Maison Douceur — Dakar, Sénégal</span>
+      <span>Prototype — les coordonnées sont fictives</span>
+    </div>
+  </div>
+</footer>
+
+<div class="fond" id="fond"></div>
+<aside class="tiroir" id="tiroir" role="dialog" aria-modal="true" aria-label="Votre panier" aria-hidden="true">
+  <div class="tiroir-tete">
+    <h2 id="tiroir-titre">Votre panier</h2>
+    <button class="fermer" id="fermer" aria-label="Fermer le panier">✕</button>
+  </div>
+  <div class="tiroir-corps" id="tiroir-corps"></div>
+  <div class="tiroir-pied" id="tiroir-pied"></div>
+</aside>
+
+<script>
+(function(){
+  "use strict";
+
+  var FAMILLES = [
+    {id:"classiques", nom:"Les Classiques", court:"Classiques"},
+    {id:"senegal",    nom:"Saveurs du Sénégal", court:"Sénégal"},
+    {id:"fruits",     nom:"Fruits & Fraîcheur", court:"Fruits"},
+    {id:"chocolat",   nom:"Chocolat & Caramel", court:"Chocolat"}
+  ];
+
+  var PRODUITS = [
+    {id:"tiramisu", nom:"Tiramisu Maison", famille:"classiques", description:"Mascarpone, café, biscuit imbibé, cacao amer", prix:3500, best:true, teinte:"#E8D3B0", couches:["#C9A375","#F2E5CB"], topping:"#5B3A22"},
+    {id:"cheesecake-speculoos", nom:"Cheesecake Spéculoos", famille:"classiques", description:"Crème fromagère vanillée, éclats de spéculoos", prix:4000, best:false, teinte:"#E9C58F", couches:["#B5752F","#F6EFE0"], topping:"#A9692A"},
+    {id:"panna-cotta", nom:"Panna Cotta Vanille", famille:"classiques", description:"Crème vanille Bourbon, coulis de fruits rouges", prix:3000, best:false, teinte:"#F0D2D8", couches:["#F7F1E4","#B42447"], topping:"#8E1E3C"},
+    {id:"thiakry", nom:"Thiakry Douceur", famille:"senegal", description:"Mil fin, lait caillé, vanille, raisins secs", prix:2500, best:true, teinte:"#EADBC0", couches:["#E6D3AE","#F4EFE2"], topping:"#6B3F2A"},
+    {id:"sombi-coco", nom:"Sombi Coco", famille:"senegal", description:"Riz au lait, lait de coco, fleur d'oranger", prix:2500, best:false, teinte:"#EFE6D5", couches:["#F1E7D5","#FAF5EC"], topping:"#E0D2B4"},
+    {id:"bouye", nom:"Bouye Crémeux", famille:"senegal", description:"Pain de singe (baobab), crème légère, miel", prix:3000, best:true, teinte:"#E7D9AE", couches:["#EFE0BE","#F6EFDD"], topping:"#C9A227"},
+    {id:"ngalax", nom:"Ngalax Signature", famille:"senegal", description:"Arachide, bouye, mil, texture onctueuse", prix:3000, best:false, teinte:"#DFC49A", couches:["#C79A63","#D8B98C"], topping:"#8A5A2B"},
+    {id:"mangue-passion", nom:"Mangue Passion", famille:"fruits", description:"Mousse mangue, insert passion, dés de mangue fraîche", prix:3500, best:false, teinte:"#F7C86A", couches:["#F2A81E","#FFC93C"], topping:"#D4610F"},
+    {id:"coco-ananas", nom:"Coco Ananas", famille:"fruits", description:"Crème coco, ananas rôti, croustillant noix de coco", prix:3500, best:false, teinte:"#F2E3B8", couches:["#F5D77A","#F8F3E7"], topping:"#E8B93A"},
+    {id:"yaourt-granola", nom:"Yaourt Granola Miel", famille:"fruits", description:"Yaourt brassé, granola maison, miel, fruits de saison", prix:3000, best:false, teinte:"#EDE3CF", couches:["#F7EFDD","#FBF6EA"], topping:"#A9702F"},
+    {id:"fondant-chocolat", nom:"Fondant Cœur Chocolat", famille:"chocolat", description:"Chocolat noir 70 %, cœur coulant, fleur de sel", prix:4000, best:false, teinte:"#C9A98C", couches:["#2E1B12","#4A2D1E"], topping:"#1F120B"},
+    {id:"caramel-beurre-sale", nom:"Caramel Beurre Salé", famille:"chocolat", description:"Crème caramel, biscuit sablé, éclats caramélisés", prix:3500, best:false, teinte:"#EFC58C", couches:["#C98A2B","#E8B75C"], topping:"#8A5A2B"}
+  ];
+
+  var COFFRETS = [
+    {id:"coffret-4", nom:"Coffret Découverte", description:"4 pots panachés, boîte cadeau", prix:12000},
+    {id:"coffret-6", nom:"Coffret Partage", description:"6 pots panachés, boîte cadeau", prix:17000}
+  ];
+
+  var ZONES = [
+    {nom:"Zone 1", quartiers:"Plateau, Médina, Fann, Point E, Mermoz", frais:1000},
+    {nom:"Zone 2", quartiers:"Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff", frais:1500},
+    {nom:"Zone 3", quartiers:"Parcelles, Pikine, Guédiawaye, Rufisque", frais:2500}
+  ];
+
+  var FRANCO = 20000;
+  var FRAIS_BASE = 1000;
+  var CLE = "maison-douceur-panier";
+
+  var TOUS = PRODUITS.concat(COFFRETS.map(function(c){
+    return {id:c.id, nom:c.nom, description:c.description, prix:c.prix, famille:"coffret",
+            teinte:"#F1DDB4", couches:["#C98A2B","#F2E5CB"], topping:"#8A5A2B"};
+  }));
+
+  function parId(id){
+    for(var i=0;i<TOUS.length;i++){ if(TOUS[i].id===id) return TOUS[i]; }
+    return null;
+  }
+
+  function fcfa(n){
+    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " F";
+  }
+
+  /* ---------- illustration du pot ---------- */
+  var compteurPot = 0;
+  var CUP = "M24,54 L96,54 L88,146 Q87,155 78,155 L42,155 Q33,155 32,146 Z";
+
+  function pot(p){
+    var n = ++compteurPot;
+    var cid = "cup-" + n;
+    var bas = p.couches[0], haut = p.couches[1];
+    var miettes = "";
+    var pos = [[44,70],[57,66],[70,71],[50,78],[66,79],[60,74]];
+    for(var i=0;i<pos.length;i++){
+      miettes += '<circle cx="'+pos[i][0]+'" cy="'+pos[i][1]+'" r="'+(i%2?2.6:3.4)+'" fill="'+p.topping+'"/>';
+    }
+    return '<svg class="pot-svg" viewBox="0 0 120 170" role="img" aria-label="Pot ' + p.nom + '">'
+      + '<defs><clipPath id="'+cid+'"><path d="'+CUP+'"/></clipPath></defs>'
+      + '<g clip-path="url(#'+cid+')">'
+      +   '<rect x="18" y="54" width="84" height="104" fill="'+bas+'"/>'
+      +   '<rect x="18" y="54" width="84" height="42" fill="'+haut+'"/>'
+      +   '<path d="M18,96 q21,-9 42,0 t42,0 v8 h-84 z" fill="'+haut+'"/>'
+      +   miettes
+      +   '<rect x="38" y="60" width="7" height="86" rx="3.5" fill="#FFFFFF" opacity="0.26"/>'
+      + '</g>'
+      + '<path d="'+CUP+'" fill="none" stroke="#2A1A11" stroke-width="3.2" stroke-linejoin="round"/>'
+      + '<rect x="15" y="35" width="90" height="23" rx="9" fill="#2E1B12" stroke="#2A1A11" stroke-width="3"/>'
+      + '<ellipse cx="60" cy="46.5" rx="27" ry="8.5" fill="#F7EFE2"/>'
+      + '<text x="60" y="51" text-anchor="middle" font-family="Yellowtail, cursive" font-size="12" fill="#2E1B12">Douceur</text>'
+      + '</svg>';
+  }
+
+  /* ---------- bandeau défilant ---------- */
+  var MESSAGES = [
+    "Livraison dans tout Dakar",
+    "Commandé avant 15h, livré le jour même",
+    "Wave &amp; Orange Money",
+    "Fait maison chaque matin",
+    "100 % sans alcool"
+  ];
+  (function(){
+    var groupe = '<div class="annonce-groupe">'
+      + MESSAGES.map(function(m){ return "<span>"+m+"</span>"; }).join("")
+      + '</div>';
+    document.getElementById("piste").innerHTML = groupe + groupe;
+  })();
+
+  /* ---------- héros + rangée ---------- */
+  document.getElementById("heros-visuel").innerHTML =
+      pot(PRODUITS[7])
+    + '<svg class="vol" style="--rot:-14deg;left:9%;top:14%;width:38px" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="20" rx="16" ry="11" fill="#FFC93C" stroke="#2A1A11" stroke-width="2.5"/></svg>'
+    + '<svg class="vol" style="--rot:18deg;animation-delay:.8s;right:11%;top:22%;width:30px" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="7" fill="#F7EFE2" stroke="#2A1A11" stroke-width="2.5"/></svg>'
+    + '<svg class="vol" style="--rot:8deg;animation-delay:1.6s;left:14%;bottom:16%;width:34px" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="20" rx="12" ry="16" fill="#8E1E3C" stroke="#2A1A11" stroke-width="2.5"/></svg>'
+    + '<svg class="vol" style="--rot:-8deg;animation-delay:2.3s;right:13%;bottom:20%;width:26px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="#2E1B12" stroke="#2A1A11" stroke-width="2.5"/></svg>';
+
+  document.getElementById("rangee").innerHTML =
+    [0,3,7,11,5,1].map(function(i){ return pot(PRODUITS[i]); }).join("");
+
+  /* ---------- badge étoile ---------- */
+  (function(){
+    var pts = 18, R = 66, r = 55, cx = 70, cy = 70, d = "";
+    for(var i=0;i<pts*2;i++){
+      var rad = (i%2===0) ? R : r;
+      var a = (Math.PI * i) / pts - Math.PI/2;
+      d += (i===0 ? "M" : "L") + (cx + rad*Math.cos(a)).toFixed(2) + "," + (cy + rad*Math.sin(a)).toFixed(2);
+    }
+    document.getElementById("badge").innerHTML =
+        '<path d="'+d+'Z" fill="#FFC93C" stroke="#2A1A11" stroke-width="3"/>'
+      + '<text x="70" y="62" text-anchor="middle" font-size="17" letter-spacing="1">DÈS</text>'
+      + '<text x="70" y="88" text-anchor="middle" font-size="25" letter-spacing="0.5">2 500 F</text>';
+  })();
+
+  /* ---------- filtres + grille ---------- */
+  var filtreActif = "tout";
+  var elFiltres = document.getElementById("filtres");
+  var elGrille = document.getElementById("grille");
+
+  (function(){
+    var liste = [{id:"tout", court:"Tout"}].concat(FAMILLES);
+    elFiltres.innerHTML = liste.map(function(f){
+      return '<button class="filtre" data-f="'+f.id+'" aria-pressed="'+(f.id==="tout")+'">'+f.court+'</button>';
+    }).join("");
+  })();
+
+  elFiltres.addEventListener("click", function(e){
+    var b = e.target.closest(".filtre");
+    if(!b) return;
+    filtreActif = b.dataset.f;
+    Array.prototype.forEach.call(elFiltres.children, function(x){
+      x.setAttribute("aria-pressed", String(x.dataset.f === filtreActif));
+    });
+    dessinerGrille();
+  });
+
+  function nomFamille(id){
+    for(var i=0;i<FAMILLES.length;i++){ if(FAMILLES[i].id===id) return FAMILLES[i].court; }
+    return "";
+  }
+
+  function dessinerGrille(){
+    var liste = PRODUITS.filter(function(p){
+      return filtreActif === "tout" || p.famille === filtreActif;
+    });
+    elGrille.innerHTML = liste.map(function(p){
+      return '<article class="carte">'
+        + '<div class="carte-visuel" style="background:'+p.teinte+'">'
+        +   '<span class="chip">'+nomFamille(p.famille)+'</span>'
+        +   (p.best ? '<span class="chip chip-top">Best-seller</span>' : '')
+        +   pot(p)
+        + '</div>'
+        + '<div class="carte-corps">'
+        +   '<h3>'+p.nom+'</h3>'
+        +   '<p>'+p.description+'</p>'
+        +   '<div class="carte-pied">'
+        +     '<span class="prix">'+fcfa(p.prix)+'</span>'
+        +     '<button class="btn btn-sm ajouter" data-id="'+p.id+'">Ajouter</button>'
+        +   '</div>'
+        + '</div>'
+        + '</article>';
+    }).join("");
+  }
+  dessinerGrille();
+
+  /* ---------- coffrets & zones ---------- */
+  document.getElementById("coffret-liste").innerHTML = COFFRETS.map(function(c){
+    return '<div class="coffret">'
+      + '<div class="coffret-info"><strong>'+c.nom+'</strong><small>'+c.description+'</small></div>'
+      + '<span class="prix">'+fcfa(c.prix)+'</span>'
+      + '<button class="btn btn-sm btn-cacao ajouter" data-id="'+c.id+'">Ajouter</button>'
+      + '</div>';
+  }).join("");
+
+  document.getElementById("zones").innerHTML = ZONES.map(function(z){
+    return '<div class="zone">'
+      + '<span class="zone-nom">'+z.nom+'</span>'
+      + '<span class="zone-q">'+z.quartiers+'</span>'
+      + '<span class="zone-f">'+fcfa(z.frais)+'</span>'
+      + '</div>';
+  }).join("");
+
+  /* ---------- panier ---------- */
+  var panier = {};
+  try {
+    var brut = localStorage.getItem(CLE);
+    if(brut) panier = JSON.parse(brut) || {};
+  } catch(e){ panier = {}; }
+
+  function sauver(){
+    try { localStorage.setItem(CLE, JSON.stringify(panier)); } catch(e){}
+  }
+
+  function nbArticles(){
+    var n = 0;
+    for(var id in panier) n += panier[id];
+    return n;
+  }
+
+  function sousTotal(){
+    var t = 0;
+    for(var id in panier){
+      var p = parId(id);
+      if(p) t += p.prix * panier[id];
+    }
+    return t;
+  }
+
+  function ajouter(id, delta){
+    var q = (panier[id] || 0) + delta;
+    if(q <= 0) delete panier[id]; else panier[id] = q;
+    sauver();
+    majPanier();
+  }
+
+  document.addEventListener("click", function(e){
+    var b = e.target.closest(".ajouter");
+    if(!b) return;
+    ajouter(b.dataset.id, 1);
+    ouvrir();
+  });
+
+  var pastille = document.getElementById("pastille");
+  var corps = document.getElementById("tiroir-corps");
+  var pied = document.getElementById("tiroir-pied");
+  var vueRecap = false;
+
+  function majPanier(){
+    var n = nbArticles();
+    pastille.textContent = String(n);
+    pastille.hidden = n === 0;
+    if(vueRecap) dessinerRecap(); else dessinerPanier();
+  }
+
+  function dessinerPanier(){
+    document.getElementById("tiroir-titre").textContent = "Votre panier";
+    var ids = Object.keys(panier);
+
+    if(ids.length === 0){
+      corps.innerHTML = '<div class="vide">'
+        + pot(PRODUITS[4])
+        + '<p>Votre panier est vide.<br>Il reste douze pots à découvrir.</p></div>';
+      pied.innerHTML = '<button class="btn btn-creme" id="continuer">Voir la carte</button>';
+      document.getElementById("continuer").addEventListener("click", function(){
+        fermer();
+        document.getElementById("carte").scrollIntoView({behavior:"smooth"});
+      });
+      return;
+    }
+
+    corps.innerHTML = ids.map(function(id){
+      var p = parId(id);
+      if(!p) return "";
+      return '<div class="ligne">'
+        + pot(p)
+        + '<div class="ligne-info"><strong>'+p.nom+'</strong><small>'+fcfa(p.prix)+' l\'unité</small></div>'
+        + '<div class="qte">'
+        +   '<button data-moins="'+id+'" aria-label="Retirer un '+p.nom+'">−</button>'
+        +   '<span>'+panier[id]+'</span>'
+        +   '<button data-plus="'+id+'" aria-label="Ajouter un '+p.nom+'">+</button>'
+        + '</div>'
+        + '</div>';
+    }).join("");
+
+    var st = sousTotal();
+    var frais = st >= FRANCO ? 0 : FRAIS_BASE;
+    var manque = FRANCO - st;
+
+    pied.innerHTML =
+        (manque > 0 ? '<div class="note-franco">Plus que '+fcfa(manque)+' pour la livraison offerte</div>' : '')
+      + '<div class="total-ligne"><span>Sous-total</span><span>'+fcfa(st)+'</span></div>'
+      + '<div class="total-ligne"><span>Livraison (Zone 1)</span><span>'+(frais === 0 ? "Offerte" : "à partir de "+fcfa(frais))+'</span></div>'
+      + '<div class="total-ligne fort"><span>Total</span><span>'+fcfa(st + frais)+'</span></div>'
+      + '<button class="btn" id="valider">Commander</button>';
+
+    document.getElementById("valider").addEventListener("click", function(){
+      vueRecap = true;
+      dessinerRecap();
+    });
+  }
+
+  function dessinerRecap(){
+    document.getElementById("tiroir-titre").textContent = "Récapitulatif";
+    var st = sousTotal();
+    var frais = st >= FRANCO ? 0 : FRAIS_BASE;
+
+    var lignes = Object.keys(panier).map(function(id){
+      var p = parId(id);
+      return p ? "• " + panier[id] + " × " + p.nom + " — " + fcfa(p.prix * panier[id]) : "";
+    }).join("\n");
+
+    corps.innerHTML = '<div class="recap">'
+      + '<div class="recap-titre">Commande Maison Douceur</div>'
+      + lignes + "\n\n"
+      + "Sous-total : " + fcfa(st) + "\n"
+      + "Livraison : " + (frais === 0 ? "offerte" : "à partir de " + fcfa(frais)) + "\n"
+      + "Total : " + fcfa(st + frais) + "\n\n"
+      + "Créneau souhaité : 11h – 14h\n"
+      + "Paiement : Wave / Orange Money / espèces"
+      + '</div>'
+      + '<div class="maquette">Prototype : ce récapitulatif partira sur WhatsApp au +221 77 000 00 00, avec le nom, l\'adresse et le créneau du client.</div>';
+
+    pied.innerHTML = '<button class="btn btn-creme" id="retour">Modifier le panier</button>';
+    document.getElementById("retour").addEventListener("click", function(){
+      vueRecap = false;
+      dessinerPanier();
+    });
+  }
+
+  corps.addEventListener("click", function(e){
+    var moins = e.target.closest("[data-moins]");
+    var plus = e.target.closest("[data-plus]");
+    if(moins) ajouter(moins.dataset.moins, -1);
+    if(plus) ajouter(plus.dataset.plus, 1);
+  });
+
+  /* ---------- tiroir ---------- */
+  var tiroir = document.getElementById("tiroir");
+  var fond = document.getElementById("fond");
+
+  function ouvrir(){
+    vueRecap = false;
+    majPanier();
+    tiroir.classList.add("ouvert");
+    fond.classList.add("ouvert");
+    tiroir.setAttribute("aria-hidden","false");
+    document.getElementById("fermer").focus();
+  }
+  function fermer(){
+    tiroir.classList.remove("ouvert");
+    fond.classList.remove("ouvert");
+    tiroir.setAttribute("aria-hidden","true");
+  }
+
+  document.getElementById("ouvrir-panier").addEventListener("click", ouvrir);
+  document.getElementById("fermer").addEventListener("click", fermer);
+  fond.addEventListener("click", fermer);
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") fermer();
+  });
+
+  majPanier();
+})();
+</script>
