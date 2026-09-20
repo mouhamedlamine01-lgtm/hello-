@@ -168,14 +168,15 @@
   ],
   "editionsLimitees": ["Ditakh givré", "Lait caillé-bissap", "Brownie pécan"],
   "livraison": {
-    "franco": 20000,
+    "fraisRegisPar": "livreur",
+    "note": "Les frais de livraison se règlent directement avec le livreur, selon le quartier.",
     "heureLimite": "15h",
     "creneaux": ["11h – 14h", "16h – 19h"],
     "zones": [
-      { "nom": "Zone 1", "quartiers": "Hamo, Sam Notaire, Wakhinane, Golf, Guédiawaye centre", "frais": 1000 },
-      { "nom": "Zone 2", "quartiers": "Parcelles Assainies, Pikine, Thiaroye, Yeumbeul", "frais": 1500 },
-      { "nom": "Zone 3", "quartiers": "Plateau, Médina, Fann, Point E, Mermoz", "frais": 2000 },
-      { "nom": "Zone 4", "quartiers": "Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff", "frais": 2500 }
+      { "nom": "Guédiawaye", "quartiers": "Hamo, Sam Notaire, Wakhinane, Golf, Guédiawaye centre" },
+      { "nom": "Banlieue", "quartiers": "Parcelles Assainies, Pikine, Thiaroye, Yeumbeul" },
+      { "nom": "Dakar centre", "quartiers": "Plateau, Médina, Fann, Point E, Mermoz" },
+      { "nom": "Corniche", "quartiers": "Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff" }
     ],
     "paiements": ["Wave", "Orange Money", "Espèces à la livraison"]
   }

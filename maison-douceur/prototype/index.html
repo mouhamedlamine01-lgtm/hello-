@@ -329,9 +329,10 @@
     transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s ease;
   }
   .zone:hover{transform:translateX(5px);border-color:var(--cacao)}
-  .zone-nom{font-family:var(--display);text-transform:uppercase;font-size:15px;color:var(--orange-2);flex:0 0 auto;letter-spacing:.03em}
+  .zone-nom{font-family:var(--display);text-transform:uppercase;font-size:15px;color:var(--orange-2);
+    flex:0 0 132px;letter-spacing:.03em}
   .zone-q{flex:1;font-size:13.5px;color:var(--doux);min-width:0}
-  .zone-f{font-weight:800;font-size:15px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .note-zones{margin-top:6px;font-size:13px;color:var(--doux);font-style:italic}
   .infos{
     position:relative;overflow:hidden;border-radius:var(--r-s);border:2px solid var(--cacao);
     background:radial-gradient(90% 120% at 18% 0%, #B83058 0%, var(--bissap) 55%, #6B1434 100%);
@@ -396,11 +397,6 @@
   .total-ligne{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;color:var(--doux);font-variant-numeric:tabular-nums}
   .total-ligne.fort{color:var(--encre);font-family:var(--display);font-size:21px;margin-bottom:14px;letter-spacing:.02em}
   .tiroir-pied .btn{width:100%}
-  .jauge{height:8px;border-radius:999px;background:var(--creme-3);overflow:hidden;margin-bottom:9px;
-    border:1.5px solid var(--bord-fort)}
-  .jauge i{display:block;height:100%;background:linear-gradient(90deg,var(--miel),var(--orange));
-    transition:width .5s cubic-bezier(.2,.8,.3,1)}
-  .note-franco{font-size:12.5px;color:var(--orange-2);font-weight:700;margin-bottom:13px}
   .recap{border-radius:var(--r-s);background:var(--creme-2);border:2px solid var(--bord-fort);
     padding:18px;font-size:13.5px;line-height:1.75;white-space:pre-wrap}
   .recap-titre{font-family:var(--display);text-transform:uppercase;font-size:17px;margin-bottom:8px;letter-spacing:.02em}
@@ -599,7 +595,7 @@
         <h3>Bon à savoir</h3>
         <ul>
           <li>Créneaux : 11h – 14h et 16h – 19h</li>
-          <li>Livraison offerte dès 20 000 F</li>
+          <li>Frais de livraison réglés au livreur</li>
           <li>Pots à conserver au frais, à manger sous 48h</li>
           <li>Commande d'entreprise ou événement : écrivez-nous</li>
         </ul>
@@ -687,13 +683,13 @@
   ];
 
   var ZONES = [
-    {nom:"Zone 1", quartiers:"Hamo, Sam Notaire, Wakhinane, Golf, Guédiawaye centre", frais:1000},
-    {nom:"Zone 2", quartiers:"Parcelles Assainies, Pikine, Thiaroye, Yeumbeul", frais:1500},
-    {nom:"Zone 3", quartiers:"Plateau, Médina, Fann, Point E, Mermoz", frais:2000},
-    {nom:"Zone 4", quartiers:"Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff", frais:2500}
+    {nom:"Guédiawaye", quartiers:"Hamo, Sam Notaire, Wakhinane, Golf, Guédiawaye centre"},
+    {nom:"Banlieue", quartiers:"Parcelles Assainies, Pikine, Thiaroye, Yeumbeul"},
+    {nom:"Dakar centre", quartiers:"Plateau, Médina, Fann, Point E, Mermoz"},
+    {nom:"Corniche", quartiers:"Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff"}
   ];
 
-  var FRANCO = 20000, FRAIS_BASE = 1000, CLE = "maison-douceur-panier";
+  var CLE = "maison-douceur-panier";
 
   var TOUS = PRODUITS.concat(COFFRETS.map(function(c){
     return {id:c.id, nom:c.nom, court:"Coffret", description:c.description, prix:c.prix,
@@ -864,9 +860,9 @@
 
   document.getElementById("zones").innerHTML = ZONES.map(function(z){
     return '<div class="zone"><span class="zone-nom">'+z.nom+"</span>"
-      + '<span class="zone-q">'+z.quartiers+"</span>"
-      + '<span class="zone-f">'+fcfa(z.frais)+"</span></div>";
-  }).join("");
+      + '<span class="zone-q">'+z.quartiers+"</span></div>";
+  }).join("")
+  + '<p class="note-zones">Les frais de livraison se règlent directement avec le livreur, selon votre quartier.</p>';
 
   /* ---------- inclinaison 3D ---------- */
   var doux = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -992,18 +988,10 @@
     }).join("");
 
     var st = sousTotal();
-    var frais = st >= FRANCO ? 0 : FRAIS_BASE;
-    var manque = FRANCO - st;
-    var part = Math.min(100, Math.round(st / FRANCO * 100));
 
     pied.innerHTML =
-        '<div class="jauge"><i style="width:'+(manque > 0 ? part : 100)+'%"></i></div>'
-      + '<div class="note-franco">' + (manque > 0
-          ? "Plus que " + fcfa(manque) + " pour la livraison offerte"
-          : "Livraison offerte, c'est acquis") + "</div>"
-      + '<div class="total-ligne"><span>Sous-total</span><span>'+fcfa(st)+"</span></div>"
-      + '<div class="total-ligne"><span>Livraison (Zone 1)</span><span>'+(frais===0 ? "Offerte" : "dès "+fcfa(frais))+"</span></div>"
-      + '<div class="total-ligne fort"><span>Total</span><span>'+fcfa(st+frais)+"</span></div>"
+        '<div class="total-ligne"><span>Livraison</span><span>à régler au livreur</span></div>'
+      + '<div class="total-ligne fort"><span>Total pots</span><span>'+fcfa(st)+"</span></div>"
       + '<button class="btn btn-or" id="valider">Commander <span class="fleche">›</span></button>';
 
     document.getElementById("valider").addEventListener("click", function(){
@@ -1013,7 +1001,7 @@
 
   function dessinerRecap(){
     document.getElementById("tiroir-titre").textContent = "Récapitulatif";
-    var st = sousTotal(), frais = st >= FRANCO ? 0 : FRAIS_BASE;
+    var st = sousTotal();
     var lignes = Object.keys(panier).map(function(id){
       var p = parId(id);
       return p ? "• " + panier[id] + " × " + p.nom + " — " + fcfa(p.prix * panier[id]) : "";
@@ -1021,9 +1009,8 @@
 
     corps.innerHTML = '<div class="recap"><div class="recap-titre">Commande Maison Douceur</div>'
       + lignes + "\n\n"
-      + "Sous-total : " + fcfa(st) + "\n"
-      + "Livraison : " + (frais === 0 ? "offerte" : "dès " + fcfa(frais)) + "\n"
-      + "Total : " + fcfa(st + frais) + "\n\n"
+      + "Total pots : " + fcfa(st) + "\n"
+      + "Livraison : à régler directement au livreur\n\n"
       + "Créneau souhaité : 11h – 14h\n"
       + "Paiement : Wave / Orange Money / espèces"
       + '</div><div class="maquette">Prototype : ce récapitulatif partira sur WhatsApp au +221 77 467 14 93, avec le nom, l\'adresse et le créneau du client.</div>';
