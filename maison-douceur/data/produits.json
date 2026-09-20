@@ -1,10 +1,14 @@
 {
   "marque": {
     "nom": "Maison Douceur",
-    "baseline": "Desserts en pot, faits chaque matin à Dakar",
-    "ville": "Dakar",
+    "baseline": "Desserts en pot, faits chaque matin à Guédiawaye",
+    "adresse": "Hamo 4, Guédiawaye",
+    "ville": "Guédiawaye",
+    "region": "Dakar",
+    "telephones": ["+221 77 467 14 93", "+221 78 525 96 41"],
+    "whatsapp": "+221 77 467 14 93",
     "devise": "XOF",
-    "sansAlcool": true
+    "halal": true
   },
   "familles": [
     { "id": "classiques", "nom": "Les Classiques" },
@@ -168,9 +172,10 @@
     "heureLimite": "15h",
     "creneaux": ["11h – 14h", "16h – 19h"],
     "zones": [
-      { "nom": "Zone 1", "quartiers": "Plateau, Médina, Fann, Point E, Mermoz", "frais": 1000 },
-      { "nom": "Zone 2", "quartiers": "Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff", "frais": 1500 },
-      { "nom": "Zone 3", "quartiers": "Parcelles, Pikine, Guédiawaye, Rufisque", "frais": 2500 }
+      { "nom": "Zone 1", "quartiers": "Hamo, Sam Notaire, Wakhinane, Golf, Guédiawaye centre", "frais": 1000 },
+      { "nom": "Zone 2", "quartiers": "Parcelles Assainies, Pikine, Thiaroye, Yeumbeul", "frais": 1500 },
+      { "nom": "Zone 3", "quartiers": "Plateau, Médina, Fann, Point E, Mermoz", "frais": 2000 },
+      { "nom": "Zone 4", "quartiers": "Sacré-Cœur, Ouakam, Almadies, Ngor, Yoff", "frais": 2500 }
     ],
     "paiements": ["Wave", "Orange Money", "Espèces à la livraison"]
   }
