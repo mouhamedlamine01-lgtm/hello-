@@ -1,353 +1,447 @@
 <title>Maison Douceur</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700;800&family=Yellowtail&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600;1,9..144,700&display=swap">
 <style>
   :root{
-    --cacao:#2E1B12;
-    --cacao-2:#452A1B;
-    --cacao-3:#5C3A25;
-    --creme:#F7EFE2;
-    --creme-2:#FDF8EF;
+    --noir:#1A0E07;
+    --cacao:#33190D;
+    --cacao-2:#4A2614;
+    --creme:#FBF4E9;
+    --creme-2:#FFFCF7;
+    --creme-3:#F2E6D4;
+    --orange:#F2761B;
+    --orange-2:#E2560E;
+    --mandarine:#FB9A24;
     --miel:#FFC93C;
-    --miel-2:#E9A800;
-    --terre:#C8481E;
-    --bissap:#8E1E3C;
-    --encre:#2A1A11;
-    --encre-doux:#7A6355;
-    --ligne:#E0D1BA;
-    --r-xl:36px;
-    --r:22px;
-    --r-s:13px;
-    --ombre:6px 6px 0 var(--encre);
-    --ombre-s:4px 4px 0 var(--encre);
+    --miel-clair:#FFE08A;
+    --terre:#D2542A;
+    --bissap:#9B2247;
+    --vert:#2F6B4F;
+    --encre:#2A1608;
+    --doux:#8B7360;
+    --bord:rgba(42,22,8,.10);
+    --bord-fort:rgba(42,22,8,.18);
+
+    --sh-1:0 1px 2px rgba(42,22,8,.05), 0 6px 16px rgba(42,22,8,.07);
+    --sh-2:0 2px 6px rgba(42,22,8,.06), 0 18px 40px rgba(42,22,8,.12);
+    --sh-3:0 8px 18px rgba(42,22,8,.10), 0 40px 80px rgba(42,22,8,.20);
+
+    --r-xl:32px;
+    --r:20px;
+    --r-s:14px;
+
     --display:"Anton","Haettenschweiler","Arial Narrow",sans-serif;
-    --script:"Yellowtail","Brush Script MT",cursive;
+    --titre:"Fraunces","Iowan Old Style",Georgia,serif;
     --corps:"Figtree","Avenir Next","Segoe UI",system-ui,sans-serif;
+
+    --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
   }
 
   *{box-sizing:border-box}
 
   body{
     margin:0;
-    background:var(--creme);
+    background:linear-gradient(180deg,#FFFCF7 0%,var(--creme) 40%,#F5EADC 100%);
+    background-attachment:fixed;
     color:var(--encre);
     font-family:var(--corps);
-    font-size:16px;
-    line-height:1.55;
+    font-size:16px;line-height:1.6;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:var(--grain);opacity:.24;mix-blend-mode:multiply;
+  }
 
-  h1,h2,h3{margin:0;text-wrap:balance}
+  h1,h2,h3,h4{margin:0;text-wrap:balance}
   p{margin:0}
   button{font:inherit;color:inherit}
+  :focus-visible{outline:2.5px solid var(--orange-2);outline-offset:3px;border-radius:6px}
 
-  :focus-visible{outline:3px solid var(--terre);outline-offset:3px}
+  .wrap{max-width:1200px;margin-inline:auto;padding-inline:22px;position:relative;z-index:1}
 
-  .wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
-
-  /* ---------- bandeau défilant ---------- */
+  /* ============ bandeau ============ */
   .annonce{
-    background:var(--cacao);color:var(--creme);
-    overflow:hidden;border-bottom:2px solid var(--encre);
+    position:relative;z-index:2;overflow:hidden;
+    background:linear-gradient(180deg,#3E1E0F 0%,#2A1509 100%);color:#EBD9C4;
   }
-  .annonce-piste{
-    display:flex;gap:0;width:max-content;
-    animation:defile 34s linear infinite;
-  }
+  .annonce-piste{display:flex;width:max-content;animation:defile 42s linear infinite}
   .annonce-groupe{display:flex;gap:44px;padding:9px 22px;white-space:nowrap}
-  .annonce span{
-    font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  .annonce span{font-size:10.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+  .annonce span::before{
+    content:"";display:inline-block;width:5px;height:5px;border-radius:50%;
+    background:var(--miel);margin-right:12px;vertical-align:2px;box-shadow:0 0 8px rgba(255,201,60,.9);
   }
-  .annonce span::before{content:"◆";color:var(--miel);margin-right:12px;font-size:9px;vertical-align:1px}
   @keyframes defile{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* ---------- navigation ---------- */
+  /* ============ nav ============ */
   .nav{
     position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
-    background:var(--creme-2);border-bottom:2px solid var(--encre);
+    background:rgba(255,252,247,.78);
+    backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);
+    border-bottom:1px solid var(--bord);
+    transition:box-shadow .3s ease,background .3s ease;
   }
-  .nav-in{display:flex;align-items:center;gap:26px;height:70px}
+  .nav.colle{box-shadow:0 10px 32px rgba(42,22,8,.10);background:rgba(255,252,247,.93)}
+  .nav-in{display:flex;align-items:center;gap:26px;height:74px}
   .logo{
-    font-family:var(--script);font-size:29px;line-height:1;color:var(--cacao);
-    text-decoration:none;white-space:nowrap;padding-bottom:6px;
+    display:inline-flex;flex-direction:column;line-height:1;text-decoration:none;white-space:nowrap;
   }
-  .liens{display:flex;gap:24px;margin-left:8px}
+  .logo b{
+    font-family:var(--titre);font-style:italic;font-weight:700;font-size:24px;
+    color:var(--cacao);letter-spacing:-.02em;
+  }
+  .logo i{
+    font-style:normal;font-size:8px;font-weight:700;letter-spacing:.34em;
+    text-transform:uppercase;color:var(--orange-2);margin-top:3px;
+  }
+  .liens{display:flex;gap:2px;margin-left:8px}
   .liens a{
     color:var(--encre);text-decoration:none;font-weight:600;font-size:14.5px;
-    padding:4px 0;border-bottom:2px solid transparent;
+    padding:8px 14px;border-radius:999px;transition:background .2s ease;
   }
-  .liens a:hover{border-bottom-color:var(--miel)}
-  .nav-actions{margin-left:auto;display:flex;align-items:center;gap:12px}
+  .liens a:hover{background:rgba(42,22,8,.06)}
+  .nav-actions{margin-left:auto;display:flex;align-items:center;gap:10px}
 
   .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:9px;
-    border:2px solid var(--encre);border-radius:999px;
-    padding:11px 22px;font-weight:800;font-size:13px;
-    letter-spacing:.07em;text-transform:uppercase;
-    background:var(--miel);color:var(--encre);
-    cursor:pointer;text-decoration:none;
-    box-shadow:var(--ombre-s);
-    transition:transform .14s ease,box-shadow .14s ease,background .14s ease;
+    position:relative;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    border:2px solid var(--cacao);border-radius:999px;padding:12px 22px;
+    font-weight:700;font-size:13px;letter-spacing:.01em;cursor:pointer;text-decoration:none;
+    color:var(--encre);background:linear-gradient(180deg,#FFFCF7,#F7ECDC);
+    box-shadow:0 4px 0 var(--cacao),0 10px 20px rgba(42,22,8,.18);
+    transition:transform .18s cubic-bezier(.2,.8,.3,1),box-shadow .18s ease,background .2s ease;
+    will-change:transform;
   }
-  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--encre)}
-  .btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--encre)}
-  .btn-creme{background:var(--creme-2)}
-  .btn-cacao{background:var(--cacao);color:var(--creme);border-color:var(--encre)}
-  .btn-sm{padding:8px 15px;font-size:11.5px}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--cacao),0 16px 28px rgba(42,22,8,.22)}
+  .btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cacao),0 5px 12px rgba(42,22,8,.18)}
+  .btn .fleche{
+    width:19px;height:19px;border-radius:50%;background:var(--cacao);color:#FFF6E8;
+    display:grid;place-items:center;font-size:10px;flex:0 0 auto;
+  }
+  .btn-or{background:linear-gradient(180deg,var(--miel-clair),var(--miel) 60%,#F0AE12)}
+  .btn-sombre{background:linear-gradient(180deg,var(--cacao-2),var(--cacao));color:#FFF3E2}
+  .btn-sombre .fleche{background:var(--miel);color:var(--cacao)}
+  .btn-sm{padding:9px 16px;font-size:12px;box-shadow:0 3px 0 var(--cacao),0 8px 16px rgba(42,22,8,.16)}
+  .btn-sm:hover{box-shadow:0 5px 0 var(--cacao),0 12px 22px rgba(42,22,8,.2)}
 
   .panier-btn{position:relative}
   .pastille{
-    position:absolute;top:-7px;right:-7px;min-width:22px;height:22px;
-    border-radius:999px;background:var(--terre);color:#fff;
-    border:2px solid var(--encre);
-    font-size:11px;font-weight:800;display:grid;place-items:center;padding:0 5px;
+    position:absolute;top:-7px;right:-7px;min-width:22px;height:22px;padding:0 6px;
+    border-radius:999px;background:linear-gradient(180deg,#EE6B3B,var(--orange-2));color:#fff;
+    border:2px solid var(--cacao);font-size:11px;font-weight:800;display:grid;place-items:center;
   }
+  .pastille.pulse{animation:pulse .5s cubic-bezier(.2,.9,.3,1)}
+  @keyframes pulse{0%{transform:scale(1)}40%{transform:scale(1.5)}100%{transform:scale(1)}}
+  .menu-btn{display:none}
 
-  .menu-btn{display:none;background:var(--creme-2)}
-
-  /* ---------- héros ---------- */
-  .heros{padding-block:26px 8px}
+  /* ============ héros ============ */
+  .heros{padding-block:26px 6px}
   .heros-carte{
-    position:relative;overflow:hidden;
-    border:2px solid var(--encre);border-radius:var(--r-xl);
-    background:var(--cacao);
-    box-shadow:var(--ombre);
-    display:grid;grid-template-columns:1.15fr .85fr;gap:26px;
-    padding:46px 44px;align-items:center;
+    position:relative;overflow:hidden;border-radius:var(--r-xl);
+    border:3px solid var(--cacao);
+    background:linear-gradient(158deg,var(--orange-2) 0%,var(--orange) 34%,var(--mandarine) 62%,var(--miel) 100%);
+    box-shadow:var(--sh-3);
+    display:grid;grid-template-columns:1.04fr .96fr;gap:24px;
+    padding:52px 46px;align-items:center;
   }
   .rayons{
-    position:absolute;inset:-40%;
-    background:repeating-conic-gradient(from 8deg at 16% 88%,
-      var(--cacao-2) 0deg 5.2deg, var(--cacao) 5.2deg 10.4deg);
-    opacity:.85;
+    position:absolute;inset:-60% -30%;pointer-events:none;
+    background:repeating-conic-gradient(from 12deg at 78% 18%,
+      rgba(255,255,255,.14) 0deg 4.4deg, rgba(255,255,255,0) 4.4deg 9.4deg);
   }
-  .heros-texte{position:relative;z-index:2}
+  .vague{position:absolute;left:0;right:0;bottom:-2px;height:58%;pointer-events:none}
+  .heros-carte::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:var(--grain);opacity:.2;mix-blend-mode:overlay;
+  }
+
+  .heros-texte{position:relative;z-index:4}
+  .etiquette{
+    display:inline-flex;align-items:center;gap:9px;
+    background:rgba(42,22,8,.82);color:#FFE9C9;border-radius:999px;padding:7px 15px 7px 12px;
+    font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  }
+  .point{width:7px;height:7px;border-radius:50%;background:#7BD79B;box-shadow:0 0 10px rgba(123,215,155,.95)}
   .heros h1{
-    font-family:var(--display);color:var(--creme);
-    font-size:clamp(2.6rem,6.1vw,5.1rem);line-height:.92;
-    text-transform:uppercase;letter-spacing:.005em;
+    font-family:var(--display);color:#FFFBF2;margin-top:20px;
+    font-size:clamp(2.5rem,5.8vw,4.9rem);line-height:.93;text-transform:uppercase;
+    text-shadow:3px 4px 0 rgba(112,44,6,.42),0 14px 40px rgba(90,35,4,.3);
   }
-  .heros h1 em{font-style:normal;color:var(--miel)}
-  .heros p{
-    color:#E6D6C3;max-width:46ch;margin-top:20px;font-size:16.5px;
+  .heros h1 em{font-style:normal;color:var(--miel-clair)}
+  .heros p.intro{
+    color:#5C2A09;max-width:42ch;margin-top:18px;font-size:16px;font-weight:600;
   }
   .heros-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+  .preuves{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
+  .preuve strong{display:block;font-family:var(--display);font-size:29px;color:#FFFBF2;line-height:1;
+    text-shadow:2px 2px 0 rgba(112,44,6,.35)}
+  .preuve span{font-size:11px;color:#6B3309;letter-spacing:.07em;text-transform:uppercase;font-weight:700}
 
-  .heros-visuel{
-    position:relative;z-index:2;
-    border:2px solid var(--encre);border-radius:var(--r);
-    background:radial-gradient(120% 120% at 30% 15%, #E4622C 0%, var(--terre) 55%, #A5390F 100%);
-    aspect-ratio:1/1;max-width:100%;
-    display:grid;place-items:center;
+  .vitrine{
+    position:relative;z-index:4;border-radius:var(--r);border:3px solid var(--cacao);
+    background:radial-gradient(120% 110% at 28% 14%, #FFB255 0%, var(--orange) 46%, #C9470A 100%);
+    box-shadow:0 20px 46px rgba(90,35,4,.34),inset 0 2px 0 rgba(255,255,255,.28);
+    aspect-ratio:1/.92;min-height:300px;overflow:hidden;
+    display:grid;place-items:center;perspective:1000px;
   }
-  .heros-visuel .pot-svg{width:62%;filter:drop-shadow(0 12px 0 rgba(0,0,0,.18))}
-  .vol{position:absolute;animation:flotte 5s ease-in-out infinite}
-  @keyframes flotte{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-11px) rotate(calc(var(--rot,0deg) + 8deg))}}
+  .vitrine .rayons{inset:-40%;background:repeating-conic-gradient(from 0deg at 50% 62%,
+      rgba(255,255,255,.13) 0deg 3.6deg, rgba(255,255,255,0) 3.6deg 8.4deg)}
+  .groupe{position:relative;width:100%;height:100%;transform-style:preserve-3d;
+    transition:transform .5s cubic-bezier(.2,.8,.3,1);will-change:transform}
+  .groupe .gpot{position:absolute;filter:drop-shadow(0 16px 18px rgba(80,30,4,.42))}
+  .groupe .gpot .pot-svg{width:100%;display:block}
+  .g1{width:40%;left:3%;bottom:4%;transform:rotate(-8deg) translateZ(8px);z-index:2}
+  .g2{width:46%;left:27%;bottom:15%;transform:rotate(2deg) translateZ(50px);z-index:4}
+  .g3{width:37%;right:3%;bottom:2%;transform:rotate(9deg) translateZ(24px);z-index:3}
+  .miette{position:absolute;background:var(--cacao);border-radius:2px;opacity:.85;
+    animation:tombe 5.5s ease-in-out infinite}
+  @keyframes tombe{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-12px) rotate(calc(var(--r,0deg) + 25deg))}}
 
-  /* ---------- bande typo + rangée de pots ---------- */
-  .bande{padding-block:52px 10px;text-align:center;position:relative}
-  .bande h2{
-    font-family:var(--display);text-transform:uppercase;
-    font-size:clamp(2.3rem,10.4vw,8rem);line-height:.86;color:var(--cacao);
-    letter-spacing:-.005em;
+  /* ============ en-têtes de section ============ */
+  .section{padding-block:64px;scroll-margin-top:96px}
+  .entete{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:8px}
+  .entete-g{display:flex;align-items:center;gap:14px}
+  .gribouille{width:44px;height:30px;flex:0 0 auto}
+  .titre{
+    font-family:var(--display);text-transform:uppercase;letter-spacing:.005em;
+    font-size:clamp(1.65rem,3.6vw,2.7rem);line-height:1;color:var(--cacao);
   }
-  .bande h2 .creux{
-    color:transparent;-webkit-text-stroke:2px var(--cacao);
-  }
-  .rangee{
-    display:flex;justify-content:center;align-items:flex-end;
-    gap:clamp(2px,1.4vw,16px);margin-top:26px;flex-wrap:nowrap;
-  }
-  .rangee .pot-svg{width:clamp(56px,10.5vw,124px);flex:0 0 auto}
-  .rangee .pot-svg:nth-child(odd){transform:translateY(-10px)}
-  .badge-etoile{
-    position:absolute;right:clamp(4px,4vw,64px);top:clamp(132px,22vw,220px);
-    width:clamp(92px,13vw,132px);transform:rotate(-11deg);z-index:3;
-  }
-  .badge-etoile text{font-family:var(--display);fill:var(--encre)}
+  .titre .tiret{color:var(--orange)}
+  .sous{color:var(--doux);max-width:56ch;margin-top:14px;font-size:15.5px}
+  .oeil{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--orange-2)}
 
-  /* ---------- sections ---------- */
-  .section{padding-block:56px}
-  .titre-bloc{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:8px}
-  .oeil{
-    font-size:12px;font-weight:800;letter-spacing:.17em;text-transform:uppercase;
-    color:var(--terre);
-  }
-  .section h2.titre{
-    font-family:var(--display);text-transform:uppercase;
-    font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1;color:var(--cacao);margin-top:6px;
-  }
-  .sous{color:var(--encre-doux);max-width:54ch;margin-top:12px}
-
-  .filtres{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 24px}
+  /* ============ filtres + grille ============ */
+  .filtres{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 24px}
   .filtre{
-    border:2px solid var(--encre);border-radius:999px;background:transparent;
-    padding:8px 17px;font-weight:700;font-size:13.5px;cursor:pointer;
-    transition:background .14s ease,color .14s ease;
+    border:2px solid var(--bord-fort);border-radius:999px;background:var(--creme-2);
+    padding:9px 18px;font-weight:700;font-size:13px;cursor:pointer;color:var(--doux);
+    transition:transform .2s ease,border-color .2s ease,color .2s ease,background .2s ease;
   }
-  .filtre:hover{background:#EFE2CD}
-  .filtre[aria-pressed="true"]{background:var(--cacao);color:var(--creme);border-color:var(--encre)}
+  .filtre:hover{transform:translateY(-2px);color:var(--encre);border-color:var(--cacao)}
+  .filtre[aria-pressed="true"]{background:var(--cacao);color:#FFF3E2;border-color:var(--cacao)}
 
-  .grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:20px}
+  .grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;perspective:1300px}
 
   .carte{
-    border:2px solid var(--encre);border-radius:var(--r);
-    background:var(--creme-2);overflow:hidden;
-    box-shadow:var(--ombre-s);
-    display:flex;flex-direction:column;
-    transition:transform .16s ease,box-shadow .16s ease;
+    position:relative;border-radius:var(--r);overflow:hidden;background:var(--creme-2);
+    border:2px solid var(--bord-fort);
+    box-shadow:var(--sh-1);display:flex;flex-direction:column;
+    transform-style:preserve-3d;
+    transition:transform .45s cubic-bezier(.2,.8,.3,1),box-shadow .45s ease,border-color .3s ease;
+    will-change:transform;
   }
-  .carte:hover{transform:translate(-3px,-3px);box-shadow:7px 7px 0 var(--encre)}
-  .carte-visuel{
-    position:relative;display:grid;place-items:center;
-    padding:22px 10px 14px;border-bottom:2px solid var(--encre);
+  .carte:hover{box-shadow:var(--sh-3);border-color:var(--cacao)}
+  .carte-visuel{position:relative;display:grid;place-items:center;padding:24px 10px 14px;overflow:hidden}
+  .carte-visuel .pot-svg{
+    width:130px;position:relative;z-index:2;
+    filter:drop-shadow(0 16px 16px rgba(42,22,8,.22));
+    transition:transform .45s cubic-bezier(.2,.8,.3,1);
   }
-  .carte-visuel .pot-svg{width:104px}
+  .carte:hover .carte-visuel .pot-svg{transform:translateZ(48px) scale(1.07)}
   .chip{
-    position:absolute;left:12px;top:12px;
-    background:var(--cacao);color:var(--creme);
-    font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-    padding:5px 10px;border-radius:999px;border:2px solid var(--encre);
+    position:absolute;left:12px;top:12px;z-index:3;background:rgba(42,22,8,.8);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    color:#FFEBD2;font-size:9.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
+    padding:6px 11px;border-radius:999px;
   }
-  .chip-top{
-    left:auto;right:12px;background:var(--miel);color:var(--encre);
-  }
-  .carte-corps{padding:16px 16px 15px;display:flex;flex-direction:column;gap:7px;flex:1}
-  .carte h3{font-size:17.5px;font-weight:800;line-height:1.2}
-  .carte p{font-size:13.5px;color:var(--encre-doux);line-height:1.45}
-  .carte-pied{margin-top:auto;padding-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .prix{font-family:var(--display);font-size:22px;letter-spacing:.02em;color:var(--cacao)}
+  .chip-top{left:auto;right:12px;background:linear-gradient(180deg,var(--miel-clair),var(--miel));color:#5A3506}
+  .carte-corps{padding:4px 17px 17px;display:flex;flex-direction:column;gap:6px;flex:1;text-align:center}
+  .carte h3{font-family:var(--display);text-transform:uppercase;font-size:16px;line-height:1.1;letter-spacing:.015em}
+  .carte p{font-size:12.5px;color:var(--doux);line-height:1.45}
+  .carte-pied{margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .prix{font-family:var(--display);font-size:19px;color:var(--cacao);font-variant-numeric:tabular-nums}
 
-  /* ---------- coffrets ---------- */
+  /* ============ bande chiffres ============ */
+  .chiffres{
+    display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;
+    border:2px solid var(--bord-fort);border-radius:var(--r);background:var(--creme-2);
+    padding:26px 30px;box-shadow:var(--sh-1);
+  }
+  .chiffres-t{font-family:var(--display);text-transform:uppercase;font-size:19px;line-height:1.1;color:var(--cacao)}
+  .chiffres-p{font-size:14px;color:var(--doux);border-left:2px solid var(--bord);padding-left:28px;max-width:46ch}
+  .avis{display:flex;align-items:center;gap:13px}
+  .tetes{display:flex}
+  .tete{
+    width:38px;height:38px;border-radius:50%;border:2.5px solid var(--creme-2);margin-left:-11px;
+    display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;
+  }
+  .tete:first-child{margin-left:0}
+  .avis-n{font-family:var(--display);font-size:21px;color:var(--orange-2);line-height:1}
+  .avis-l{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--doux)}
+
+  /* ============ coffrets ============ */
   .coffrets{
-    border:2px solid var(--encre);border-radius:var(--r-xl);
-    background:var(--miel);box-shadow:var(--ombre);
-    padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;
+    position:relative;overflow:hidden;border-radius:var(--r-xl);border:3px solid var(--cacao);
+    background:linear-gradient(150deg,var(--miel-clair) 0%,var(--miel) 45%,var(--mandarine) 100%);
+    box-shadow:var(--sh-3);padding:44px;
+    display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;
   }
-  .coffrets h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.9rem,4.2vw,3rem);line-height:.98;color:var(--cacao)}
-  .coffrets p{margin-top:14px;max-width:44ch;color:#5C4227;font-weight:500}
-  .coffret-liste{display:flex;flex-direction:column;gap:13px}
+  .coffrets::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.18;mix-blend-mode:overlay;pointer-events:none}
+  .coffrets .oeil{color:#7A3C04}
+  .coffrets h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.7rem,3.6vw,2.6rem);
+    line-height:1;color:var(--cacao);margin-top:10px}
+  .coffrets p{margin-top:14px;max-width:42ch;color:#6B3A08;font-weight:600}
+  .coffret-liste{display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
   .coffret{
-    background:var(--creme-2);border:2px solid var(--encre);border-radius:var(--r-s);
-    padding:15px 17px;display:flex;align-items:center;gap:14px;
+    background:var(--creme-2);border:2px solid var(--cacao);border-radius:var(--r-s);
+    padding:15px 18px;display:flex;align-items:center;gap:14px;
+    box-shadow:0 4px 0 rgba(42,22,8,.22);
+    transition:transform .22s cubic-bezier(.2,.8,.3,1),box-shadow .22s ease;
   }
+  .coffret:hover{transform:translateY(-3px);box-shadow:0 7px 0 rgba(42,22,8,.22)}
   .coffret-info{flex:1;min-width:0}
-  .coffret strong{display:block;font-size:15.5px}
-  .coffret small{color:var(--encre-doux);font-size:12.5px}
+  .coffret strong{display:block;font-family:var(--display);text-transform:uppercase;font-size:15px;letter-spacing:.02em}
+  .coffret small{color:var(--doux);font-size:12.5px}
 
-  /* ---------- histoire ---------- */
+  /* ============ histoire ============ */
   .histoire{
-    border:2px solid var(--encre);border-radius:var(--r-xl);
-    background:var(--cacao);color:var(--creme);box-shadow:var(--ombre);
-    padding:44px;position:relative;overflow:hidden;
+    position:relative;overflow:hidden;border-radius:var(--r-xl);border:3px solid var(--cacao);
+    background:radial-gradient(75% 110% at 84% 0%, #6A3A1C 0%, rgba(106,58,28,0) 58%),
+      linear-gradient(158deg,#43230F 0%,var(--cacao) 52%,#200F06 100%);
+    color:#E9D7C1;box-shadow:var(--sh-3);padding:48px;
   }
+  .histoire::after{content:"";position:absolute;inset:0;background-image:var(--grain);opacity:.2;mix-blend-mode:overlay;pointer-events:none}
   .histoire-in{position:relative;z-index:2}
-  .histoire h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.9rem,4.4vw,3.2rem);line-height:1;color:var(--creme)}
+  .histoire .oeil{color:var(--miel)}
+  .histoire h2{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.7rem,3.8vw,2.8rem);
+    line-height:1;color:#FFFBF2;margin-top:10px}
   .histoire h2 em{font-style:normal;color:var(--miel)}
-  .histoire .texte{color:#E1D0BC;max-width:58ch;margin-top:18px}
-  .piliers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+  .histoire .texte{color:#C6AC93;max-width:58ch;margin-top:18px}
+  .piliers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
   .pilier{
-    background:var(--cacao-2);border:2px solid #1B0F09;border-radius:var(--r-s);padding:20px;
+    background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--r-s);padding:22px;
+    transition:transform .3s cubic-bezier(.2,.8,.3,1),background .3s ease;
   }
-  .pilier .num{font-family:var(--display);font-size:15px;color:var(--miel);letter-spacing:.1em}
-  .pilier h3{margin-top:9px;font-size:16.5px;font-weight:800;color:var(--creme)}
-  .pilier p{margin-top:7px;font-size:13.5px;color:#C9B4A0;line-height:1.5}
+  .pilier:hover{transform:translateY(-5px);background:rgba(255,255,255,.09)}
+  .pilier .num{font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--miel)}
+  .pilier h3{margin-top:10px;font-family:var(--display);text-transform:uppercase;font-size:16px;color:#FFFBF2;letter-spacing:.02em}
+  .pilier p{margin-top:8px;font-size:13px;color:#B39B85;line-height:1.55}
 
-  /* ---------- livraison ---------- */
-  .livraison-grille{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;margin-top:26px}
+  /* ============ livraison ============ */
+  .livraison-grille{display:grid;grid-template-columns:1.25fr .75fr;gap:20px;margin-top:28px}
   .zones{display:flex;flex-direction:column;gap:11px}
   .zone{
-    display:flex;align-items:center;gap:14px;
-    border:2px solid var(--encre);border-radius:var(--r-s);
-    background:var(--creme-2);padding:14px 17px;
+    display:flex;align-items:center;gap:15px;border-radius:var(--r-s);
+    background:var(--creme-2);border:2px solid var(--bord-fort);padding:16px 19px;
+    transition:transform .22s cubic-bezier(.2,.8,.3,1),border-color .22s ease;
   }
-  .zone-nom{font-family:var(--display);font-size:17px;color:var(--terre);letter-spacing:.04em;flex:0 0 auto}
-  .zone-q{flex:1;font-size:13.5px;color:var(--encre-doux);min-width:0}
+  .zone:hover{transform:translateX(5px);border-color:var(--cacao)}
+  .zone-nom{font-family:var(--display);text-transform:uppercase;font-size:15px;color:var(--orange-2);flex:0 0 auto;letter-spacing:.03em}
+  .zone-q{flex:1;font-size:13.5px;color:var(--doux);min-width:0}
   .zone-f{font-weight:800;font-size:15px;white-space:nowrap;font-variant-numeric:tabular-nums}
   .infos{
-    border:2px solid var(--encre);border-radius:var(--r-s);
-    background:var(--bissap);color:#FBEAEF;padding:20px;
+    position:relative;overflow:hidden;border-radius:var(--r-s);border:2px solid var(--cacao);
+    background:radial-gradient(90% 120% at 18% 0%, #B83058 0%, var(--bissap) 55%, #6B1434 100%);
+    color:#F9E5EB;padding:25px;
   }
-  .infos h3{font-family:var(--display);text-transform:uppercase;font-size:19px;letter-spacing:.03em;color:#fff}
-  .infos ul{margin:14px 0 0;padding-left:18px;font-size:14px;line-height:1.85}
-  .paiements{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-  .paie{background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.4);border-radius:999px;padding:5px 12px;font-size:12px;font-weight:700}
+  .infos h3{font-family:var(--display);text-transform:uppercase;font-size:17px;color:#fff;letter-spacing:.03em}
+  .infos ul{margin:13px 0 0;padding-left:18px;font-size:13.5px;line-height:1.9}
+  .paiements{display:flex;gap:8px;flex-wrap:wrap;margin-top:17px}
+  .paie{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:6px 13px;font-size:11.5px;font-weight:700}
 
-  /* ---------- panier ---------- */
-  .fond{
-    position:fixed;inset:0;background:rgba(42,26,17,.5);z-index:50;
-    opacity:0;pointer-events:none;transition:opacity .2s ease;
-  }
+  /* ============ panier ============ */
+  .fond{position:fixed;inset:0;z-index:50;background:rgba(26,14,7,.45);
+    backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+    opacity:0;pointer-events:none;transition:opacity .3s ease}
   .fond.ouvert{opacity:1;pointer-events:auto}
   .tiroir{
-    position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:60;
-    background:var(--creme);border-left:2px solid var(--encre);
-    transform:translateX(102%);transition:transform .26s cubic-bezier(.4,0,.2,1);
-    display:flex;flex-direction:column;
+    position:fixed;top:0;right:0;bottom:0;width:min(432px,100%);z-index:60;
+    background:var(--creme);border-left:3px solid var(--cacao);
+    box-shadow:-30px 0 70px rgba(26,14,7,.34);
+    transform:translateX(102%);transition:transform .42s cubic-bezier(.22,1,.3,1);
+    display:flex;flex-direction:column;will-change:transform;
   }
   .tiroir.ouvert{transform:translateX(0)}
   .tiroir-tete{
     display:flex;align-items:center;justify-content:space-between;gap:12px;
-    padding:18px 20px;padding-top:calc(18px + env(safe-area-inset-top,0px));
-    border-bottom:2px solid var(--encre);background:var(--creme-2);
+    padding:20px 22px;padding-top:calc(20px + env(safe-area-inset-top,0px));
+    border-bottom:2px solid var(--bord-fort);background:var(--creme-2);
   }
-  .tiroir-tete h2{font-family:var(--display);text-transform:uppercase;font-size:21px;letter-spacing:.03em}
+  .tiroir-tete h2{font-family:var(--display);text-transform:uppercase;font-size:19px;letter-spacing:.03em}
   .fermer{
-    border:2px solid var(--encre);background:var(--creme);border-radius:999px;
-    width:36px;height:36px;cursor:pointer;font-size:17px;line-height:1;display:grid;place-items:center;
+    border:2px solid var(--cacao);border-radius:999px;width:36px;height:36px;cursor:pointer;
+    font-size:15px;background:var(--creme-2);display:grid;place-items:center;
+    transition:transform .25s ease,background .2s ease;
   }
-  .tiroir-corps{flex:1;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+  .fermer:hover{transform:rotate(90deg);background:var(--creme-3)}
+  .tiroir-corps{flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:12px}
   .ligne{
-    display:flex;gap:13px;align-items:center;
-    border:2px solid var(--encre);border-radius:var(--r-s);background:var(--creme-2);padding:11px 13px;
+    display:flex;gap:13px;align-items:center;border-radius:var(--r-s);
+    background:var(--creme-2);border:2px solid var(--bord-fort);padding:11px 14px;
+    animation:entre .4s cubic-bezier(.2,.9,.3,1);
   }
-  .ligne .pot-svg{width:38px;flex:0 0 auto}
+  @keyframes entre{from{transform:translateX(18px)}to{transform:translateX(0)}}
+  .ligne .pot-svg{width:46px;flex:0 0 auto;filter:drop-shadow(0 6px 7px rgba(42,22,8,.2))}
   .ligne-info{flex:1;min-width:0}
-  .ligne-info strong{display:block;font-size:14.5px;line-height:1.25}
-  .ligne-info small{color:var(--encre-doux);font-size:12.5px;font-variant-numeric:tabular-nums}
+  .ligne-info strong{display:block;font-size:14px;font-weight:800;line-height:1.25}
+  .ligne-info small{color:var(--doux);font-size:12.5px;font-variant-numeric:tabular-nums}
   .qte{display:flex;align-items:center;gap:8px;flex:0 0 auto}
   .qte button{
-    width:27px;height:27px;border:2px solid var(--encre);background:var(--creme);
-    border-radius:8px;cursor:pointer;font-weight:800;line-height:1;display:grid;place-items:center;
+    width:28px;height:28px;border:2px solid var(--cacao);border-radius:9px;cursor:pointer;
+    font-weight:800;line-height:1;background:var(--creme-2);display:grid;place-items:center;
+    transition:transform .18s ease,background .18s ease;
   }
-  .qte span{min-width:17px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
-  .vide{text-align:center;color:var(--encre-doux);padding:42px 10px;font-size:14.5px}
-  .vide .pot-svg{width:74px;opacity:.5;margin-bottom:14px}
-  .tiroir-pied{border-top:2px solid var(--encre);background:var(--creme-2);padding:18px 20px;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}
-  .total-ligne{display:flex;justify-content:space-between;font-size:14px;margin-bottom:7px;color:var(--encre-doux);font-variant-numeric:tabular-nums}
-  .total-ligne.fort{color:var(--encre);font-weight:800;font-size:19px;margin-bottom:14px}
+  .qte button:hover{transform:translateY(-1.5px);background:var(--miel)}
+  .qte span{min-width:18px;text-align:center;font-weight:800;font-variant-numeric:tabular-nums}
+  .vide{text-align:center;color:var(--doux);padding:44px 12px;font-size:14.5px}
+  .vide .pot-svg{width:104px;opacity:.5;margin-bottom:14px}
+  .tiroir-pied{
+    border-top:2px solid var(--bord-fort);padding:20px 22px;
+    padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--creme-2);
+  }
+  .total-ligne{display:flex;justify-content:space-between;font-size:14px;margin-bottom:8px;color:var(--doux);font-variant-numeric:tabular-nums}
+  .total-ligne.fort{color:var(--encre);font-family:var(--display);font-size:21px;margin-bottom:14px;letter-spacing:.02em}
   .tiroir-pied .btn{width:100%}
-  .note-franco{font-size:12.5px;color:var(--terre);font-weight:700;margin-bottom:12px}
+  .jauge{height:8px;border-radius:999px;background:var(--creme-3);overflow:hidden;margin-bottom:9px;
+    border:1.5px solid var(--bord-fort)}
+  .jauge i{display:block;height:100%;background:linear-gradient(90deg,var(--miel),var(--orange));
+    transition:width .5s cubic-bezier(.2,.8,.3,1)}
+  .note-franco{font-size:12.5px;color:var(--orange-2);font-weight:700;margin-bottom:13px}
+  .recap{border-radius:var(--r-s);background:var(--creme-2);border:2px solid var(--bord-fort);
+    padding:18px;font-size:13.5px;line-height:1.75;white-space:pre-wrap}
+  .recap-titre{font-family:var(--display);text-transform:uppercase;font-size:17px;margin-bottom:8px;letter-spacing:.02em}
+  .maquette{font-size:12.5px;color:var(--doux);background:rgba(226,86,14,.08);
+    border:1px dashed rgba(226,86,14,.35);border-radius:12px;padding:12px 14px;margin-top:14px;line-height:1.6}
 
-  .recap{border:2px solid var(--encre);border-radius:var(--r-s);background:var(--creme-2);padding:16px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}
-  .recap-titre{font-family:var(--display);text-transform:uppercase;font-size:19px;margin-bottom:6px}
-  .maquette{
-    font-size:12px;color:var(--encre-doux);background:#EFE2CD;
-    border:1.5px dashed var(--encre-doux);border-radius:10px;padding:10px 12px;margin-top:12px;
+  .toast{
+    position:fixed;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:70;
+    display:flex;align-items:center;gap:10px;
+    background:var(--cacao);color:#FFF3E2;border:2px solid var(--noir);
+    padding:12px 20px;border-radius:999px;font-size:13.5px;font-weight:700;
+    box-shadow:0 18px 40px rgba(26,14,7,.4);
+    transform:translate(-50%,150%);transition:transform .45s cubic-bezier(.22,1,.3,1);
+    pointer-events:none;white-space:nowrap;max-width:calc(100vw - 32px);
   }
+  .toast.ouvert{transform:translate(-50%,0)}
+  .toast .coche{width:19px;height:19px;border-radius:50%;background:var(--miel);color:var(--cacao);
+    display:grid;place-items:center;font-size:11px;font-weight:800;flex:0 0 auto}
 
-  /* ---------- pied de page ---------- */
-  .pied{
-    background:var(--cacao);color:#D8C6B2;border-top:2px solid var(--encre);margin-top:56px;
-    padding-block:42px 30px;
-  }
-  .pied-grille{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
-  .pied .logo{color:var(--creme);font-size:32px}
-  .pied h4{font-family:var(--display);text-transform:uppercase;font-size:14px;letter-spacing:.11em;color:var(--miel);margin:0 0 12px}
-  .pied ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:14px}
-  .pied a{color:#D8C6B2;text-decoration:none}
-  .pied a:hover{color:var(--creme);text-decoration:underline}
-  .pied-bas{
-    margin-top:32px;padding-top:18px;border-top:1px solid #4A2D1E;
-    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#A38E7A;
-  }
+  /* ============ pied ============ */
+  .pied{position:relative;z-index:1;margin-top:66px;padding-block:48px 28px;color:#C4AB93;
+    background:linear-gradient(180deg,var(--cacao) 0%,#1C0E05 100%)}
+  .pied-grille{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}
+  .pied .logo b{color:#FFFBF2;font-size:26px}
+  .pied .logo i{color:var(--miel)}
+  .pied h4{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--miel);margin:0 0 13px;font-weight:800}
+  .pied ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;font-size:14px}
+  .pied a{color:#C4AB93;text-decoration:none;transition:color .2s ease}
+  .pied a:hover{color:#FFFBF2}
+  .pied-bas{margin-top:34px;padding-top:19px;border-top:1px solid rgba(255,255,255,.09);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#8B7563}
 
-  /* ---------- responsive ---------- */
-  @media (max-width:900px){
-    .heros-carte{grid-template-columns:1fr;padding:34px 26px;gap:30px}
-    .heros-visuel{max-width:330px;justify-self:center;width:100%}
-    .coffrets{grid-template-columns:1fr;padding:28px}
+  /* ============ responsive ============ */
+  @media (max-width:980px){
+    .chiffres{grid-template-columns:1fr;gap:20px}
+    .chiffres-p{border-left:0;padding-left:0;border-top:2px solid var(--bord);padding-top:18px}
+  }
+  @media (max-width:920px){
+    .heros-carte{grid-template-columns:1fr;padding:34px 26px;gap:26px}
+    .vitrine{max-width:400px;justify-self:center;width:100%;min-height:270px}
+    .coffrets{grid-template-columns:1fr;padding:30px}
     .livraison-grille{grid-template-columns:1fr}
     .piliers{grid-template-columns:1fr}
     .pied-grille{grid-template-columns:1fr 1fr}
@@ -355,26 +449,25 @@
     .menu-btn{display:inline-flex}
   }
   @media (max-width:620px){
-    .nav-in{height:62px;gap:12px}
-    .logo{font-size:24px}
+    .nav-in{height:64px;gap:10px}
     .histoire{padding:28px 22px}
-    .section{padding-block:42px}
-    .carte-visuel .pot-svg{width:92px}
+    .section{padding-block:48px}
+    .heros h1{font-size:clamp(2rem,8.6vw,3rem)}
+    .preuves{gap:20px}
     .pied-grille{grid-template-columns:1fr}
-    .nav .btn-commander{display:none}
+    .nav .btn-principal{display:none}
+    .chiffres{padding:22px}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
   }
 </style>
 
-<div class="annonce">
-  <div class="annonce-piste" id="piste"></div>
-</div>
+<div class="annonce"><div class="annonce-piste" id="piste"></div></div>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a class="logo" href="#haut">Maison Douceur</a>
+    <a class="logo" href="#haut"><b>Maison Douceur</b><i>Dakar</i></a>
     <nav class="liens">
       <a href="#carte">Nos pots</a>
       <a href="#coffrets">Le coffret</a>
@@ -382,12 +475,11 @@
       <a href="#livraison">Livraison</a>
     </nav>
     <div class="nav-actions">
-      <button class="btn btn-creme btn-sm panier-btn" id="ouvrir-panier" aria-label="Ouvrir le panier">
-        Panier
-        <span class="pastille" id="pastille" hidden>0</span>
+      <button class="btn btn-sm panier-btn" id="ouvrir-panier" aria-label="Ouvrir le panier">
+        Panier<span class="pastille" id="pastille" hidden>0</span>
       </button>
-      <a class="btn btn-commander" href="#carte">Commander</a>
-      <a class="btn btn-creme btn-sm menu-btn" href="#carte">Carte</a>
+      <a class="btn btn-or btn-principal" href="#carte">Commander <span class="fleche">›</span></a>
+      <a class="btn btn-sm menu-btn" href="#carte">Carte</a>
     </div>
   </div>
 </header>
@@ -396,40 +488,69 @@
   <section class="wrap heros">
     <div class="heros-carte">
       <div class="rayons" aria-hidden="true"></div>
+      <svg class="vague" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,86 C112,18 214,132 330,96 C438,63 520,128 600,104 L600,200 L0,200 Z" fill="rgba(255,201,60,.55)"/>
+        <path d="M0,124 C120,66 226,166 352,132 C452,105 528,158 600,140 L600,200 L0,200 Z" fill="rgba(255,224,138,.5)"/>
+      </svg>
       <div class="heros-texte">
-        <h1>Les meilleurs desserts <em>en pot</em> de Dakar.</h1>
-        <p>Tiramisu, thiakry, mangue-passion… Douze recettes préparées chaque matin dans notre cuisine, servies dans un pot prêt à emporter. Vous choisissez, on livre.</p>
+        <span class="etiquette"><span class="point"></span>Fournée du jour en cours</span>
+        <h1>Vos envies de sucré, <em>en pot.</em></h1>
+        <p class="intro">Tiramisu, thiakry, mangue-passion… Douze recettes préparées chaque matin à Dakar et livrées encore fraîches, dans un pot prêt à déguster.</p>
         <div class="heros-actions">
-          <a class="btn" href="#carte">Je craque →</a>
-          <a class="btn btn-cacao" href="#livraison">Comment on livre</a>
+          <a class="btn" href="#carte">Je craque <span class="fleche">›</span></a>
+          <a class="btn btn-sombre" href="#livraison">Comment on livre</a>
+        </div>
+        <div class="preuves">
+          <div class="preuve"><strong>12</strong><span>recettes</span></div>
+          <div class="preuve"><strong>2 h</strong><span>cuisine → chez vous</span></div>
+          <div class="preuve"><strong>0 %</strong><span>alcool</span></div>
         </div>
       </div>
-      <div class="heros-visuel" id="heros-visuel" aria-hidden="true"></div>
+      <div class="vitrine" id="vitrine" aria-hidden="true">
+        <div class="rayons"></div>
+        <div class="groupe" id="groupe"></div>
+      </div>
     </div>
-  </section>
-
-  <section class="wrap bande">
-    <h2>Crémeux. <span class="creux">Frais.</span> Généreux.</h2>
-    <div class="rangee" id="rangee" aria-hidden="true"></div>
-    <svg class="badge-etoile" id="badge" viewBox="0 0 140 140" aria-hidden="true"></svg>
   </section>
 
   <section class="wrap section" id="carte">
-    <div class="titre-bloc">
-      <div>
-        <div class="oeil">La carte du jour</div>
-        <h2 class="titre">Douze pots, quatre familles</h2>
-        <p class="sous">Tout est fait le matin même, sans alcool, en pot de 180 ml. Filtrez par envie.</p>
+    <div class="entete">
+      <div class="entete-g">
+        <svg class="gribouille" viewBox="0 0 60 40" fill="none" aria-hidden="true">
+          <path d="M6 24c4-12 14-16 19-9 5-7 15-3 19 9-6 9-14 12-19 5-5 7-13 4-19-5Z"
+                stroke="#E2560E" stroke-width="3.2" stroke-linejoin="round"/>
+        </svg>
+        <h2 class="titre">Les pots du moment <span class="tiret">—</span></h2>
       </div>
+      <a class="btn btn-sm" href="#coffrets">Voir les coffrets <span class="fleche">›</span></a>
     </div>
+    <p class="sous">Tout est fait le matin même, sans alcool, en pot de 180 ml. Filtrez selon l'envie du moment.</p>
     <div class="filtres" id="filtres"></div>
     <div class="grille" id="grille"></div>
+  </section>
+
+  <section class="wrap" style="padding-bottom:10px">
+    <div class="chiffres">
+      <div class="chiffres-t">Douze parfums,<br>zéro raccourci</div>
+      <p class="chiffres-p">On ajuste les recettes chaque semaine selon les retours : moins de sucre sur le ngalax, plus de coulis sur la panna cotta. Ce sont nos clientes qui écrivent la carte.</p>
+      <div class="avis">
+        <div class="tetes">
+          <span class="tete" style="background:linear-gradient(140deg,#F2761B,#C9470A)">A</span>
+          <span class="tete" style="background:linear-gradient(140deg,#9B2247,#6B1434)">F</span>
+          <span class="tete" style="background:linear-gradient(140deg,#2F6B4F,#1C4732)">M</span>
+        </div>
+        <div>
+          <div class="avis-n">+ 430</div>
+          <div class="avis-l">pots livrés / mois</div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="wrap section" id="coffrets">
     <div class="coffrets">
       <div>
-        <div class="oeil">À offrir ou à partager</div>
+        <span class="oeil">À offrir ou à partager</span>
         <h2>Le coffret découverte</h2>
         <p>Vous n'arrivez pas à choisir ? On panache pour vous dans une boîte cadeau, avec une carte écrite à la main. Parfait pour un anniversaire, un bureau ou un dimanche en famille.</p>
       </div>
@@ -440,9 +561,9 @@
   <section class="wrap section" id="histoire">
     <div class="histoire">
       <div class="histoire-in">
-        <div class="oeil" style="color:var(--miel)">Notre histoire</div>
+        <span class="oeil">Notre histoire</span>
         <h2>Née d'une cuisine <em>à Sacré-Cœur</em></h2>
-        <p class="texte">Maison Douceur a commencé avec dix pots de thiakry vendus à des voisines, un samedi matin. L'idée est restée la même : des desserts que l'on prépare le jour même, avec ce que le marché donne de meilleur, et qu'on livre encore frais. Pas de conservateurs, pas de vitrine qui attend — ce qui n'est pas vendu le jour, on ne le fait pas le lendemain.</p>
+        <p class="texte">Maison Douceur a commencé avec dix pots de thiakry vendus à des voisines, un samedi matin. L'idée est restée la même : des desserts préparés le jour même, avec ce que le marché donne de meilleur, et livrés encore frais. Pas de conservateurs, pas de vitrine qui attend — ce qui n'est pas vendu le jour, on ne le refait pas le lendemain.</p>
         <div class="piliers">
           <div class="pilier">
             <div class="num">Chaque matin</div>
@@ -465,8 +586,12 @@
   </section>
 
   <section class="wrap section" id="livraison">
-    <div class="oeil">Livraison</div>
-    <h2 class="titre">On vient jusqu'à vous, dans Dakar</h2>
+    <div class="entete-g">
+      <svg class="gribouille" viewBox="0 0 60 40" fill="none" aria-hidden="true">
+        <path d="M5 30c10-20 22 8 27-10 4-14 16 2 23-8" stroke="#E2560E" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+      <h2 class="titre">On vient jusqu'à vous <span class="tiret">—</span></h2>
+    </div>
     <p class="sous">Commandez avant 15h pour être livré le jour même. Après 15h, ce sera pour le lendemain.</p>
     <div class="livraison-grille">
       <div class="zones" id="zones"></div>
@@ -479,9 +604,7 @@
           <li>Commande d'entreprise ou événement : écrivez-nous</li>
         </ul>
         <div class="paiements">
-          <span class="paie">Wave</span>
-          <span class="paie">Orange Money</span>
-          <span class="paie">Espèces à la livraison</span>
+          <span class="paie">Wave</span><span class="paie">Orange Money</span><span class="paie">Espèces à la livraison</span>
         </div>
       </div>
     </div>
@@ -492,8 +615,8 @@
   <div class="wrap">
     <div class="pied-grille">
       <div>
-        <div class="logo">Maison Douceur</div>
-        <p style="margin-top:10px;font-size:14px;max-width:34ch">Desserts en pot faits chaque matin à Dakar. Livrés frais, mangés vite.</p>
+        <div class="logo"><b>Maison Douceur</b><i>Dakar</i></div>
+        <p style="margin-top:12px;font-size:14px;max-width:34ch">Desserts en pot faits chaque matin à Dakar. Livrés frais, mangés vite.</p>
       </div>
       <div>
         <h4>La boutique</h4>
@@ -529,31 +652,33 @@
   <div class="tiroir-corps" id="tiroir-corps"></div>
   <div class="tiroir-pied" id="tiroir-pied"></div>
 </aside>
+<div class="toast" id="toast" role="status" aria-live="polite"><span class="coche">✓</span><span id="toast-txt"></span></div>
 
 <script>
 (function(){
   "use strict";
 
   var FAMILLES = [
-    {id:"classiques", nom:"Les Classiques", court:"Classiques"},
-    {id:"senegal",    nom:"Saveurs du Sénégal", court:"Sénégal"},
-    {id:"fruits",     nom:"Fruits & Fraîcheur", court:"Fruits"},
-    {id:"chocolat",   nom:"Chocolat & Caramel", court:"Chocolat"}
+    {id:"classiques", court:"Classiques"},
+    {id:"senegal",    court:"Sénégal"},
+    {id:"fruits",     court:"Fruits"},
+    {id:"chocolat",   court:"Chocolat"}
   ];
 
+  /* creme = la boule qui déborde, etiq = la couleur du gobelet imprimé */
   var PRODUITS = [
-    {id:"tiramisu", nom:"Tiramisu Maison", famille:"classiques", description:"Mascarpone, café, biscuit imbibé, cacao amer", prix:3500, best:true, teinte:"#E8D3B0", couches:["#C9A375","#F2E5CB"], topping:"#5B3A22"},
-    {id:"cheesecake-speculoos", nom:"Cheesecake Spéculoos", famille:"classiques", description:"Crème fromagère vanillée, éclats de spéculoos", prix:4000, best:false, teinte:"#E9C58F", couches:["#B5752F","#F6EFE0"], topping:"#A9692A"},
-    {id:"panna-cotta", nom:"Panna Cotta Vanille", famille:"classiques", description:"Crème vanille Bourbon, coulis de fruits rouges", prix:3000, best:false, teinte:"#F0D2D8", couches:["#F7F1E4","#B42447"], topping:"#8E1E3C"},
-    {id:"thiakry", nom:"Thiakry Douceur", famille:"senegal", description:"Mil fin, lait caillé, vanille, raisins secs", prix:2500, best:true, teinte:"#EADBC0", couches:["#E6D3AE","#F4EFE2"], topping:"#6B3F2A"},
-    {id:"sombi-coco", nom:"Sombi Coco", famille:"senegal", description:"Riz au lait, lait de coco, fleur d'oranger", prix:2500, best:false, teinte:"#EFE6D5", couches:["#F1E7D5","#FAF5EC"], topping:"#E0D2B4"},
-    {id:"bouye", nom:"Bouye Crémeux", famille:"senegal", description:"Pain de singe (baobab), crème légère, miel", prix:3000, best:true, teinte:"#E7D9AE", couches:["#EFE0BE","#F6EFDD"], topping:"#C9A227"},
-    {id:"ngalax", nom:"Ngalax Signature", famille:"senegal", description:"Arachide, bouye, mil, texture onctueuse", prix:3000, best:false, teinte:"#DFC49A", couches:["#C79A63","#D8B98C"], topping:"#8A5A2B"},
-    {id:"mangue-passion", nom:"Mangue Passion", famille:"fruits", description:"Mousse mangue, insert passion, dés de mangue fraîche", prix:3500, best:false, teinte:"#F7C86A", couches:["#F2A81E","#FFC93C"], topping:"#D4610F"},
-    {id:"coco-ananas", nom:"Coco Ananas", famille:"fruits", description:"Crème coco, ananas rôti, croustillant noix de coco", prix:3500, best:false, teinte:"#F2E3B8", couches:["#F5D77A","#F8F3E7"], topping:"#E8B93A"},
-    {id:"yaourt-granola", nom:"Yaourt Granola Miel", famille:"fruits", description:"Yaourt brassé, granola maison, miel, fruits de saison", prix:3000, best:false, teinte:"#EDE3CF", couches:["#F7EFDD","#FBF6EA"], topping:"#A9702F"},
-    {id:"fondant-chocolat", nom:"Fondant Cœur Chocolat", famille:"chocolat", description:"Chocolat noir 70 %, cœur coulant, fleur de sel", prix:4000, best:false, teinte:"#C9A98C", couches:["#2E1B12","#4A2D1E"], topping:"#1F120B"},
-    {id:"caramel-beurre-sale", nom:"Caramel Beurre Salé", famille:"chocolat", description:"Crème caramel, biscuit sablé, éclats caramélisés", prix:3500, best:false, teinte:"#EFC58C", couches:["#C98A2B","#E8B75C"], topping:"#8A5A2B"}
+    {id:"tiramisu", nom:"Tiramisu Maison", court:"Tiramisu", famille:"classiques", description:"Mascarpone, café, biscuit imbibé, cacao amer", prix:3500, best:true, teinte:"#F6E7CE", creme:"#F0DFC0", etiq:"#43220F", topping:"#5B3A22"},
+    {id:"cheesecake-speculoos", nom:"Cheesecake Spéculoos", court:"Spéculoos", famille:"classiques", description:"Crème fromagère vanillée, éclats de spéculoos", prix:4000, best:false, teinte:"#F8E6CB", creme:"#F6EBD6", etiq:"#B5601F", topping:"#A9692A"},
+    {id:"panna-cotta", nom:"Panna Cotta Vanille", court:"Panna cotta", famille:"classiques", description:"Crème vanille Bourbon, coulis de fruits rouges", prix:3000, best:false, teinte:"#FAE3E7", creme:"#FAF3E6", etiq:"#9B2247", topping:"#C22A4F"},
+    {id:"thiakry", nom:"Thiakry Douceur", court:"Thiakry", famille:"senegal", description:"Mil fin, lait caillé, vanille, raisins secs", prix:2500, best:true, teinte:"#F6EEDC", creme:"#F7F0E2", etiq:"#2F6B4F", topping:"#6B3F2A"},
+    {id:"sombi-coco", nom:"Sombi Coco", court:"Sombi coco", famille:"senegal", description:"Riz au lait, lait de coco, fleur d'oranger", prix:2500, best:false, teinte:"#F7F1E6", creme:"#FBF6ED", etiq:"#1F6E77", topping:"#D9C7A6"},
+    {id:"bouye", nom:"Bouye Crémeux", court:"Bouye", famille:"senegal", description:"Pain de singe (baobab), crème légère, miel", prix:3000, best:true, teinte:"#F7EFD5", creme:"#F7F0DC", etiq:"#8A6410", topping:"#C9A227"},
+    {id:"ngalax", nom:"Ngalax Signature", court:"Ngalax", famille:"senegal", description:"Arachide, bouye, mil, texture onctueuse", prix:3000, best:false, teinte:"#F3E6CE", creme:"#DDBE92", etiq:"#6B3F1E", topping:"#8A5A2B"},
+    {id:"mangue-passion", nom:"Mangue Passion", court:"Mangue passion", famille:"fruits", description:"Mousse mangue, insert passion, dés de mangue fraîche", prix:3500, best:false, teinte:"#FDEBC4", creme:"#FFC246", etiq:"#E2560E", topping:"#D4610F"},
+    {id:"coco-ananas", nom:"Coco Ananas", court:"Coco ananas", famille:"fruits", description:"Crème coco, ananas rôti, croustillant noix de coco", prix:3500, best:false, teinte:"#FBF2D8", creme:"#FAF2E0", etiq:"#C8901A", topping:"#E8B93A"},
+    {id:"yaourt-granola", nom:"Yaourt Granola Miel", court:"Yaourt granola", famille:"fruits", description:"Yaourt brassé, granola maison, miel, fruits de saison", prix:3000, best:false, teinte:"#F7F1E5", creme:"#FCF8F0", etiq:"#7A5230", topping:"#A9702F"},
+    {id:"fondant-chocolat", nom:"Fondant Cœur Chocolat", court:"Fondant choco", famille:"chocolat", description:"Chocolat noir 70 %, cœur coulant, fleur de sel", prix:4000, best:false, teinte:"#EADCCB", creme:"#4A2C1A", etiq:"#2A1608", topping:"#7A5236"},
+    {id:"caramel-beurre-sale", nom:"Caramel Beurre Salé", court:"Caramel salé", famille:"chocolat", description:"Crème caramel, biscuit sablé, éclats caramélisés", prix:3500, best:false, teinte:"#FAE8CB", creme:"#E0A64E", etiq:"#8F5A12", topping:"#8A5A2B"}
   ];
 
   var COFFRETS = [
@@ -567,104 +692,134 @@
     {nom:"Zone 3", quartiers:"Parcelles, Pikine, Guédiawaye, Rufisque", frais:2500}
   ];
 
-  var FRANCO = 20000;
-  var FRAIS_BASE = 1000;
-  var CLE = "maison-douceur-panier";
+  var FRANCO = 20000, FRAIS_BASE = 1000, CLE = "maison-douceur-panier";
 
   var TOUS = PRODUITS.concat(COFFRETS.map(function(c){
-    return {id:c.id, nom:c.nom, description:c.description, prix:c.prix, famille:"coffret",
-            teinte:"#F1DDB4", couches:["#C98A2B","#F2E5CB"], topping:"#8A5A2B"};
+    return {id:c.id, nom:c.nom, court:"Coffret", description:c.description, prix:c.prix,
+            famille:"coffret", teinte:"#FBEBCB", creme:"#F3E3C4", etiq:"#C8901A", topping:"#8A5A2B"};
   }));
 
   function parId(id){
     for(var i=0;i<TOUS.length;i++){ if(TOUS[i].id===id) return TOUS[i]; }
     return null;
   }
+  function fcfa(v){ return String(v).replace(/\B(?=(\d{3})+(?!\d))/g," ") + " F"; }
 
-  function fcfa(n){
-    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " F";
+  function lire(hex){
+    var h = hex.replace("#","");
+    return [parseInt(h.slice(0,2),16), parseInt(h.slice(2,4),16), parseInt(h.slice(4,6),16)];
+  }
+  function melange(hex, vers, t){
+    var a = lire(hex);
+    return "rgb(" + a.map(function(v,i){ return Math.round(v + (vers[i]-v)*t); }).join(",") + ")";
+  }
+  function sombre(hex,t){ return melange(hex,[0,0,0],t); }
+  function clair(hex,t){ return melange(hex,[255,255,255],t); }
+  function lumineux(hex){
+    var a = lire(hex);
+    return (a[0]*0.299 + a[1]*0.587 + a[2]*0.114) > 150;
   }
 
-  /* ---------- illustration du pot ---------- */
-  var compteurPot = 0;
-  var CUP = "M24,54 L96,54 L88,146 Q87,155 78,155 L42,155 Q33,155 32,146 Z";
+  /* ---------- le pot : gobelet imprimé + crème qui déborde ---------- */
+  var n = 0;
+  var GOBELET = "M36,98 A64,15 0 0 0 164,98 L147,226 A46,11 0 0 1 53,226 Z";
 
   function pot(p){
-    var n = ++compteurPot;
-    var cid = "cup-" + n;
-    var bas = p.couches[0], haut = p.couches[1];
-    var miettes = "";
-    var pos = [[44,70],[57,66],[70,71],[50,78],[66,79],[60,74]];
-    for(var i=0;i<pos.length;i++){
-      miettes += '<circle cx="'+pos[i][0]+'" cy="'+pos[i][1]+'" r="'+(i%2?2.6:3.4)+'" fill="'+p.topping+'"/>';
+    var k = ++n;
+    var g = function(s){ return s + "-" + k; };
+    var texteEtiq = lumineux(p.etiq) ? "#2A1608" : "#FFF3E0";
+
+    /* boules de crème qui débordent */
+    var boules = [[72,78,32],[128,76,30],[100,52,33]];
+    var creme = "";
+    for(var i=0;i<boules.length;i++){
+      var b = boules[i];
+      creme += '<circle cx="'+b[0]+'" cy="'+b[1]+'" r="'+b[2]+'" fill="url(#'+g("bou")+')"/>'
+        + '<ellipse cx="'+(b[0]-b[2]*0.3)+'" cy="'+(b[1]-b[2]*0.38)+'" rx="'+(b[2]*0.34)+'" ry="'+(b[2]*0.24)+'" fill="#ffffff" opacity="0.3"/>';
     }
-    return '<svg class="pot-svg" viewBox="0 0 120 170" role="img" aria-label="Pot ' + p.nom + '">'
-      + '<defs><clipPath id="'+cid+'"><path d="'+CUP+'"/></clipPath></defs>'
-      + '<g clip-path="url(#'+cid+')">'
-      +   '<rect x="18" y="54" width="84" height="104" fill="'+bas+'"/>'
-      +   '<rect x="18" y="54" width="84" height="42" fill="'+haut+'"/>'
-      +   '<path d="M18,96 q21,-9 42,0 t42,0 v8 h-84 z" fill="'+haut+'"/>'
-      +   miettes
-      +   '<rect x="38" y="60" width="7" height="86" rx="3.5" fill="#FFFFFF" opacity="0.26"/>'
+
+    /* garniture posée sur la crème */
+    var pts = [[78,56,4.4],[104,44,5],[124,58,4],[92,64,3.6],[114,68,4.2]];
+    var garniture = "";
+    for(var j=0;j<pts.length;j++){
+      garniture += '<ellipse cx="'+pts[j][0]+'" cy="'+pts[j][1]+'" rx="'+pts[j][2]+'" ry="'+(pts[j][2]*0.8).toFixed(1)+'" fill="'+p.topping+'"/>'
+        + '<ellipse cx="'+(pts[j][0]-1)+'" cy="'+(pts[j][1]-1.4)+'" rx="'+(pts[j][2]*0.34).toFixed(1)+'" ry="'+(pts[j][2]*0.24).toFixed(1)+'" fill="'+clair(p.topping,.6)+'" opacity="0.8"/>';
+    }
+
+    return '<svg class="pot-svg" viewBox="0 0 200 250" role="img" aria-label="Pot de '+p.nom+'">'
+      + '<defs>'
+      +   '<radialGradient id="'+g("bou")+'" cx="0.34" cy="0.28" r="0.85">'
+      +     '<stop offset="0%" stop-color="'+clair(p.creme,.42)+'"/>'
+      +     '<stop offset="55%" stop-color="'+p.creme+'"/>'
+      +     '<stop offset="100%" stop-color="'+sombre(p.creme,.24)+'"/>'
+      +   '</radialGradient>'
+      +   '<linearGradient id="'+g("pap")+'" x1="0" y1="0" x2="1" y2="0">'
+      +     '<stop offset="0%" stop-color="'+sombre(p.etiq,.28)+'"/>'
+      +     '<stop offset="22%" stop-color="'+clair(p.etiq,.16)+'"/>'
+      +     '<stop offset="52%" stop-color="'+p.etiq+'"/>'
+      +     '<stop offset="82%" stop-color="'+sombre(p.etiq,.3)+'"/>'
+      +     '<stop offset="100%" stop-color="'+sombre(p.etiq,.1)+'"/>'
+      +   '</linearGradient>'
+      +   '<linearGradient id="'+g("lev")+'" x1="0" y1="0" x2="1" y2="0">'
+      +     '<stop offset="0%" stop-color="'+sombre(p.etiq,.34)+'"/>'
+      +     '<stop offset="30%" stop-color="'+clair(p.etiq,.3)+'"/>'
+      +     '<stop offset="70%" stop-color="'+p.etiq+'"/>'
+      +     '<stop offset="100%" stop-color="'+sombre(p.etiq,.36)+'"/>'
+      +   '</linearGradient>'
+      +   '<clipPath id="'+g("cl")+'"><path d="'+GOBELET+'"/></clipPath>'
+      +   '<filter id="'+g("fl")+'" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>'
+      + '</defs>'
+
+      + '<ellipse cx="100" cy="236" rx="58" ry="10" fill="#2a1608" opacity="0.26" filter="url(#'+g("fl")+')"/>'
+      + creme + garniture
+      + '<path d="'+GOBELET+'" fill="url(#'+g("pap")+')"/>'
+      + '<g clip-path="url(#'+g("cl")+')">'
+      +   '<rect x="30" y="98" width="140" height="17" fill="#ffffff" opacity="0.14"/>'
+      +   '<text x="100" y="152" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="700" font-size="25" fill="'+texteEtiq+'">Maison</text>'
+      +   '<text x="100" y="172" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-weight="700" font-size="25" fill="'+texteEtiq+'">Douceur</text>'
+      +   '<rect x="62" y="182" width="76" height="1.6" fill="'+texteEtiq+'" opacity="0.5"/>'
+      +   '<text x="100" y="200" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="12"'
+      +     ' textLength="' + Math.min(78, p.court.length * 7.2).toFixed(0) + '" lengthAdjust="spacingAndGlyphs"'
+      +     ' fill="'+texteEtiq+'" opacity="0.92">'+p.court.toUpperCase()+'</text>'
+      +   '<rect x="20" y="90" width="26" height="150" fill="#ffffff" opacity="0.16"/>'
+      +   '<rect x="150" y="90" width="34" height="150" fill="#1a0e05" opacity="0.2"/>'
       + '</g>'
-      + '<path d="'+CUP+'" fill="none" stroke="#2A1A11" stroke-width="3.2" stroke-linejoin="round"/>'
-      + '<rect x="15" y="35" width="90" height="23" rx="9" fill="#2E1B12" stroke="#2A1A11" stroke-width="3"/>'
-      + '<ellipse cx="60" cy="46.5" rx="27" ry="8.5" fill="#F7EFE2"/>'
-      + '<text x="60" y="51" text-anchor="middle" font-family="Yellowtail, cursive" font-size="12" fill="#2E1B12">Douceur</text>'
+      + '<ellipse cx="100" cy="98" rx="66" ry="16" fill="url(#'+g("lev")+')"/>'
+      + '<ellipse cx="100" cy="97" rx="60" ry="12.5" fill="'+sombre(p.etiq,.42)+'"/>'
+      + '<ellipse cx="100" cy="95" rx="59" ry="12" fill="'+p.creme+'"/>'
+      + '<path d="M40,93 A62,14 0 0 1 160,93" fill="none" stroke="#ffffff" stroke-opacity="0.34" stroke-width="2.4" stroke-linecap="round"/>'
       + '</svg>';
   }
 
-  /* ---------- bandeau défilant ---------- */
-  var MESSAGES = [
-    "Livraison dans tout Dakar",
-    "Commandé avant 15h, livré le jour même",
-    "Wave &amp; Orange Money",
-    "Fait maison chaque matin",
-    "100 % sans alcool"
-  ];
+  /* ---------- bandeau ---------- */
   (function(){
-    var groupe = '<div class="annonce-groupe">'
-      + MESSAGES.map(function(m){ return "<span>"+m+"</span>"; }).join("")
-      + '</div>';
+    var msg = ["Livraison dans tout Dakar","Commandé avant 15h, livré le jour même",
+               "Wave &amp; Orange Money","Fait maison chaque matin","100 % sans alcool"];
+    var groupe = '<div class="annonce-groupe">' + msg.map(function(m){ return "<span>"+m+"</span>"; }).join("") + "</div>";
     document.getElementById("piste").innerHTML = groupe + groupe;
   })();
 
-  /* ---------- héros + rangée ---------- */
-  document.getElementById("heros-visuel").innerHTML =
-      pot(PRODUITS[7])
-    + '<svg class="vol" style="--rot:-14deg;left:9%;top:14%;width:38px" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="20" rx="16" ry="11" fill="#FFC93C" stroke="#2A1A11" stroke-width="2.5"/></svg>'
-    + '<svg class="vol" style="--rot:18deg;animation-delay:.8s;right:11%;top:22%;width:30px" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="28" height="28" rx="7" fill="#F7EFE2" stroke="#2A1A11" stroke-width="2.5"/></svg>'
-    + '<svg class="vol" style="--rot:8deg;animation-delay:1.6s;left:14%;bottom:16%;width:34px" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="20" cy="20" rx="12" ry="16" fill="#8E1E3C" stroke="#2A1A11" stroke-width="2.5"/></svg>'
-    + '<svg class="vol" style="--rot:-8deg;animation-delay:2.3s;right:13%;bottom:20%;width:26px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="14" fill="#2E1B12" stroke="#2A1A11" stroke-width="2.5"/></svg>';
-
-  document.getElementById("rangee").innerHTML =
-    [0,3,7,11,5,1].map(function(i){ return pot(PRODUITS[i]); }).join("");
-
-  /* ---------- badge étoile ---------- */
+  /* ---------- vitrine du héros ---------- */
   (function(){
-    var pts = 18, R = 66, r = 55, cx = 70, cy = 70, d = "";
-    for(var i=0;i<pts*2;i++){
-      var rad = (i%2===0) ? R : r;
-      var a = (Math.PI * i) / pts - Math.PI/2;
-      d += (i===0 ? "M" : "L") + (cx + rad*Math.cos(a)).toFixed(2) + "," + (cy + rad*Math.sin(a)).toFixed(2);
+    var html = '<div class="gpot g1">'+pot(PRODUITS[0])+'</div>'
+             + '<div class="gpot g2">'+pot(PRODUITS[7])+'</div>'
+             + '<div class="gpot g3">'+pot(PRODUITS[3])+'</div>';
+    var miettes = [[14,22,-18],[86,16,24],[8,74,12],[92,66,-30],[50,10,40],[70,86,-12]];
+    for(var i=0;i<miettes.length;i++){
+      html += '<span class="miette" style="--r:'+miettes[i][2]+'deg;left:'+miettes[i][0]+'%;top:'+miettes[i][1]
+        + '%;width:'+(i%2?9:12)+'px;height:3px;animation-delay:'+(i*0.45)+'s"></span>';
     }
-    document.getElementById("badge").innerHTML =
-        '<path d="'+d+'Z" fill="#FFC93C" stroke="#2A1A11" stroke-width="3"/>'
-      + '<text x="70" y="62" text-anchor="middle" font-size="17" letter-spacing="1">DÈS</text>'
-      + '<text x="70" y="88" text-anchor="middle" font-size="25" letter-spacing="0.5">2 500 F</text>';
+    document.getElementById("groupe").innerHTML = html;
   })();
 
-  /* ---------- filtres + grille ---------- */
+  /* ---------- filtres & grille ---------- */
   var filtreActif = "tout";
   var elFiltres = document.getElementById("filtres");
   var elGrille = document.getElementById("grille");
 
-  (function(){
-    var liste = [{id:"tout", court:"Tout"}].concat(FAMILLES);
-    elFiltres.innerHTML = liste.map(function(f){
-      return '<button class="filtre" data-f="'+f.id+'" aria-pressed="'+(f.id==="tout")+'">'+f.court+'</button>';
-    }).join("");
-  })();
+  elFiltres.innerHTML = [{id:"tout",court:"Tout"}].concat(FAMILLES).map(function(f){
+    return '<button class="filtre" data-f="'+f.id+'" aria-pressed="'+(f.id==="tout")+'">'+f.court+"</button>";
+  }).join("");
 
   elFiltres.addEventListener("click", function(e){
     var b = e.target.closest(".filtre");
@@ -682,70 +837,107 @@
   }
 
   function dessinerGrille(){
-    var liste = PRODUITS.filter(function(p){
+    elGrille.innerHTML = PRODUITS.filter(function(p){
       return filtreActif === "tout" || p.famille === filtreActif;
-    });
-    elGrille.innerHTML = liste.map(function(p){
-      return '<article class="carte">'
-        + '<div class="carte-visuel" style="background:'+p.teinte+'">'
-        +   '<span class="chip">'+nomFamille(p.famille)+'</span>'
-        +   (p.best ? '<span class="chip chip-top">Best-seller</span>' : '')
+    }).map(function(p){
+      return '<article class="carte tilt">'
+        + '<div class="carte-visuel" style="background:linear-gradient(180deg,'+clair(p.teinte,.55)+','+p.teinte+')">'
+        +   '<span class="chip">'+nomFamille(p.famille)+"</span>"
+        +   (p.best ? '<span class="chip chip-top">Best-seller</span>' : "")
         +   pot(p)
-        + '</div>'
-        + '<div class="carte-corps">'
-        +   '<h3>'+p.nom+'</h3>'
-        +   '<p>'+p.description+'</p>'
-        +   '<div class="carte-pied">'
-        +     '<span class="prix">'+fcfa(p.prix)+'</span>'
-        +     '<button class="btn btn-sm ajouter" data-id="'+p.id+'">Ajouter</button>'
-        +   '</div>'
-        + '</div>'
-        + '</article>';
+        + "</div>"
+        + '<div class="carte-corps"><h3>'+p.nom+"</h3><p>"+p.description+"</p>"
+        +   '<div class="carte-pied"><span class="prix">'+fcfa(p.prix)+"</span>"
+        +   '<button class="btn btn-sm btn-or ajouter" data-id="'+p.id+'">Ajouter</button></div>'
+        + "</div></article>";
     }).join("");
+    brancherTilt();
   }
   dessinerGrille();
 
-  /* ---------- coffrets & zones ---------- */
   document.getElementById("coffret-liste").innerHTML = COFFRETS.map(function(c){
-    return '<div class="coffret">'
-      + '<div class="coffret-info"><strong>'+c.nom+'</strong><small>'+c.description+'</small></div>'
-      + '<span class="prix">'+fcfa(c.prix)+'</span>'
-      + '<button class="btn btn-sm btn-cacao ajouter" data-id="'+c.id+'">Ajouter</button>'
-      + '</div>';
+    return '<div class="coffret"><div class="coffret-info"><strong>'+c.nom+"</strong><small>"+c.description+"</small></div>"
+      + '<span class="prix">'+fcfa(c.prix)+"</span>"
+      + '<button class="btn btn-sm btn-sombre ajouter" data-id="'+c.id+'">Ajouter</button></div>';
   }).join("");
 
   document.getElementById("zones").innerHTML = ZONES.map(function(z){
-    return '<div class="zone">'
-      + '<span class="zone-nom">'+z.nom+'</span>'
-      + '<span class="zone-q">'+z.quartiers+'</span>'
-      + '<span class="zone-f">'+fcfa(z.frais)+'</span>'
-      + '</div>';
+    return '<div class="zone"><span class="zone-nom">'+z.nom+"</span>"
+      + '<span class="zone-q">'+z.quartiers+"</span>"
+      + '<span class="zone-f">'+fcfa(z.frais)+"</span></div>";
   }).join("");
+
+  /* ---------- inclinaison 3D ---------- */
+  var doux = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fin = window.matchMedia("(pointer: fine)").matches;
+
+  function incliner(el, cible, ax, ay){
+    var trame = null;
+    el.addEventListener("pointermove", function(e){
+      if(trame) return;
+      trame = requestAnimationFrame(function(){
+        trame = null;
+        var r = el.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - .5;
+        var y = (e.clientY - r.top) / r.height - .5;
+        cible.style.transition = "transform .14s linear";
+        cible.style.transform = "perspective(1000px) rotateY(" + (x*ax).toFixed(2) + "deg) rotateX(" + (-y*ay).toFixed(2) + "deg)";
+      });
+    });
+    el.addEventListener("pointerleave", function(){
+      cible.style.transition = "";
+      cible.style.transform = "";
+    });
+  }
+
+  function brancherTilt(){
+    if(doux || !fin) return;
+    Array.prototype.forEach.call(document.querySelectorAll(".carte.tilt"), function(el){
+      if(el.dataset.tilt) return;
+      el.dataset.tilt = "1";
+      incliner(el, el, 9, 9);
+    });
+  }
+  if(!doux && fin) incliner(document.getElementById("vitrine"), document.getElementById("groupe"), 20, 12);
+
+  /* ---------- nav collante ---------- */
+  (function(){
+    var nav = document.getElementById("nav"), enCours = false;
+    window.addEventListener("scroll", function(){
+      if(enCours) return;
+      enCours = true;
+      requestAnimationFrame(function(){
+        enCours = false;
+        nav.classList.toggle("colle", (window.scrollY || 0) > 12);
+      });
+    }, {passive:true});
+  })();
 
   /* ---------- panier ---------- */
   var panier = {};
-  try {
-    var brut = localStorage.getItem(CLE);
-    if(brut) panier = JSON.parse(brut) || {};
-  } catch(e){ panier = {}; }
+  try { var brut = localStorage.getItem(CLE); if(brut) panier = JSON.parse(brut) || {}; }
+  catch(e){ panier = {}; }
+  function sauver(){ try { localStorage.setItem(CLE, JSON.stringify(panier)); } catch(e){} }
 
-  function sauver(){
-    try { localStorage.setItem(CLE, JSON.stringify(panier)); } catch(e){}
-  }
-
-  function nbArticles(){
-    var n = 0;
-    for(var id in panier) n += panier[id];
-    return n;
-  }
-
+  function nbArticles(){ var t=0; for(var id in panier) t += panier[id]; return t; }
   function sousTotal(){
-    var t = 0;
-    for(var id in panier){
-      var p = parId(id);
-      if(p) t += p.prix * panier[id];
-    }
+    var t=0;
+    for(var id in panier){ var p = parId(id); if(p) t += p.prix * panier[id]; }
     return t;
+  }
+
+  var pastille = document.getElementById("pastille");
+  var corps = document.getElementById("tiroir-corps");
+  var pied = document.getElementById("tiroir-pied");
+  var toast = document.getElementById("toast");
+  var toastTxt = document.getElementById("toast-txt");
+  var vueRecap = false, minuteur = null;
+
+  function annoncer(txt){
+    toastTxt.textContent = txt;
+    toast.classList.add("ouvert");
+    clearTimeout(minuteur);
+    minuteur = setTimeout(function(){ toast.classList.remove("ouvert"); }, 2400);
   }
 
   function ajouter(id, delta){
@@ -758,19 +950,18 @@
   document.addEventListener("click", function(e){
     var b = e.target.closest(".ajouter");
     if(!b) return;
+    var p = parId(b.dataset.id);
     ajouter(b.dataset.id, 1);
-    ouvrir();
+    pastille.classList.remove("pulse");
+    void pastille.offsetWidth;
+    pastille.classList.add("pulse");
+    if(p) annoncer(p.nom + " ajouté au panier");
   });
 
-  var pastille = document.getElementById("pastille");
-  var corps = document.getElementById("tiroir-corps");
-  var pied = document.getElementById("tiroir-pied");
-  var vueRecap = false;
-
   function majPanier(){
-    var n = nbArticles();
-    pastille.textContent = String(n);
-    pastille.hidden = n === 0;
+    var t = nbArticles();
+    pastille.textContent = String(t);
+    pastille.hidden = t === 0;
     if(vueRecap) dessinerRecap(); else dessinerPanier();
   }
 
@@ -779,10 +970,9 @@
     var ids = Object.keys(panier);
 
     if(ids.length === 0){
-      corps.innerHTML = '<div class="vide">'
-        + pot(PRODUITS[4])
-        + '<p>Votre panier est vide.<br>Il reste douze pots à découvrir.</p></div>';
-      pied.innerHTML = '<button class="btn btn-creme" id="continuer">Voir la carte</button>';
+      corps.innerHTML = '<div class="vide">' + pot(PRODUITS[4])
+        + "<p>Votre panier est vide.<br>Il reste douze pots à découvrir.</p></div>";
+      pied.innerHTML = '<button class="btn" id="continuer">Voir la carte</button>';
       document.getElementById("continuer").addEventListener("click", function(){
         fermer();
         document.getElementById("carte").scrollIntoView({behavior:"smooth"});
@@ -793,93 +983,78 @@
     corps.innerHTML = ids.map(function(id){
       var p = parId(id);
       if(!p) return "";
-      return '<div class="ligne">'
-        + pot(p)
-        + '<div class="ligne-info"><strong>'+p.nom+'</strong><small>'+fcfa(p.prix)+' l\'unité</small></div>'
-        + '<div class="qte">'
-        +   '<button data-moins="'+id+'" aria-label="Retirer un '+p.nom+'">−</button>'
-        +   '<span>'+panier[id]+'</span>'
-        +   '<button data-plus="'+id+'" aria-label="Ajouter un '+p.nom+'">+</button>'
-        + '</div>'
-        + '</div>';
+      return '<div class="ligne">' + pot(p)
+        + '<div class="ligne-info"><strong>'+p.nom+"</strong><small>"+fcfa(p.prix)+" l'unité</small></div>"
+        + '<div class="qte"><button data-moins="'+id+'" aria-label="Retirer un '+p.nom+'">−</button>'
+        + "<span>"+panier[id]+"</span>"
+        + '<button data-plus="'+id+'" aria-label="Ajouter un '+p.nom+'">+</button></div></div>';
     }).join("");
 
     var st = sousTotal();
     var frais = st >= FRANCO ? 0 : FRAIS_BASE;
     var manque = FRANCO - st;
+    var part = Math.min(100, Math.round(st / FRANCO * 100));
 
     pied.innerHTML =
-        (manque > 0 ? '<div class="note-franco">Plus que '+fcfa(manque)+' pour la livraison offerte</div>' : '')
-      + '<div class="total-ligne"><span>Sous-total</span><span>'+fcfa(st)+'</span></div>'
-      + '<div class="total-ligne"><span>Livraison (Zone 1)</span><span>'+(frais === 0 ? "Offerte" : "à partir de "+fcfa(frais))+'</span></div>'
-      + '<div class="total-ligne fort"><span>Total</span><span>'+fcfa(st + frais)+'</span></div>'
-      + '<button class="btn" id="valider">Commander</button>';
+        '<div class="jauge"><i style="width:'+(manque > 0 ? part : 100)+'%"></i></div>'
+      + '<div class="note-franco">' + (manque > 0
+          ? "Plus que " + fcfa(manque) + " pour la livraison offerte"
+          : "Livraison offerte, c'est acquis") + "</div>"
+      + '<div class="total-ligne"><span>Sous-total</span><span>'+fcfa(st)+"</span></div>"
+      + '<div class="total-ligne"><span>Livraison (Zone 1)</span><span>'+(frais===0 ? "Offerte" : "dès "+fcfa(frais))+"</span></div>"
+      + '<div class="total-ligne fort"><span>Total</span><span>'+fcfa(st+frais)+"</span></div>"
+      + '<button class="btn btn-or" id="valider">Commander <span class="fleche">›</span></button>';
 
     document.getElementById("valider").addEventListener("click", function(){
-      vueRecap = true;
-      dessinerRecap();
+      vueRecap = true; dessinerRecap();
     });
   }
 
   function dessinerRecap(){
     document.getElementById("tiroir-titre").textContent = "Récapitulatif";
-    var st = sousTotal();
-    var frais = st >= FRANCO ? 0 : FRAIS_BASE;
-
+    var st = sousTotal(), frais = st >= FRANCO ? 0 : FRAIS_BASE;
     var lignes = Object.keys(panier).map(function(id){
       var p = parId(id);
       return p ? "• " + panier[id] + " × " + p.nom + " — " + fcfa(p.prix * panier[id]) : "";
     }).join("\n");
 
-    corps.innerHTML = '<div class="recap">'
-      + '<div class="recap-titre">Commande Maison Douceur</div>'
+    corps.innerHTML = '<div class="recap"><div class="recap-titre">Commande Maison Douceur</div>'
       + lignes + "\n\n"
       + "Sous-total : " + fcfa(st) + "\n"
-      + "Livraison : " + (frais === 0 ? "offerte" : "à partir de " + fcfa(frais)) + "\n"
+      + "Livraison : " + (frais === 0 ? "offerte" : "dès " + fcfa(frais)) + "\n"
       + "Total : " + fcfa(st + frais) + "\n\n"
       + "Créneau souhaité : 11h – 14h\n"
       + "Paiement : Wave / Orange Money / espèces"
-      + '</div>'
-      + '<div class="maquette">Prototype : ce récapitulatif partira sur WhatsApp au +221 77 000 00 00, avec le nom, l\'adresse et le créneau du client.</div>';
+      + '</div><div class="maquette">Prototype : ce récapitulatif partira sur WhatsApp au +221 77 000 00 00, avec le nom, l\'adresse et le créneau du client.</div>';
 
-    pied.innerHTML = '<button class="btn btn-creme" id="retour">Modifier le panier</button>';
+    pied.innerHTML = '<button class="btn" id="retour">Modifier le panier</button>';
     document.getElementById("retour").addEventListener("click", function(){
-      vueRecap = false;
-      dessinerPanier();
+      vueRecap = false; dessinerPanier();
     });
   }
 
   corps.addEventListener("click", function(e){
-    var moins = e.target.closest("[data-moins]");
-    var plus = e.target.closest("[data-plus]");
+    var moins = e.target.closest("[data-moins]"), plus = e.target.closest("[data-plus]");
     if(moins) ajouter(moins.dataset.moins, -1);
     if(plus) ajouter(plus.dataset.plus, 1);
   });
 
   /* ---------- tiroir ---------- */
-  var tiroir = document.getElementById("tiroir");
-  var fond = document.getElementById("fond");
-
+  var tiroir = document.getElementById("tiroir"), fond = document.getElementById("fond");
   function ouvrir(){
-    vueRecap = false;
-    majPanier();
-    tiroir.classList.add("ouvert");
-    fond.classList.add("ouvert");
+    vueRecap = false; majPanier();
+    tiroir.classList.add("ouvert"); fond.classList.add("ouvert");
     tiroir.setAttribute("aria-hidden","false");
     document.getElementById("fermer").focus();
   }
   function fermer(){
-    tiroir.classList.remove("ouvert");
-    fond.classList.remove("ouvert");
+    tiroir.classList.remove("ouvert"); fond.classList.remove("ouvert");
     tiroir.setAttribute("aria-hidden","true");
   }
-
   document.getElementById("ouvrir-panier").addEventListener("click", ouvrir);
   document.getElementById("fermer").addEventListener("click", fermer);
   fond.addEventListener("click", fermer);
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape") fermer();
-  });
+  document.addEventListener("keydown", function(e){ if(e.key === "Escape") fermer(); });
 
   majPanier();
 })();
