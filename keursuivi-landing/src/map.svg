@@ -1,0 +1,34 @@
+<svg viewBox="0 0 460 490" role="img" aria-labelledby="mapT" preserveAspectRatio="xMidYMid meet">
+<title id="mapT" data-i18n="zones.map">Carte schématique des six villes de lancement</title>
+<line class="map-grid" x1="0" y1="0" x2="0" y2="490"/>
+<line class="map-grid" x1="46" y1="0" x2="46" y2="490"/>
+<line class="map-grid" x1="92" y1="0" x2="92" y2="490"/>
+<line class="map-grid" x1="138" y1="0" x2="138" y2="490"/>
+<line class="map-grid" x1="184" y1="0" x2="184" y2="490"/>
+<line class="map-grid" x1="230" y1="0" x2="230" y2="490"/>
+<line class="map-grid" x1="276" y1="0" x2="276" y2="490"/>
+<line class="map-grid" x1="322" y1="0" x2="322" y2="490"/>
+<line class="map-grid" x1="368" y1="0" x2="368" y2="490"/>
+<line class="map-grid" x1="414" y1="0" x2="414" y2="490"/>
+<line class="map-grid" x1="460" y1="0" x2="460" y2="490"/>
+<line class="map-grid" x1="0" y1="0" x2="460" y2="0"/>
+<line class="map-grid" x1="0" y1="46" x2="460" y2="46"/>
+<line class="map-grid" x1="0" y1="92" x2="460" y2="92"/>
+<line class="map-grid" x1="0" y1="138" x2="460" y2="138"/>
+<line class="map-grid" x1="0" y1="184" x2="460" y2="184"/>
+<line class="map-grid" x1="0" y1="230" x2="460" y2="230"/>
+<line class="map-grid" x1="0" y1="276" x2="460" y2="276"/>
+<line class="map-grid" x1="0" y1="322" x2="460" y2="322"/>
+<line class="map-grid" x1="0" y1="368" x2="460" y2="368"/>
+<line class="map-grid" x1="0" y1="414" x2="460" y2="414"/>
+<line class="map-grid" x1="0" y1="460" x2="460" y2="460"/>
+<path class="map-land" d="M301.6 36.4 L295.5 85.6 L281.1 138.9 L240.1 161.5 L213.5 212.7 L178.6 268.1 L135.6 290.6 L106.9 298.8 L92.5 309.1 L100.7 323.4 L121.2 325.5 L141.7 317.3 L158.1 317.3 L178.6 343.9 L195.0 362.4 L211.4 376.7 L227.8 417.7 L244.2 454.6 L252.4 483.3 L460 483.3 L460 36.4 Z"/>
+<text class="map-cap" x="26" y="468" data-i18n="zones.ocean">Océan Atlantique</text>
+<text class="map-cap" x="434" y="468" text-anchor="end" data-i18n="zones.schem">Carte schématique</text>
+<g class="map-pin"><circle class="pulse" cx="305.7" cy="42.6" r="7"/><circle class="core" cx="305.7" cy="42.6" r="6"/><text class="map-lbl" x="291.7" y="46.6" text-anchor="end">Saint-Louis</text></g>
+<g class="map-pin"><circle class="pulse" cx="111.0" cy="317.3" r="7"/><circle class="core" cx="111.0" cy="317.3" r="6"/><text class="map-lbl" x="97.0" y="335.3" text-anchor="end">Dakar</text></g>
+<g class="map-pin"><circle class="pulse" cx="147.9" cy="311.1" r="7"/><circle class="core" cx="147.9" cy="311.1" r="6"/><text class="map-lbl" x="143.9" y="295.1" text-anchor="start">Rufisque</text></g>
+<g class="map-pin"><circle class="pulse" cx="217.6" cy="296.8" r="7"/><circle class="core" cx="217.6" cy="296.8" r="6"/><text class="map-lbl" x="231.6" y="301.8" text-anchor="start">Thiès</text></g>
+<g class="map-pin"><circle class="pulse" cx="203.2" cy="366.5" r="7"/><circle class="core" cx="203.2" cy="366.5" r="6"/><text class="map-lbl" x="189.2" y="370.5" text-anchor="end">Saly</text></g>
+<g class="map-pin"><circle class="pulse" cx="211.4" cy="372.6" r="7"/><circle class="core" cx="211.4" cy="372.6" r="6"/><text class="map-lbl" x="225.4" y="388.6" text-anchor="start">Mbour</text></g>
+</svg>

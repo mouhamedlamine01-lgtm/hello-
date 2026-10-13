@@ -1,0 +1,482 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM8.5 11.5h7M8.5 15h7M8.5 18h4"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M8.8 12l2.4 2.4L15.5 9.8"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9.5L5 20v-4H4z"/><path d="M8 9.5h8M8 12.5h5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-eyeoff" viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M4 4l16 16"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4.5M12 17.2v.1"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5L12 12l8.5-4.5M12 12v9"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/><path d="M10 20v-6h4v6"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="1.5"/><path d="M9 8h2M13 8h2M9 12h2M13 12h2M10 20.5v-4h4v4"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19c.5-3.4 2.7-5 5.5-5s5 1.6 5.5 5"/><circle cx="17" cy="9.5" r="2.5"/><path d="M16 14.3c2.6-.2 4.2 1.2 4.6 4.2"/></symbol>
+    <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></symbol>
+    <symbol id="i-hardhat" viewBox="0 0 24 24"><path d="M4 16a8 8 0 0 1 16 0v2H4z"/><path d="M12 6v5M9 8.2L10 11M15 8.2L14 11"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4.2 19.8l1.3-4.2A8 8 0 1 1 8.6 18.6z"/><path d="M9.2 8.8c.2 3 2.3 5.3 5.5 6.3l1.1-1.4-1.9-1-.9.6c-.9-.4-1.7-1.1-2.1-2l.7-.9-1-1.9z"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#main" data-i18n="skip">Aller au contenu</a>
+
+<header class="site-header" id="top">
+  <div class="wrap header-in">
+    <a class="logo" href="#top" aria-label="KeurSuivi">
+      <svg class="logo-tile" viewBox="0 0 40 40" aria-hidden="true"><rect x=".5" y=".5" width="39" height="39" rx="9.5" fill="#1E2A38" stroke="rgba(247,239,227,.22)"/><path d="M13 29V12h3.4v7.2L22.4 12h4.2l-6.2 7.1L27 29h-4.2l-4.6-7.4-1.8 2V29z" fill="#F7EFE3"/><path d="M15.4 9.6L20 5.7l4.6 3.9" fill="none" stroke="#C1622D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="wm"><span class="wm-k">K</span>eurSuivi</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Navigation principale" data-i18n-attr="aria-label:nav.label">
+      <a href="#service" data-i18n="nav.service">Le service</a>
+      <a href="#comment" data-i18n="nav.how">Comment ça marche</a>
+      <a href="#rapport" data-i18n="nav.report">Exemple de rapport</a>
+      <a href="#tarifs" data-i18n="nav.price">Tarifs</a>
+      <a href="#faq" data-i18n="nav.faq">Questions</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang" role="group" aria-label="Langue" data-i18n-attr="aria-label:nav.lang">
+        <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-primary btn-sm header-cta" href="#contact" data-i18n="nav.cta">Liste d'attente</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Menu" data-i18n-attr="aria-label:nav.menu"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== Héros ===== -->
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Suivi de chantier au Sénégal</p>
+        <h1 id="h1" data-i18n="hero.title">Vous construisez <br>au Sénégal. <br>Nous vérifions <br><em>sur place.</em></h1>
+        <p class="lead" data-i18n="hero.lead">Un superviseur indépendant visite votre chantier à dates fixes. Vous recevez des photos datées et géolocalisées, l'avancement constaté et chaque dépense justifiée, directement sur votre téléphone.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://wa.me/{{WA}}" target="_blank" rel="noopener" data-wa="hero"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.wa">Écrire sur WhatsApp</span></a>
+          <a class="btn btn-ghost" href="#rapport"><span data-i18n="cta.example">Voir un exemple de rapport</span></a>
+        </div>
+        <ul class="proofs">
+          <li><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg><span data-i18n="hero.p1">Photos datées et géolocalisées, sans retouche</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n="hero.p2">Aucun accès à l'argent de votre chantier</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="hero.p3">Rapport sous 48 h après chaque visite</span></li>
+        </ul>
+        <p class="zones-line"><b data-i18n="hero.zones">Au lancement</b> <span>Dakar · Rufisque · Thiès · Mbour · Saly · Saint-Louis</span></p>
+      </div>
+
+      <div class="stage" id="heroStage" role="img" aria-label="Maquette 3D d'une villa en construction, avec un superviseur de chantier et un repère GPS" data-i18n-attr="aria-label:hero.alt">
+        <img class="stage-poster" src="{{asset:hero}}" alt="" width="1060" height="1000" fetchpriority="high" decoding="async">
+        <canvas id="heroCanvas" aria-hidden="true"></canvas>
+        <span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span>
+        <div class="chip chip-photo" aria-hidden="true">
+          <img src="{{asset:photo3}}" alt="" width="92" height="92">
+          <div><b data-i18n="hero.c1">Photo datée et géolocalisée</b><span class="mono"><span data-sampledate>11 oct 2026</span> · 14:32 · 14.717° N 17.268° O</span></div>
+        </div>
+        <div class="chip chip-report" aria-hidden="true">
+          <span class="chip-ico"><svg class="i"><use href="#i-report"/></svg></span>
+          <div style="flex:1"><b data-i18n="hero.c2">Rapport n°4 envoyé</b><span class="mono" data-i18n="hero.c2b">Avancement 58 %</span><div class="mini-bar"><i></i></div></div>
+        </div>
+        <div class="chip chip-spend" aria-hidden="true">
+          <span class="chip-ico"><svg class="i"><use href="#i-receipt"/></svg></span>
+          <div><b data-i18n="hero.c3">Dépense justifiée</b><span class="mono" data-i18n="hero.c3b">Ciment · facture jointe</span></div>
+        </div>
+        <p class="stage-cap mono" data-i18n="hero.cap">Illustration · chantier type</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Le problème ===== -->
+  <section class="sec sec--alt" id="probleme" aria-labelledby="h-prob">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="prob.eyebrow">Le problème</p>
+        <h2 id="h-prob" data-i18n="prob.title">Vous envoyez l'argent. Le chantier avance… ou pas.</h2>
+        <p class="lead" data-i18n="prob.lead">Au Sénégal, beaucoup de propriétaires construisent sans pouvoir surveiller leur chantier : ils vivent à l'étranger, habitent une autre ville, ou n'ont simplement pas le temps. Ils confient l'argent et les travaux à un maçon, un entrepreneur ou un proche, puis manquent d'informations fiables.</p>
+      </header>
+      <ul class="problems">
+        <li class="problem"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-hourglass"/></svg></span><h3 data-i18n="prob.1">De l'argent envoyé, mais un chantier qui n'avance pas</h3></li>
+        <li class="problem"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-eyeoff"/></svg></span><h3 data-i18n="prob.2">Des nouvelles rares, floues ou invérifiables</h3><p data-i18n="prob.2b">Une photo ancienne, un appel rapide.</p></li>
+        <li class="problem"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-receipt"/></svg></span><h3 data-i18n="prob.3">Des dépenses sans facture ni reçu</h3></li>
+        <li class="problem"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg></span><h3 data-i18n="prob.4">Des matériaux détournés ou de moindre qualité que prévu</h3></li>
+        <li class="problem"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-house"/></svg></span><h3 data-i18n="prob.5">Des chantiers abandonnés, et des conflits familiaux autour de l'argent</h3></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Le service ===== -->
+  <section class="sec" id="service" aria-labelledby="h-svc">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="svc.eyebrow">La réponse de KeurSuivi</p>
+        <h2 id="h-svc" data-i18n="svc.title">Un superviseur local, indépendant, à chaque visite.</h2>
+        <p class="lead" data-i18n="svc.lead">Il visite votre chantier à intervalles fixes. À chaque visite, vous recevez des photos et vidéos datées et géolocalisées, l'avancement constaté, les dépenses justifiées et les points d'alerte.</p>
+      </header>
+      <ul class="included">
+        <li class="tile"><img src="{{asset:ic-hardhat}}" alt="" width="236" height="236" loading="lazy" decoding="async"><h3 data-i18n="inc.1">Un superviseur identifié</h3><p data-i18n="inc.1b">Il visite votre chantier aux dates convenues.</p></li>
+        <li class="tile"><img src="{{asset:ic-camera}}" alt="" width="236" height="236" loading="lazy" decoding="async"><h3 data-i18n="inc.2">Photos et vidéos datées et géolocalisées</h3><p data-i18n="inc.2b">Prises sur place, sans retouche.</p></li>
+        <li class="tile"><img src="{{asset:ic-report}}" alt="" width="236" height="236" loading="lazy" decoding="async"><h3 data-i18n="inc.3">Un rapport de visite structuré</h3><p data-i18n="inc.3b">Avancement, main-d'œuvre, matériaux, observations, dépenses. Le même format à chaque visite, lisible sur téléphone.</p></li>
+        <li class="tile"><img src="{{asset:ic-receipt}}" alt="" width="236" height="236" loading="lazy" decoding="async"><h3 data-i18n="inc.4">Le suivi de vos dépenses</h3><p data-i18n="inc.4b">À partir des factures et reçus, comparé à votre budget.</p></li>
+        <li class="tile"><img src="{{asset:ic-bell}}" alt="" width="236" height="236" loading="lazy" decoding="async"><h3 data-i18n="inc.5">Une alerte rapide en cas d'anomalie</h3><p data-i18n="inc.5b">Chantier arrêté, ouvriers absents, matériaux différents : vous êtes prévenu.</p></li>
+        <li class="tile"><img src="{{asset:ic-chat}}" alt="" width="236" height="236" loading="lazy" decoding="async"><h3 data-i18n="inc.6">Un support par WhatsApp</h3><p data-i18n="inc.6b">En français et en anglais.</p></li>
+      </ul>
+
+      <h2 class="who-title" style="font-size:clamp(1.5rem,1rem + 1.6vw,2.2rem)" data-i18n="who.title">Pour qui ?</h2>
+      <ul class="who">
+        <li><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><h3 data-i18n="who.1">Vous vivez à l'étranger</h3><p data-i18n="who.1b">Vous construisez au pays, à des milliers de kilomètres. Voyez votre chantier comme si vous y étiez et vérifiez l'argent envoyé.</p></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><h3 data-i18n="who.2">Vous n'avez pas le temps</h3><p data-i18n="who.2b">Vous vivez au Sénégal, mais vous travaillez ou habitez ailleurs. Un regard extérieur fiable, sans vous déplacer chaque semaine.</p></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-building"/></svg><h3 data-i18n="who.3">Vous investissez</h3><p data-i18n="who.3b">Vous construisez pour louer ou revendre, parfois plusieurs chantiers. Un suivi régulier et documenté, des dépenses maîtrisées.</p></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><h3 data-i18n="who.4">Un proche surveille pour vous</h3><p data-i18n="who.4b">Un membre de la famille est sur place pour un parent à l'étranger. Des preuves neutres qui évitent les tensions familiales.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Comment ça marche : maquette 3D pilotée par le défilement ===== -->
+  <section class="sec band" id="comment" aria-labelledby="h-how">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="how.eyebrow">Comment ça marche</p>
+        <h2 id="h-how" data-i18n="how.title">Votre chantier avance. Vous le voyez, étape par étape.</h2>
+        <p class="lead" data-i18n="how.lead">Les visites régulières sont le cœur du service. Tout le reste sert à les rendre possibles et fiables.</p>
+      </header>
+      <div class="story-grid" id="story">
+        <ol class="steps" id="steps">
+          <li class="step is-active" data-p="0">
+            <span class="step-tag" data-i18n="how.t1">Étape 1 / 4</span>
+            <h3 data-i18n="how.s1">Vous nous écrivez</h3>
+            <p data-i18n="how.s1b">Par le formulaire, la liste d'attente ou un message WhatsApp. Nous échangeons sur l'adresse du chantier, le type de travaux, l'entreprise en place et votre budget, puis nous vous proposons une formule.</p>
+            <div class="step-meta"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg><span data-i18n="how.s1p1">Réponse sous 24 h ouvrables</span></span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-report"/></svg><span data-i18n="how.s1p2">Devis sous 48 h</span></span></div>
+          </li>
+          <li class="step" data-p="0.27">
+            <span class="step-tag" data-i18n="how.t2">Étape 2 / 4</span>
+            <h3 data-i18n="how.s2">Reconnaissance des lieux</h3>
+            <p data-i18n="how.s2b">Une fois le contrat signé et le paiement reçu, le superviseur se rend sur le terrain : position GPS, rencontre avec le maçon, photos de l'état initial et vérification des documents.</p>
+            <div class="step-meta"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="how.s2p1">Sous 7 jours après le paiement</span></span></div>
+          </li>
+          <li class="step" data-p="0.62">
+            <span class="step-tag" data-i18n="how.t3">Étape 3 / 4</span>
+            <h3 data-i18n="how.s3">Des visites régulières</h3>
+            <p data-i18n="how.s3b">Selon votre formule, le superviseur revient sur le chantier. À chaque visite : photos et vidéos datées et géolocalisées, rapport structuré, dépenses justifiées. Une alerte élevée part par message immédiatement, sans attendre le rapport.</p>
+            <div class="step-meta"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-report"/></svg><span data-i18n="how.s3p1">Rapport sous 48 h</span></span><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-bell"/></svg><span data-i18n="how.s3p2">Alerte sous 24 h</span></span></div>
+          </li>
+          <li class="step" data-p="1">
+            <span class="step-tag" data-i18n="how.t4">Étape 4 / 4</span>
+            <h3 data-i18n="how.s4">Clôture du suivi</h3>
+            <p data-i18n="how.s4b">À la fin du suivi, vous recevez le dossier complet et le décompte final.</p>
+            <div class="step-meta"><span class="pill"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="how.s4p1">Sous 7 jours après la fin</span></span></div>
+          </li>
+        </ol>
+        <div class="story-stage">
+          <div class="stage" id="storyStage" role="img" aria-label="Maquette 3D qui se construit au fil des étapes" data-i18n-attr="aria-label:how.alt">
+            <img class="stage-poster" src="{{asset:hero}}" alt="" width="1060" height="1000" loading="lazy" decoding="async">
+            <canvas id="storyCanvas" aria-hidden="true"></canvas>
+            <span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span>
+            <div class="hud" aria-hidden="true">
+              <div class="hud-top"><span data-i18n="how.hud">Avancement du chantier</span><b><span id="storyName">Terrain</span> · <span id="storyPct">0</span> %</b></div>
+              <div class="hud-bar"><i id="storyBar"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="story-note" data-i18n="how.note">Illustration : l'avancement d'un chantier type, de l'état initial aux finitions.</p>
+    </div>
+  </section>
+
+  <!-- ===== Exemple de rapport ===== -->
+  <section class="sec" id="rapport" aria-labelledby="h-rep">
+    <div class="wrap report-grid">
+      <div>
+        <header class="sec-head" style="margin-bottom:12px">
+          <p class="eyebrow" data-i18n="rep.eyebrow">Exemple de rapport</p>
+          <h2 id="h-rep" data-i18n="rep.title">Ce que vous recevez après chaque visite.</h2>
+          <p class="lead" data-i18n="rep.lead">Un rapport structuré, identique d'une visite à l'autre, lisible sur téléphone. Vous savez toujours où en est le chantier et où est passé l'argent.</p>
+        </header>
+        <ul class="report-list">
+          <li><svg class="i" aria-hidden="true"><use href="#i-pin"/></svg><b data-i18n="rep.1">Avancement</b><span data-i18n="rep.1b">Où en est le chantier par rapport à la visite précédente.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><b data-i18n="rep.2">Main-d'œuvre</b><span data-i18n="rep.2b">Les ouvriers présents le jour de la visite.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-box"/></svg><b data-i18n="rep.3">Matériaux</b><span data-i18n="rep.3b">Ce qui est livré et utilisé, comparé à ce qui était prévu.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-eyeoff"/></svg><b data-i18n="rep.4">Observations</b><span data-i18n="rep.4b">Ce que le superviseur constate sur place, de façon factuelle.</span></li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-receipt"/></svg><b data-i18n="rep.5">Dépenses</b><span data-i18n="rep.5b">Chaque facture ou reçu, comparé à votre budget.</span></li>
+        </ul>
+      </div>
+      <div class="phone-stage" id="phoneStage">
+        <div class="phone" id="phone">
+          <div class="phone-screen">
+            <span class="ph-notch" aria-hidden="true"></span>
+            <div class="ph-status" aria-hidden="true"><span>14:32</span><span>5G ▮▮▮</span></div>
+            <div class="ph-head"><b data-i18n="rep.ph.title">Rapport de visite n°4</b><small data-sampledate>11 oct 2026</small></div>
+            <div class="ph-body">
+              <div class="ph-site"><b data-i18n="rep.ph.site">Villa R+1 · Rufisque</b><small data-i18n="rep.ph.status">Chantier en cours</small></div>
+              <div class="ph-photos">
+                <figure><img src="{{asset:photo1}}" alt="" width="180" height="180" loading="lazy"><figcaption><span data-sampledd>11.10</span> · 14:21<br>14.717° N</figcaption></figure>
+                <figure><img src="{{asset:photo2}}" alt="" width="180" height="180" loading="lazy"><figcaption><span data-sampledd>11.10</span> · 14:26<br>14.717° N</figcaption></figure>
+                <figure><img src="{{asset:photo3}}" alt="" width="180" height="180" loading="lazy"><figcaption><span data-sampledd>11.10</span> · 14:32<br>14.717° N</figcaption></figure>
+              </div>
+              <div class="ph-prog">
+                <div><small class="mono" style="color:var(--ph-muted);font-size:8.5px" data-i18n="rep.ph.prog">Avancement</small><b>58 %</b></div>
+                <span class="bar"><i></i></span>
+                <small style="color:var(--ph-muted);font-size:9px" data-i18n="rep.ph.delta">+9 points depuis la visite n°3</small>
+              </div>
+              <div class="ph-row"><small data-i18n="rep.ph.labour">Main-d'œuvre</small><span data-i18n="rep.ph.labourv">7 ouvriers présents</span></div>
+              <div class="ph-row"><small data-i18n="rep.ph.mat">Matériaux</small><span data-i18n="rep.ph.matv">Ciment et fer livrés</span></div>
+              <div class="ph-spend">
+                <div><span data-i18n="rep.ph.sp1">Ciment, 62 sacs</span><span>290 000 F</span></div>
+                <div><span data-i18n="rep.ph.sp2">Fer à béton, 40 barres</span><span>220 000 F</span></div>
+                <div><span data-i18n="rep.ph.sp3">Main-d'œuvre, semaine</span><span>150 000 F</span></div>
+              </div>
+              <div class="ph-row"><small data-i18n="rep.ph.next">Prochaine visite</small><span data-nextdate>25 oct 2026</span></div>
+              <div class="ph-alert"><svg class="i" aria-hidden="true"><use href="#i-alert"/></svg><div><b data-i18n="rep.ph.al">Matériaux différents du devis</b><span data-i18n="rep.ph.alb">Niveau moyen · alerte envoyée sous 24 h</span></div></div>
+            </div>
+            <span class="ph-ex" data-i18n="rep.ph.ex">Exemple fictif</span>
+          </div>
+          <div class="pcard pcard-a" aria-hidden="true"><span class="chip-ico"><svg class="i"><use href="#i-pin"/></svg></span><div><b data-i18n="rep.c1">Position GPS vérifiée</b><span class="mono">14.717° N · 17.268° O</span></div></div>
+          <div class="pcard pcard-b" aria-hidden="true"><span class="chip-ico"><svg class="i"><use href="#i-bell"/></svg></span><div><b data-i18n="rep.c2">Alerte envoyée</b><span class="mono" data-i18n="rep.c2b">sous 24 h</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Zones couvertes ===== -->
+  <section class="sec sec--alt" id="zones" aria-labelledby="h-zones">
+    <div class="wrap zones-grid">
+      <div>
+        <header class="sec-head" style="margin-bottom:12px">
+          <p class="eyebrow" data-i18n="zones.eyebrow">Zones couvertes</p>
+          <h2 id="h-zones" data-i18n="zones.title">Six villes au lancement.</h2>
+          <p class="lead" data-i18n="zones.lead">KeurSuivi démarre dans ces six villes. Dans chaque zone active, un superviseur local connaît le terrain et les chantiers.</p>
+        </header>
+        <ul class="cities">
+          <li>Dakar <span data-i18n="zones.tag">Zone de lancement</span></li>
+          <li>Rufisque <span data-i18n="zones.tag">Zone de lancement</span></li>
+          <li>Thiès <span data-i18n="zones.tag">Zone de lancement</span></li>
+          <li>Mbour <span data-i18n="zones.tag">Zone de lancement</span></li>
+          <li>Saly <span data-i18n="zones.tag">Zone de lancement</span></li>
+          <li>Saint-Louis <span data-i18n="zones.tag">Zone de lancement</span></li>
+        </ul>
+        <p class="zones-note" data-i18n="zones.note">Votre chantier est ailleurs ? Tout chantier hors zone fait l'objet d'un devis avec frais de déplacement.</p>
+      </div>
+      <div class="mapcard">
+{{map}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Tarifs ===== -->
+  <section class="sec" id="tarifs" aria-labelledby="h-price">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="price.eyebrow">Tarifs</p>
+        <h2 id="h-price" data-i18n="price.title">Trois formules, du mensuel à l'hebdomadaire.</h2>
+        <p class="lead" data-i18n="price.lead">La formule mensuelle est sans engagement. La première visite, la reconnaissance des lieux, est facturée une seule fois à l'ouverture du suivi.</p>
+      </header>
+      <div class="price-ctrl">
+        <div class="seg" role="group" aria-label="Période" data-i18n-attr="aria-label:price.period" id="segPeriod">
+          <button type="button" data-period="month" aria-pressed="true" data-i18n="price.month">Mensuel</button>
+          <button type="button" data-period="year" aria-pressed="false"><span data-i18n="price.year">Annuel</span><small data-i18n="price.free">2 mois offerts</small></button>
+        </div>
+        <div class="seg" role="group" aria-label="Devise" data-i18n-attr="aria-label:price.cur" id="segCur">
+          <button type="button" data-cur="xof" aria-pressed="true">FCFA</button>
+          <button type="button" data-cur="eur" aria-pressed="false">€</button>
+        </div>
+      </div>
+      <div class="plans" id="plans">
+        <article class="plan" data-plan="essentiel" data-xof="20000" data-eur="25">
+          <div class="plan-top"><span class="plan-visits" data-i18n="price.v1">1 visite par mois</span><h3 class="plan-name">Essentiel</h3></div>
+          <div class="price"><span class="price-was"></span><span class="price-num">20 000</span><span class="price-unit"></span></div>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.e1">Photos géolocalisées</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.e2">Rapport mensuel</span></li>
+          </ul>
+          <a class="btn btn-ghost btn-block" href="https://wa.me/{{WA}}" target="_blank" rel="noopener" data-wa="plan"><span data-i18n="price.choose">Choisir cette formule</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="plan is-featured" data-plan="standard" data-xof="40000" data-eur="49">
+          <div class="plan-top"><span class="plan-visits" data-i18n="price.v2">2 visites par mois</span><h3 class="plan-name">Standard</h3></div>
+          <div class="price"><span class="price-was"></span><span class="price-num">40 000</span><span class="price-unit"></span></div>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.s1">Photos et vidéos</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.s2">Dépenses avec factures</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.s3">Alertes</span></li>
+          </ul>
+          <a class="btn btn-primary btn-block" href="https://wa.me/{{WA}}" target="_blank" rel="noopener" data-wa="plan"><span data-i18n="price.choose">Choisir cette formule</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+        <article class="plan" data-plan="premium" data-xof="80000" data-eur="99">
+          <div class="plan-top"><span class="plan-visits" data-i18n="price.v3">1 visite par semaine</span><h3 class="plan-name">Premium</h3></div>
+          <div class="price"><span class="price-was"></span><span class="price-num">80 000</span><span class="price-unit"></span></div>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.p1">Appel vidéo mensuel</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.p2">Dépenses détaillées</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="price.p3">Support prioritaire</span></li>
+          </ul>
+          <a class="btn btn-ghost btn-block" href="https://wa.me/{{WA}}" target="_blank" rel="noopener" data-wa="plan"><span data-i18n="price.choose">Choisir cette formule</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </article>
+      </div>
+      <div class="extras">
+        <div><b data-i18n="price.x1">Reconnaissance des lieux</b><span data-i18n="price.x1b">Première visite, facturée une seule fois à l'ouverture du suivi : 50 000 FCFA.</span></div>
+        <div><b data-i18n="price.x2">Sans engagement</b><span data-i18n="price.x2b">La formule mensuelle est sans engagement.</span></div>
+        <div><b data-i18n="price.x3">Formule annuelle</b><span data-i18n="price.x3b">12 mois payés en une fois, 2 mois offerts.</span></div>
+        <div><b data-i18n="price.x4">Hors zone</b><span data-i18n="price.x4b">Tout chantier hors zone fait l'objet d'un devis avec frais de déplacement.</span></div>
+      </div>
+      <div class="pay">
+        <h3 data-i18n="pay.title">Moyens de paiement</h3>
+        <div class="pay-row">
+          <span class="pay-chip">Wave <small data-i18n="pay.sn">Sénégal</small></span>
+          <span class="pay-chip">Orange Money <small data-i18n="pay.sn">Sénégal</small></span>
+          <span class="pay-chip"><span data-i18n="pay.card">Carte Visa, Mastercard</span> <small data-i18n="pay.abroad">Depuis l'étranger</small></span>
+          <span class="pay-chip"><span data-i18n="pay.wire">Virement</span> <small data-i18n="pay.wireb">Annuel, € ou $</small></span>
+        </div>
+        <p class="fine" data-i18n="pay.note">Au lancement, le paiement est manuel : le bouton de votre formule ouvre WhatsApp avec un message prêt. Nous vous indiquons le moyen de paiement et le montant, puis nous vous envoyons un reçu. Paiement à l'avance, au plus tard le 5 de chaque mois. Les frais de transfert sont à votre charge.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Confiance ===== -->
+  <section class="sec band" id="confiance" aria-labelledby="h-trust">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="trust.eyebrow">Confiance</p>
+        <h2 id="h-trust" data-i18n="trust.title">Des preuves, pas des promesses.</h2>
+        <p class="lead" data-i18n="trust.lead">KeurSuivi ne travaille ni pour le maçon ni pour un fournisseur, et ne touche aucune commission sur les travaux. Notre seul client, c'est vous.</p>
+      </header>
+      <ul class="pillars">
+        <li><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><h3 data-i18n="trust.1">Des superviseurs vérifiés</h3><p data-i18n="trust.1b">Références vérifiées, visite test sur un chantier connu, formation au modèle de rapport, puis période d'essai avec relecture de chaque rapport.</p></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg><h3 data-i18n="trust.2">Des preuves datées</h3><p data-i18n="trust.2b">Photos horodatées et géolocalisées, prises sur place, sans retouche et impossibles à réutiliser.</p></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><h3 data-i18n="trust.3">Aucun accès à l'argent</h3><p data-i18n="trust.3b">Vous payez vous-même vos artisans. KeurSuivi observe et rapporte.</p></li>
+      </ul>
+      <div class="duo">
+        <div class="panel">
+          <h3 data-i18n="trust.code">Le code de conduite de nos superviseurs</h3>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.c1">Ne jamais donner d'instruction technique aux ouvriers</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.c2">Ne jamais accepter d'argent ou de cadeau d'un intervenant</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.c3">Ne jamais manipuler l'argent d'un client sans ordre écrit et reçu</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.c4">Interrompre la visite en cas de danger ou de conflit, et prévenir le fondateur</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.c5">Garder confidentielles les informations des clients</span></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3 data-i18n="trust.not">Ce que KeurSuivi ne fait pas</h3>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="trust.n1">Exécuter les travaux ou fournir les matériaux</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="trust.n2">Faire de l'expertise technique, de la maîtrise d'œuvre, des plans ou du contrôle de conformité</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="trust.n3">Garantir la qualité, les délais ou le coût des travaux</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-close"/></svg><span data-i18n="trust.n4">Gérer l'argent du chantier, sauf exception encadrée par le contrat : ordre écrit et reçu obligatoire</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="founder">
+        <svg class="logo-tile" viewBox="0 0 40 40" aria-hidden="true"><rect x=".5" y=".5" width="39" height="39" rx="9.5" fill="#1E2A38" stroke="rgba(247,239,227,.3)"/><path d="M13 29V12h3.4v7.2L22.4 12h4.2l-6.2 7.1L27 29h-4.2l-4.6-7.4-1.8 2V29z" fill="#F7EFE3"/><path d="M15.4 9.6L20 5.7l4.6 3.9" fill="none" stroke="#C1622D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><p><b>Mouhamed Lamine Sarr</b> <span data-i18n="trust.f1">· fondateur</span></p><small data-i18n="trust.f2">Plus de 16 ans d'expérience dans la logistique portuaire, la manutention et le bâtiment. Pendant les premiers mois, chaque rapport est relu avant d'être envoyé.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="sec" id="faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow" data-i18n="faq.eyebrow">Questions fréquentes</p>
+        <h2 id="h-faq" data-i18n="faq.title">Ce que l'on nous demande avant de commencer.</h2>
+      </header>
+      <div class="faq">
+        <details name="faq" open><summary data-i18n="faq.q1">Que contient une visite ?</summary><div class="ans"><p data-i18n="faq.a1">Des photos et vidéos datées et géolocalisées, sans retouche ; un rapport structuré (avancement, main-d'œuvre, matériaux, observations, dépenses) ; le suivi de vos dépenses à partir des factures et reçus, comparé à votre budget ; et une alerte rapide en cas d'anomalie.</p></div></details>
+        <details name="faq"><summary data-i18n="faq.q2">Gérez-vous l'argent du chantier ?</summary><div class="ans"><p data-i18n="faq.a2">Non. Vous payez vous-même vos artisans et vos fournisseurs. KeurSuivi observe et rapporte. La seule exception possible est encadrée par le contrat : un ordre écrit et un reçu obligatoire.</p></div></details>
+        <details name="faq"><summary data-i18n="faq.q3">Garantissez-vous la qualité des travaux ?</summary><div class="ans"><p data-i18n="faq.a3">Non. KeurSuivi constate et rapporte les faits. Nous ne faisons ni maîtrise d'œuvre, ni plans, ni contrôle de conformité, et nous ne garantissons ni la qualité, ni les délais, ni le coût des travaux. Si vous souhaitez un avis technique, nous faisons appel à un ingénieur ou à un architecte agréé.</p></div></details>
+        <details name="faq"><summary data-i18n="faq.q4">Comment payer depuis l'étranger ?</summary><div class="ans"><p data-i18n="faq.a4">Par carte bancaire (Visa, Mastercard) grâce à un lien de paiement, ou par virement pour les formules annuelles et les paiements en euros ou en dollars. Un proche au Sénégal peut aussi payer par Wave ou Orange Money. Le paiement se fait à l'avance, au plus tard le 5 de chaque mois, et chaque paiement donne lieu à une facture ou à un reçu.</p></div></details>
+        <details name="faq"><summary data-i18n="faq.q5">Quels sont vos délais ?</summary><div class="ans"><p data-i18n="faq.a5">Réponse sous 24 h ouvrables, puis devis sous 48 h. La reconnaissance des lieux a lieu sous 7 jours après le paiement. Vous recevez chaque rapport sous 48 h, et une alerte sous 24 h. Une alerte élevée part par message immédiatement.</p></div></details>
+        <details name="faq"><summary data-i18n="faq.q6">Que se passe-t-il si une visite est impossible ?</summary><div class="ans"><p data-i18n="faq.a6">En cas de pluie, de chantier fermé ou d'accès refusé, la visite est reportée sous 7 jours et vous êtes prévenu. Si un rapport vous semble inexact, vous pouvez le contester sous 7 jours.</p></div></details>
+        <details name="faq"><summary data-i18n="faq.q7">Et si mon chantier est hors de vos zones ?</summary><div class="ans"><p data-i18n="faq.a7">Écrivez-nous : tout chantier hors zone fait l'objet d'un devis avec frais de déplacement. Nous couvrons Dakar, Rufisque, Thiès, Mbour, Saly et Saint-Louis.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="sec sec--alt" id="contact" aria-labelledby="h-contact">
+    <div class="wrap contact-grid">
+      <div>
+        <header class="sec-head" style="margin-bottom:12px">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Liste d'attente et devis</p>
+          <h2 id="h-contact" data-i18n="contact.title">Parlons de votre chantier.</h2>
+          <p class="lead" data-i18n="contact.lead">Réponse sous 24 h ouvrables, devis sous 48 h. Dites-nous où en est votre projet : nous revenons vers vous avec une formule adaptée.</p>
+        </header>
+        <div class="contact-lines">
+          <div class="cline"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><div><small data-i18n="contact.wa">WhatsApp</small><strong id="waText">{{WA_TEXT}}</strong></div><button class="copy" type="button" data-copy="{{WA_TEXT}}"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="contact.copy">Copier</span></button></div>
+          <div class="cline"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg><div><small data-i18n="contact.mail">E-mail</small><strong>{{EMAIL}}</strong></div><button class="copy" type="button" data-copy="{{EMAIL}}"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="contact.copy">Copier</span></button></div>
+          <div class="cline"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><div><small data-i18n="contact.lang">Langues</small><strong>Français · English</strong></div></div>
+        </div>
+      </div>
+      <div>
+        <form class="form" id="form" novalidate>
+          <div class="form-row">
+            <div class="field"><label for="f-name" data-i18n="form.name">Nom complet</label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err" id="e-name"></span></div>
+            <div class="field"><label for="f-wa"><span data-i18n="form.wa">WhatsApp</span> <i data-i18n="form.wab">avec l'indicatif</i></label><input id="f-wa" name="wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="+221 …"><span class="err" id="e-wa"></span></div>
+          </div>
+          <div class="field"><label for="f-email"><span data-i18n="form.email">E-mail</span> <i data-i18n="form.opt">facultatif</i></label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com"><span class="err" id="e-email"></span></div>
+          <div class="form-row">
+            <div class="field"><label for="f-city" data-i18n="form.city">Ville du chantier</label><div class="sel"><select id="f-city" name="city">
+              <option value="Dakar">Dakar</option><option value="Rufisque">Rufisque</option><option value="Thiès">Thiès</option><option value="Mbour">Mbour</option><option value="Saly">Saly</option><option value="Saint-Louis">Saint-Louis</option><option value="other" data-i18n="form.other">Autre ville</option></select></div></div>
+            <div class="field"><label for="f-plan" data-i18n="form.plan">Formule envisagée</label><div class="sel"><select id="f-plan" name="plan">
+              <option value="" data-i18n="form.p0">Je ne sais pas encore</option><option value="Essentiel">Essentiel</option><option value="Standard">Standard</option><option value="Premium">Premium</option></select></div></div>
+          </div>
+          <div class="field"><label for="f-stage" data-i18n="form.stage">Stade du projet</label><div class="sel"><select id="f-stage" name="stage">
+            <option value="land" data-i18n="form.s1">Terrain acheté, rien de commencé</option><option value="found" data-i18n="form.s2">Fondations en cours</option><option value="struct" data-i18n="form.s3">Gros œuvre en cours</option><option value="finish" data-i18n="form.s4">Finitions</option><option value="stopped" data-i18n="form.s5">Chantier à l'arrêt</option></select></div></div>
+          <div class="field"><label for="f-msg"><span data-i18n="form.msg">Message</span> <i data-i18n="form.opt">facultatif</i></label><textarea id="f-msg" name="msg" rows="3" data-i18n-attr="placeholder:form.msgp" placeholder="Type de travaux, entreprise en place, budget…"></textarea></div>
+          <button class="btn btn-primary btn-block" type="submit"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="form.submit">Préparer mon message WhatsApp</span></button>
+          <p class="consent" data-i18n="form.consent">Vos coordonnées servent uniquement à répondre à votre demande.</p>
+          <div class="sent" id="sent" role="status" aria-live="polite" tabindex="-1">
+            <h3><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="form.ok">Votre message est prêt</span></h3>
+            <p data-i18n="form.okb">Ouvrez-le dans WhatsApp puis envoyez-le : c'est l'envoi qui nous permet de vous répondre sous 24 h ouvrables.</p>
+            <pre id="sentMsg"></pre>
+            <div class="sent-actions"><a class="btn btn-primary" id="sentWa" href="https://wa.me/{{WA}}" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="form.open">Ouvrir WhatsApp</span></a><button class="btn btn-ghost" id="sentCopy" type="button"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-i18n="form.copymsg">Copier le message</span></button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="KeurSuivi">
+          <svg class="logo-tile" viewBox="0 0 40 40" aria-hidden="true"><rect x=".5" y=".5" width="39" height="39" rx="9.5" fill="#1E2A38" stroke="rgba(247,239,227,.3)"/><path d="M13 29V12h3.4v7.2L22.4 12h4.2l-6.2 7.1L27 29h-4.2l-4.6-7.4-1.8 2V29z" fill="#F7EFE3"/><path d="M15.4 9.6L20 5.7l4.6 3.9" fill="none" stroke="#C1622D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="wm"><span class="wm-k">K</span>eurSuivi</span>
+        </a>
+        <p style="margin-top:16px;max-width:42ch" data-i18n="foot.about">Suivi de chantier à distance au Sénégal : visites, photos géolocalisées, rapports et suivi des dépenses. Keur signifie « maison » en wolof.</p>
+      </div>
+      <div>
+        <h3 data-i18n="foot.nav">Navigation</h3>
+        <ul>
+          <li><a href="#service" data-i18n="nav.service">Le service</a></li>
+          <li><a href="#comment" data-i18n="nav.how">Comment ça marche</a></li>
+          <li><a href="#tarifs" data-i18n="nav.price">Tarifs</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">Questions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="foot.contact">Contact</h3>
+        <ul>
+          <li>WhatsApp : {{WA_TEXT}}</li>
+          <li>{{EMAIL}}</li>
+          <li data-i18n="foot.langs">Français · English</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 KeurSuivi</span>
+      <span data-i18n="foot.legal">KeurSuivi observe et rapporte. Nous ne réalisons pas les travaux et ne garantissons ni leur qualité, ni leurs délais, ni leur coût.</span>
+    </div>
+  </div>
+  <a class="wa-fab" id="waFab" href="https://wa.me/{{WA}}" target="_blank" rel="noopener" data-wa="fab" aria-label="WhatsApp" data-i18n-attr="aria-label:cta.wa"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span data-i18n="cta.wa2">WhatsApp</span></a>
+</footer>
+
